@@ -31,7 +31,7 @@ sleep 3
 
 sudo apt install -y build-essential libxcb1-dev libxcb-keysyms1-dev \
 libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev \
-libxcb-randr0-dev libxcb-cursor0-dev libxcb-xinerama0-dev \
+libxcb-randr0-dev libxcb-xinerama0-dev \
 libpango1.0-dev libx11-dev libxrandr-dev libxinerama-dev \
 libxss-dev libglib2.0-dev libev-dev
 

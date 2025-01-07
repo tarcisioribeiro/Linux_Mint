@@ -107,6 +107,8 @@ mkdir -p ~/.config/autostart
 
 cd ~/repos
 git clone https://github.com/tarcisioribeiro/Terminal.git
+sudo cp ~/repos/Terminal/customization/bashsudo cp ~/repos/Terminal/customization/bash/Ubuntu_Mono_Nerd_Font_Complete_Mono.ttf /usr/share/fonts/
+sudo cp ~/repos/Terminal/customization/powershell/JetBrains_Mono_Medium_Nerd_Font_Complete_Mono_Windows_Compatible.ttf /usr/share/fonts/
 cp ~/repos/Terminal/customization/zsh/tj-dracula.omp.json ~/.poshthemes
 cp ~/repos/Terminal/customization/bash/logo-ls_Linux_x86_64.tar.gz ~/Downloads
 cd ~/Downloads

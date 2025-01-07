@@ -26,14 +26,6 @@ nvim
 
 cd ~/Downloads
 
-blue "\nInstalando pacotes .deb...\n"
-sleep 3
-
-cp ~/repos/Ubuntu/packages/*.deb .
-sudo gdebi code.deb
-sudo gdebi google-chrome.deb
-sudo gdebi mysql-workbench.deb
-sudo gdebi virtualbox.deb
 
 blue "\nInstalando o i3wm...\n"
 

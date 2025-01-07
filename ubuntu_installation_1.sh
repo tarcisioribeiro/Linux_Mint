@@ -107,7 +107,8 @@ git clone https://github.com/tarcisioribeiro/Password_Manager.git
 
 mkdir -p ~/.config/autostart
 
-cd ~
+cd ~/repos
+git clone https://github.com/tarcisioribeiro/Terminal.git
 cp repos/Terminal/customization/zsh/tj-dracula.omp.json ~/.poshthemes
 cp repos/Terminal/customization/bash/logo-ls_Linux_x86_64.tar.gz ~/Downloads
 cd ~/Downloads

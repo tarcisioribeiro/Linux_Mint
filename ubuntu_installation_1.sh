@@ -14,9 +14,9 @@ cd ~
 mkdir repos
 mkdir scripts
 
-red "\n |--------- Instalação - Parte 1 ---------| \n"
+red "\n|--------- Instalação - Parte 1 ---------|\n"
 
-sleep 10
+sleep 3
 
 sudo apt update
 sudo apt upgrade -y
@@ -102,19 +102,21 @@ mkdir -p ~/.icons
 mkdir -p ~/.themes
 mkdir -p ~/scripts
 cd ~/repos
-git clone https://github.com/tarcisioribeiro/ExpenseLit.git
-git clone https://github.com/tarcisioribeiro/Password_Manager.git
 
 mkdir -p ~/.config/autostart
 
 cd ~/repos
 git clone https://github.com/tarcisioribeiro/Terminal.git
-cp repos/Terminal/customization/zsh/tj-dracula.omp.json ~/.poshthemes
-cp repos/Terminal/customization/bash/logo-ls_Linux_x86_64.tar.gz ~/Downloads
+cp ~/repos/Terminal/customization/zsh/tj-dracula.omp.json ~/.poshthemes
+cp ~/repos/Terminal/customization/bash/logo-ls_Linux_x86_64.tar.gz ~/Downloads
 cd ~/Downloads
 tar -zxf logo-ls_Linux_x86_64.tar.gz
 cd ~/Downloads/logo-ls_Linux_x86_64
 sudo cp logo-ls /usr/local/bin
+cd ~/Downloads
+rm -r logo-ls_Linux_x86_64
+rm logo-ls_Linux_x86_64.tar.gz
+
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 

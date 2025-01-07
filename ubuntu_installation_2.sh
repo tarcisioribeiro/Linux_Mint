@@ -22,8 +22,6 @@ wget  -qO $HOME"/.config/tilix/schemes/dracula.json" https://git.io/v7QaT
 
 sleep 3
 
-nvim
-
 cd ~/Downloads
 
 
@@ -76,3 +74,8 @@ sudo mv /usr/share/mysql-workbench/data/code_editor.xml /usr/share/mysql-workben
 sudo cp ~/repos/Ubuntu/mysql/code_editor.xml /usr/share/mysql-workbench/
 
 sudo nala install cmatrix pavucontrol
+
+cp ~/repos/Ubuntu/packages/ookla-speedtest-1.2.0-linux-x86_64.tgz ~/Downloads
+cd ~/Downloads
+sudo tar -xvzf ookla-speedtest-1.2.0-linux-x86_64.tgz -C /usr/bin
+rm ookla-speedtest-1.2.0-linux-x86_64.tgz

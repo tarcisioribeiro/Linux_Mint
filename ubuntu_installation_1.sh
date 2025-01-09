@@ -34,7 +34,7 @@ sudo nala install \
   wget \
   net-tools \
   btop \
-  tilix \
+  kitty \
   flatpak \
   python3-venv \
   python3-tk \
@@ -69,6 +69,7 @@ sudo nala install \
   gnome-tweaks \
   gnome-shell-extension-manager \
   mpv \
+  cava \
   feh \
   mysql-server \
   openssh-server

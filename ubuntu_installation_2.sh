@@ -57,6 +57,8 @@ git clone https://github.com/Raymo111/i3lock-color.git
 cd i3lock-color
 ./build.sh
 ./install-i3lock-color.sh
+cd ~/Downloads
+sudo rm -r i3lock-color
 
 cp ~/repos/Ubuntu/scripts/lock ~/scripts/
 
@@ -69,6 +71,8 @@ mkdir -p build && cd build
 meson ..
 ninja
 sudo ninja install
+cd ~/Downloads
+sudo rm -r i3-gaps
 
 sudo mv /usr/share/mysql-workbench/data/code_editor.xml /usr/share/mysql-workbench/data/code_editor_old.xml
 sudo cp ~/repos/Ubuntu/mysql/code_editor.xml /usr/share/mysql-workbench/

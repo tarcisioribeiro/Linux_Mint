@@ -29,6 +29,7 @@ sudo nala install \
   build-essential \
   git \
   neofetch \
+  gimp \
   meson \
   ninja-build \
   curl \
@@ -36,7 +37,8 @@ sudo nala install \
   wget \
   net-tools \
   btop \
-  kitty \
+  tilix \
+  rofi \
   flatpak \
   python3-venv \
   python3-tk \
@@ -170,5 +172,6 @@ cp repos/Terminal/customization/git/.gitconfig ~
 cp repos/Terminal/customization/tmux/.tmux.conf ~
 cp repos/Terminal/customization/starship/starship.toml ~/.config
 
-green "\nConcluído. Reinicie o terminal e execute o próximo instalador.\n"
+green "\nConcluído. Reiniciando a máquina.\n"
+green "Ao logar novamente, abra o terminal e execute o próximo instalador.\n"
 sleep 3

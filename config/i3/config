@@ -57,7 +57,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-# bindsym $mod+e layout toggle split
+bindsym $mod+j layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -169,4 +169,4 @@ border_radius 5
 
 ################# i3-radius #######################
 smart_borders on
-# smart_borders no_gaps
+smart_borders no_gaps

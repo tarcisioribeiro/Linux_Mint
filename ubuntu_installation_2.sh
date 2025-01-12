@@ -10,6 +10,8 @@ blue() {
     echo -e "\033[34m$1\033[0m"
 }
 
+red "\n|--------- Instalação - Parte 2 ---------|\n"
+
 brew install eza glow tldr fd git-delta
 nvm install 20.17.0
 
@@ -23,7 +25,6 @@ wget  -qO $HOME"/.config/tilix/schemes/dracula.json" https://git.io/v7QaT
 sleep 3
 
 cd ~/Downloads
-
 
 blue "\nInstalando o i3wm...\n"
 
@@ -79,7 +80,61 @@ sudo cp ~/repos/Ubuntu/mysql/code_editor.xml /usr/share/mysql-workbench/
 
 sudo nala install cmatrix pavucontrol
 
+cd ~/repos
+
+git clone https://github.com/tarcisioribeiro/Arch_Linux.git
+
 cp ~/repos/Ubuntu/packages/ookla-speedtest-1.2.0-linux-x86_64.tgz ~/Downloads
 cd ~/Downloads
 sudo tar -xvzf ookla-speedtest-1.2.0-linux-x86_64.tgz -C /usr/bin
 rm ookla-speedtest-1.2.0-linux-x86_64.tgz
+
+sudo snap install youtube-music-desktop-app spotify dbeaver-ce
+sudo snap install android-studio --classic
+
+sleep 10
+
+blue "\nBaixando o Flutter...\n"
+
+mkdir -p ~/development
+
+cd ~/Downloads
+wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.27.1-stable.tar.xz
+tar -xf ~/Downloads/flutter_linux_3.27.1-stable.tar.xz -C ~/development/
+rm flutter_linux_3.27.1-stable.tar.xz
+
+mkdir -p ~/snap
+cd ~/Downloads
+cp ~/repos/Arch_Linux/packages/youtube-music-desktop-app.zip .
+unzip youtube-music-desktop-app.zip
+mv youtube-music-desktop-app ~/snap
+rm youtube-music-desktop-app.zip
+sudo rm -r Dracula
+sudo rm -r snapd
+
+sudo apt install libconfig-dev cmake clang ninja libgtk3-dev libdbus-1-dev libegl-dev libev-dev libgl-dev libepoxy-dev libpcre2-dev libpixman-1-dev libx11-xcb-dev libxcb1-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-glx0-dev libxcb-image0-dev libxcb-present-dev libxcb-randr0-dev libxcb-render0-dev libxcb-render-util0-dev libxcb-shape0-dev libxcb-util-dev libxcb-xfixes0-dev meson ninja-build uthash-dev
+
+cd ~/Downloads
+git clone https://github.com/yshui/picom.git
+cd picom
+meson setup --buildtype=release build
+ninja -C build
+ninja -C build install
+
+cp -r ~/repos/Ubuntu/config/autostart ~/.config/
+cp -r ~/repos/Ubuntu/config/btop ~/.config/
+cp -r ~/repos/Ubuntu/config/cava ~/.config/
+cp -r ~/repos/Ubuntu/config/gtk-3.0 ~/.config/
+cp -r ~/repos/Ubuntu/config/i3 ~/.config/
+cp -r ~/repos/Ubuntu/config/i3status ~/.config/
+cp -r ~/repos/Ubuntu/config/rofi ~/.config/
+cp -r ~/repos/Ubuntu/config/dunst ~/.config/
+
+cp -r ~/repos/Ubuntu/wallpapers ~/Pictures
+
+mkdir -p ~/scripts
+cp -r ~/repos/Ubuntu/scripts ~
+
+ssh-keygen
+
+sudo ufw enable

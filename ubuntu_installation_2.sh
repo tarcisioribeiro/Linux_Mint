@@ -75,14 +75,8 @@ sudo ninja install
 cd ~/Downloads
 sudo rm -r i3-gaps
 
-sudo mv /usr/share/mysql-workbench/data/code_editor.xml /usr/share/mysql-workbench/data/code_editor_old.xml
-sudo cp ~/repos/Ubuntu/mysql/code_editor.xml /usr/share/mysql-workbench/
-
-sudo nala install cmatrix pavucontrol
-
 cd ~/repos
 
-git clone https://github.com/tarcisioribeiro/Arch_Linux.git
 
 cp ~/repos/Ubuntu/packages/ookla-speedtest-1.2.0-linux-x86_64.tgz ~/Downloads
 cd ~/Downloads
@@ -90,11 +84,12 @@ sudo tar -xvzf ookla-speedtest-1.2.0-linux-x86_64.tgz -C /usr/bin
 rm ookla-speedtest-1.2.0-linux-x86_64.tgz
 
 sudo snap install youtube-music-desktop-app spotify dbeaver-ce
+sudo snap install youtube-music-desktop-app spotify dbeaver-ce
 sudo snap install android-studio --classic
 
-sleep 10
-
 blue "\nBaixando o Flutter...\n"
+
+sleep 10
 
 mkdir -p ~/development
 
@@ -103,12 +98,7 @@ wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/
 tar -xf ~/Downloads/flutter_linux_3.27.1-stable.tar.xz -C ~/development/
 rm flutter_linux_3.27.1-stable.tar.xz
 
-mkdir -p ~/snap
 cd ~/Downloads
-cp ~/repos/Arch_Linux/packages/youtube-music-desktop-app.zip .
-unzip youtube-music-desktop-app.zip
-mv youtube-music-desktop-app ~/snap
-rm youtube-music-desktop-app.zip
 sudo rm -r Dracula
 sudo rm -r snapd
 
@@ -118,9 +108,12 @@ cd ~/Downloads
 git clone https://github.com/yshui/picom.git
 cd picom
 meson setup --buildtype=release build
-ninja -C build
-ninja -C build install
+sudo ninja -C build
+sudo ninja -C build install
+cd ~/Downloads
+sudi rm -r picom/
 
+# Arquivos de configuração
 cp -r ~/repos/Ubuntu/config/autostart ~/.config/
 cp -r ~/repos/Ubuntu/config/btop ~/.config/
 cp -r ~/repos/Ubuntu/config/cava ~/.config/
@@ -129,12 +122,88 @@ cp -r ~/repos/Ubuntu/config/i3 ~/.config/
 cp -r ~/repos/Ubuntu/config/i3status ~/.config/
 cp -r ~/repos/Ubuntu/config/rofi ~/.config/
 cp -r ~/repos/Ubuntu/config/dunst ~/.config/
+cp ~/repos/Ubuntu/config/picom.conf ~/.config/
 
 cp -r ~/repos/Ubuntu/wallpapers ~/Pictures
 
 mkdir -p ~/scripts
 cp -r ~/repos/Ubuntu/scripts ~
 
+brew install eza glow tldr fd git-delta
+git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+mv ~/.config/nvim ~/.config/nvim_old
+cp -r ~/repos/Terminal/customization/nvim ~/.config
+sudo rm -r ~/.config/nvim_old
+sudo pacman -S --noconfirm ruby
+
+cd ~
+cp ~/repos/Arch_Linux/wallpapers/*.png ~/Pictures/
+cp ~/repos/Arch_Linux/scripts/*.sh ~/scripts/
+cd ~/Downloads/
+wget https://github.com/dracula/gtk/archive/master.zip
+unzip master.zip
+mv gtk-master Dracula
+mv Dracula ~/.themes
+rm master.zip
+cd ~/Downloads
+git clone https://github.com/vinceliuice/Tela-icon-theme.git
+cd Tela-icon-theme
+./install.sh -n dracula
+cd ..
+sudo rm -r Tela-icon-theme
+
+cd ~/Downloads
+
+gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
+gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
+gsettings set org.gnome.desktop.interface icon-theme "dracula-dark"
+gsettings set org.gnome.desktop.interface font-name "JetBrainsMono NFM"
+
+cd ~
+
+if [-d "Documentos"]; then
+  rmdir "Documentos"
+else
+  echo "Diretório não encontrado."
+fi
+
+if [-d "Imagens"]; then
+  rmdir "Imagens"
+else
+  echo "Diretório não encontrado."
+fi
+
+if [-d "D Músicas"]; then
+  rmdir "Músicas"
+else
+  echo "Diretório não encontrado."
+fi
+
+if [-d "Público"]; then
+  rmdir "Público"
+else
+  echo "Diretório não encontrado."
+fi
+
+if [-d "Modelos"]; then
+  rmdir "Modelos"
+else
+  echo "Diretório não encontrado."
+fi
+
+if [-d "Vídeos"]; then
+  rmdir "Vídeos"
+else
+  echo "Diretório não encontrado."
+fi
+
 ssh-keygen
 
 sudo ufw enable
+sudo ufw allow OpenSSH
+
+green "\nInstalação concluída. Reiniciando a máquina.\n"
+
+sleep 15
+
+sudo reboot now

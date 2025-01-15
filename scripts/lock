@@ -38,11 +38,11 @@ i3lock \
   --indicator \
   --time-str="%H:%M:%S" \
   --date-str="%A %e %B %Y" \
-  --verif-text="Checking..." \
-  --wrong-text="Wrong pswd" \
-  --noinput="No Input" \
-  --lock-text="Locking..." \
-  --lockfailed="Lock Failed" \
+  --verif-text="Checando..." \
+  --wrong-text="Senha errada" \
+  --noinput="Sem entrada" \
+  --lock-text="Bloqueando..." \
+  --lockfailed="Falha ao bloquear" \
   --radius=120 \
   --ring-width=10 \
   --pass-media-keys \

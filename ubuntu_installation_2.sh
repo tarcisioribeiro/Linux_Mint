@@ -1,4 +1,20 @@
 #!/usr/bin/bash
+title_red() {
+    echo -e "\033[31m$(toilet --font pagga --filter border --width 200 "$1")\033[0m"
+}
+
+title_green() {
+    echo -e "\033[32m$(toilet --font pagga --filter border --width 200  "$1")\033[0m"
+}
+
+title_blue() {
+    echo -e "\033[34m$(toilet --font pagga --filter border --width 200 "$1")\033[0m"
+}
+
+title() {
+  echo -e "$(toilet --font pagga --filter border --width 200 "$1")"
+}
+
 red() {
     echo -e "\033[31m$1\033[0m"
 }
@@ -10,7 +26,7 @@ blue() {
     echo -e "\033[34m$1\033[0m"
 }
 
-red "\n|--------- Instalação - Parte 2 ---------|\n"
+title "Instalação - Parte 2"
 
 brew install eza glow tldr fd git-delta
 nvm install 20.17.0

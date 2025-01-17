@@ -1,4 +1,25 @@
 #!/usr/bin/bash
+sudo apt update
+sudo apt upgrade -y
+sudo apt install nala toilet -y
+clear
+
+title_red() {
+    echo -e "\033[31m$(toilet --font pagga --filter border --width 200 "$1")\033[0m"
+}
+
+title_green() {
+    echo -e "\033[32m$(toilet --font pagga --filter border --width 200  "$1")\033[0m"
+}
+
+title_blue() {
+    echo -e "\033[34m$(toilet --font pagga --filter border --width 200 "$1")\033[0m"
+}
+
+title() {
+  echo -e "$(toilet --font pagga --filter border --width 200 "$1")"
+}
+
 red() {
     echo -e "\033[31m$1\033[0m"
 }
@@ -14,13 +35,9 @@ cd ~
 mkdir -p ~/repos
 mkdir -p ~/scripts
 
-red "\n|--------- Instalação - Parte 1 ---------|\n"
+title "Instalação - Parte 1"
 
 sleep 3
-
-sudo apt update
-sudo apt upgrade -y
-sudo apt install nala -y
 
 blue "\nInstalando o Nala.\n"
 sleep 3
@@ -193,5 +210,6 @@ sudo cp ~/repos/Arch_Linux/fonts/JetBrainsMonoNerdFontMono-BoldItalic.ttf /usr/s
 
 green "\nConcluído. Reiniciando a máquina.\n"
 green "Ao logar novamente, abra o terminal e execute o próximo instalador.\n"
-sleep 10
+sleep 5
+read -p "Pressione ENTER para confirmar."
 sudo reboot now

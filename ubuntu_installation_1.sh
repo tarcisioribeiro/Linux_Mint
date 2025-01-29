@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 sudo apt update
 sudo apt upgrade -y
-sudo apt install nala toilet -y
+sudo apt install nala toilet curl wget -y
 clear
 
 title_red() {

@@ -26,6 +26,7 @@ blue() {
     echo -e "\033[34m$1\033[0m"
 }
 
+clear
 title "Instalação - Parte 2"
 
 brew install eza glow tldr fd git-delta
@@ -42,7 +43,10 @@ sleep 3
 
 cd ~/Downloads
 
-blue "\nInstalando o i3wm...\n"
+clear
+echo ""
+blue "Instalando o i3wm..."
+echo ""
 
 sleep 3
 
@@ -66,7 +70,10 @@ sudo apt update
 
 sudo apt install i3
 
-blue "\nInstalando o i3lock-color...\n"
+clear
+echo ""
+blue "Instalando o i3lock-color..."
+echo ""
 sleep 3
 sudo apt install autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
 cd ~/Downloads
@@ -79,7 +86,10 @@ sudo rm -r i3lock-color
 
 cp ~/repos/Ubuntu/scripts/lock ~/scripts/
 
-blue "\nInstalando gaps do i3...\n"
+clear
+echo ""
+blue "Instalando gaps do i3..."
+echo ""
 
 cd ~/Downloads
 git clone https://www.github.com/jbenden/i3-gaps-rounded i3-gaps
@@ -93,7 +103,6 @@ sudo rm -r i3-gaps
 
 cd ~/repos
 
-
 cp ~/repos/Ubuntu/packages/ookla-speedtest-1.2.0-linux-x86_64.tgz ~/Downloads
 cd ~/Downloads
 sudo tar -xvzf ookla-speedtest-1.2.0-linux-x86_64.tgz -C /usr/bin
@@ -103,9 +112,12 @@ sudo snap install youtube-music-desktop-app spotify dbeaver-ce
 sudo snap install youtube-music-desktop-app spotify dbeaver-ce
 sudo snap install android-studio --classic
 
-blue "\nBaixando o Flutter...\n"
+clear
+echo ""
+blue "Baixando o Flutter..."
+echo ""
 
-sleep 10
+sleep 3
 
 mkdir -p ~/development
 
@@ -127,7 +139,7 @@ meson setup --buildtype=release build
 sudo ninja -C build
 sudo ninja -C build install
 cd ~/Downloads
-sudi rm -r picom/
+sudo rm -r picom/
 
 # Arquivos de configuração
 cp -r ~/repos/Ubuntu/config/autostart ~/.config/
@@ -150,11 +162,11 @@ git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 mv ~/.config/nvim ~/.config/nvim_old
 cp -r ~/repos/Terminal/customization/nvim ~/.config
 sudo rm -r ~/.config/nvim_old
-sudo pacman -S --noconfirm ruby
+sudo apt install ruby-full
 
 cd ~
-cp ~/repos/Arch_Linux/wallpapers/*.png ~/Pictures/
-cp ~/repos/Arch_Linux/scripts/*.sh ~/scripts/
+cp ~/repos/Ubuntu/wallpapers/*.png ~/Pictures/
+cp ~/repos/Ubuntu/scripts/*.sh ~/scripts/
 cd ~/Downloads/
 wget https://github.com/dracula/gtk/archive/master.zip
 unzip master.zip
@@ -175,51 +187,30 @@ gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
 gsettings set org.gnome.desktop.interface icon-theme "dracula-dark"
 gsettings set org.gnome.desktop.interface font-name "JetBrainsMono NFM"
 
-cd ~
+clear
 
-if [-d "Documentos"]; then
-  rmdir "Documentos"
-else
-  echo "Diretório não encontrado."
-fi
+echo ""
+blue "Instalando programas .deb..."
+echo ""
+sleep 3
 
-if [-d "Imagens"]; then
-  rmdir "Imagens"
-else
-  echo "Diretório não encontrado."
-fi
+cd /mnt/sda1/Packages
+sudo gdebi code.deb
+sudo gdebi google-chrome.deb
+sudo gdebi upscayl.deb
+sudo gdebi virtualbox.deb
 
-if [-d "D Músicas"]; then
-  rmdir "Músicas"
-else
-  echo "Diretório não encontrado."
-fi
-
-if [-d "Público"]; then
-  rmdir "Público"
-else
-  echo "Diretório não encontrado."
-fi
-
-if [-d "Modelos"]; then
-  rmdir "Modelos"
-else
-  echo "Diretório não encontrado."
-fi
-
-if [-d "Vídeos"]; then
-  rmdir "Vídeos"
-else
-  echo "Diretório não encontrado."
-fi
+flatpak install flathub io.github.shiftey.Desktop
 
 ssh-keygen
 
 sudo ufw enable
 sudo ufw allow OpenSSH
 
-green "\nInstalação concluída. Reiniciando a máquina.\n"
+echo ""
+green "Instalação concluída."
+echo ""
 
-sleep 15
+sleep 3
 
 sudo reboot now

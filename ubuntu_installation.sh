@@ -38,7 +38,7 @@ sudo apt install build-essential git neofetch gimp meson ninja-build curl tmux w
   libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncurses5-dev libncursesw5-dev llvm xz-utils tk-dev \
   libffi-dev liblzma-dev python3-openssl timeshift bat gdebi ruby-full nodejs npm fzf \
   gnome-tweaks gnome-shell-extension-manager mpv cava feh mysql-server openssh-server obs-studio \
-  redshift vlc shotcut deluge deluged deluge-web deluge-console stow \
+  redshift vlc shotcut deluge deluged deluge-web deluge-console stow polybar nitrogen \
   libxcb1-dev libxcb-keysyms1-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev \
   libxcb-randr0-dev libxcb-xinerama0-dev libpango1.0-dev libx11-dev libxrandr-dev libxinerama-dev libxss-dev \
   libglib2.0-dev libev-dev libxcb-cursor-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf \
@@ -203,11 +203,14 @@ cd ~/repos/Ubuntu/stow
 mkdir -p ~/.config/autostart && stow -v -t ~/.config/autostart autostart
 mkdir -p ~/.config/btop && stow -v -t ~/.config/btop btop
 mkdir -p ~/.config/cava && stow -v -t ~/.config/cava cava
+mkdir -p ~/.config/dunst && stow -v -t ~/.config/dunst dunst
 mkdir -p ~/.config/gtk-3.0 && stow -v -t ~/.config/gtk-3.0 gtk-3.0
 mkdir -p ~/.config/i3 && stow -v -t ~/.config/i3 i3
 mkdir -p ~/.config/i3status && stow -v -t ~/.config/i3status i3status
+mkdir -p ~/.config/nitrogen && stow -v -t ~/.config/nitrogen nitrogen
+mkdir -p ~/.config/nvim && stow -v -t ~/.config/nvim nvim
+mkdir -p ~/.config/polybar && stow -v -t ~/.config/polybar polybar
 mkdir -p ~/.config/rofi && stow -v -t ~/.config/rofi rofi
-mkdir -p ~/.config/dunst && stow -v -t ~/.config/dunst dunst
 ln picom.conf ~/.config/picom.conf
 
 cd ~/repos/Ubuntu/

@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 sudo apt update
 sudo apt upgrade -y
 sudo apt install toilet curl wget -y
@@ -42,10 +41,10 @@ sudo apt install build-essential gcc g++ clang make cmake automake autoconf \
   git wget curl stow pkg-config meson ninja-build scdoc \
   neofetch tmux rofi fzf bat gdebi feh nitrogen polybar redshift \
   gnome-tweaks gnome-shell-extension-manager \
-  mpv vlc shotcut obs-studio cava \
+  mpv vlc shotcut obs-studio cava flatpak \
   deluge deluged deluge-web deluge-console \
   timeshift openssh-server mysql-server default-libmysqlclient-dev \
-  dkms perl nodejs npm ruby-full \
+  dkms perl nodejs npm ruby-full libsdl2-dev libusb-1.0-0-dev \
   adb cpu-checker qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils \
   ffmpeg libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev libswresample-dev \
   gimp libgtk-3-dev libgtk-4-dev libadwaita-1-dev \
@@ -184,9 +183,12 @@ scdoc <extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/
 scdoc <extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz >/dev/null
 
 blue "Instalando o scrcpy..."
-cd ~/Downloads/ && git clone https://github.com/Genymobile/scrcpy
-cd scrcpy && ./install_release.sh
-cd ~/Downloads/ && sudo rm -r scrcpy
+cd ~/Downloads
+git clone https://github.com/Genymobile/scrcpy
+cd scrcpy
+./install_release.sh
+cd ~/Downloads
+sudo rm -r scrcpy
 
 # Arquivos de configuração
 cd ~/repos/Ubuntu/stow
@@ -250,4 +252,3 @@ read -p "Reiniciar agora? (s/n): " choice
 if [[ "$choice" == "s" ]]; then
   sudo reboot
 fi
-

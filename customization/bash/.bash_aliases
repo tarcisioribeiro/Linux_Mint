@@ -4,6 +4,7 @@ alias cls='clear'
 alias eza='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
 alias glow='glow -p'
 alias ls='logo-ls -1'
+alias lg='lazygit'
 alias tree='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree'
 alias weather='curl wttr.in'
 

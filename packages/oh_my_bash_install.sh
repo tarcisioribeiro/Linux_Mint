@@ -1,22 +1,17 @@
 #!/usr/bin/env bash
 
-# Checks the minium version of bash (v3.2) installed,
-# stops the installation if check fails
 if [ -z "${BASH_VERSION-}" ]; then
   printf "Error: Bash 3.2 or higher is required for Oh My Bash.\n"
   printf "Error: Install Bash and try running this installation script with Bash.\n"
   if command -v bash >/dev/null 2>&1; then
-    # shellcheck disable=SC2016
     printf 'Example: \033[31;1mbash\033[0;34m -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"\n'
   fi
-  # shellcheck disable=SC2317
   return 1 >/dev/null 2>&1 || exit 1
 fi
 
 if [[ ! ${BASH_VERSINFO[0]-} ]] || ((BASH_VERSINFO[0] < 3 || BASH_VERSINFO[0] == 3 && BASH_VERSINFO[1] < 2)); then
   printf "Error: Bash 3.2 required for Oh My Bash.\n" >&2
   printf "Error: Upgrade Bash and try again.\n" >&2
-  # shellcheck disable=SC2317
   return 2 &>/dev/null || exit 2
 elif ((BASH_VERSINFO[0] < 4)); then
   printf "Warning: Bash >=4 is no longer required for Oh My Bash but is cool to have ;)\n" >&2
@@ -31,7 +26,6 @@ function _omb_install_print_version {
 }
 
 function _omb_install_print_usage {
-  # shellcheck disable=SC2016
   printf '%s\n' \
     'usage: ./install.sh [--unattended | --dry-run | --help | --usage | --version]' \
     'usage: bash -c "$(< install.sh)" [--unattended | --dry-run | --help | --usage |' \
@@ -53,9 +47,6 @@ function _omb_install_print_help {
     ''
 }
 
-## @fn _omb_install_readargs [options...]
-##   @var[out] install_opts
-##   @var[out] install_prefix
 function _omb_install_readargs {
   install_opts=
   install_prefix=
@@ -123,9 +114,7 @@ function _omb_install_run {
 }
 
 function _omb_install_banner {
-  # MOTD message :)
   printf '%s' "$GREEN"
-  # shellcheck disable=SC1003,SC2016
   printf '%s\n' \
     '         __                          __               __  ' \
     '  ____  / /_     ____ ___  __  __   / /_  ____ ______/ /_ ' \
@@ -152,13 +141,9 @@ function _omb_install_has_proper_bash_profile {
   return 1
 }
 
-## @fn _omb_install_user_bashrc
-##   @var[in] install_opts
-##   @var[in] OSH
 function _omb_install_user_bashrc {
   printf '%s\n' "${BLUE}Looking for an existing bash config...${NORMAL}"
   if [[ -f ~/.bashrc || -L ~/.bashrc ]]; then
-    # shellcheck disable=SC2155
     local bashrc_backup=~/.bashrc.omb-backup-$(date +%Y%m%d%H%M%S)
     printf '%s\n' "${YELLOW}Found ~/.bashrc.${NORMAL} ${GREEN}Backing up to $bashrc_backup${NORMAL}"
     _omb_install_run mv ~/.bashrc "$bashrc_backup"
@@ -170,9 +155,6 @@ export OSH='${OSH//\'/\'\\\'\'}'
   " "$OSH"/templates/bashrc.osh-template >|~/.bashrc.omb-temp &&
     _omb_install_run mv -f ~/.bashrc.omb-temp ~/.bashrc
 
-  # If "source ~/.bashrc" is not found in ~/.bash_profile or ~/.profile, we try
-  # to create a new ~/.bash_profile with the default content or show messages
-  # for user to add "source ~/.bashrc" in the existing ~/.bash_profile.
   if ! _omb_install_has_proper_bash_profile; then
     if [[ ! -e ~/.bash_profile ]]; then
       if [[ -L ~/.bash_profile ]]; then
@@ -193,8 +175,6 @@ export OSH='${OSH//\'/\'\\\'\'}'
     printf '%s\n' "$GREEN$BOLD[dryrun]$NORMAL Sample bashrc is created at '$BOLD$HOME/.bashrc-ombtemp$NORMAL'."
   elif [[ :$install_opts: != *:unattended:* ]]; then
     if [[ $- == *i* ]]; then
-      # In case install.sh is sourced from the interactive Bash
-      # shellcheck disable=SC1090
       source ~/.bashrc
     else
       echo 'Instalação feita.'
@@ -218,8 +198,7 @@ function _omb_install_system_bashrc {
 }
 
 function _omb_install_main {
-  # Use colors, but only if connected to a terminal, and that terminal
-  # supports them.
+  
   local ncolors=
   if type -P tput &>/dev/null; then
     ncolors=$(tput colors 2>/dev/null || tput Co 2>/dev/null || echo -1)
@@ -280,9 +259,6 @@ function _omb_install_main {
     OSH_REPOSITORY=https://github.com/ohmybash/oh-my-bash.git
   fi
 
-  # Only enable exit-on-error after the non-critical colorization stuff,
-  # which may fail on systems lacking tput or terminfo
-
   set -e
 
   if [[ -d $OSH ]]; then
@@ -291,11 +267,6 @@ function _omb_install_main {
     return 1
   fi
 
-  # Prevent the cloned repository from having insecure permissions. Failing to do
-  # so causes compinit() calls to fail with "command not found: compdef" errors
-  # for users with insecure umasks (e.g., "002", allowing group writability). Note
-  # that this will be ignored under Cygwin by default, as Windows ACLs take
-  # precedence over umasks except for filesystems mounted with option "noacl".
   umask g-w,o-w
 
   printf '%s\n' "${BLUE}Cloning Oh My Bash...${NORMAL}"
@@ -303,7 +274,7 @@ function _omb_install_main {
     echo "Error: git is not installed"
     return 1
   }
-  # The Windows (MSYS) Git is not compatible with normal use on cygwin
+  
   if [[ $OSTYPE == cygwin ]]; then
     if command git --version | command grep msysgit >/dev/null; then
       echo "Error: Windows/MSYS Git is not supported on Cygwin"

@@ -38,7 +38,7 @@ _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
 }
 
-. /usr/share/fzf/key-bindings.zsh
+. /usr/share/doc/fzf/examples/key-bindings.zsh
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --icons --color=always {} | head -200; else batcat -n --color=always --line-range :500 {}; fi"
 
@@ -61,3 +61,9 @@ export PATH="$PATH:$HOME/.local/bin"
 export EDITOR=nvim
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 export PATH="$PATH:$HOME/development/flutter/bin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+. "$HOME/.cargo/env"

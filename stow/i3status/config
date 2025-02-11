@@ -1,0 +1,45 @@
+general {
+  output_format = "i3bar"
+  colors = true
+  color_good = "#50FA7B"
+  color_degraded = "#F1FA8C"
+  color_bad = "#FF5555"
+  interval = 1
+}
+
+order += "disk /"
+order += "ethernet enp3s0"
+order += "load"
+order += "tztime local"
+
+ethernet enp3s0 {
+        # if you use %speed, i3status requires root privileges
+        format_up = " 🔌 Internet: %ip (%speed) "
+        format_down = " 🔌 Internet: sem sinal "
+}
+
+battery 0 {
+        format = "🔋 %status %percentage %remaining"
+}
+
+run_watch DHCP {
+        pidfile = "/var/run/dhclient*.pid"
+        format = " 📶 DHCP ativo "
+}
+
+run_watch VPN {
+        pidfile = "/var/run/vpnc/pid"
+        format = " 🔐 VPN ativa "
+}
+
+tztime local {
+        format = " 🗓️ %d/%m/%y 🕒 %H:%M:%S "
+}
+
+load {
+        format = " 📊 Load: %1min "
+}
+
+disk "/" {
+        format = " 💾 Disco: %avail "
+}

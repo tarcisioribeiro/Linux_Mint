@@ -1,0 +1,28 @@
+# Terminal Tools
+alias bat='bat --theme="Dracula"'
+alias cls='clear'
+alias eza='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
+alias glow='glow -p'
+alias ls='logo-ls -1'
+alias tree='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree'
+alias weather='curl wttr.in'
+
+# Languages
+alias py='python3'
+
+# Text Editor
+alias vim="nvim"
+
+# Net Tools
+alias ipconfig='ifconfig'
+
+# ZSH
+alias edit-zsh="nvim ~/.zshrc"
+alias reload-zsh="source ~/.zshrc"
+
+# Virtualbox
+alias ssh_server="ssh serveruser@192.168.2.210"
+alias start_server="VBoxManage startvm UbuntuServer --type headless"
+alias shutdown_server="VBoxManage controlvm UbuntuServer poweroff"
+alias show_nvim_keybinds="glow ~/.config/nvim/key_commands.md"
+alias show_hypr_keybinds="glow ~/repos/Arch_Linux/README.md"

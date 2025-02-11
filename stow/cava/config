@@ -1,0 +1,39 @@
+[general]
+# Configuração geral
+bars = 60                 # Número de barras
+framerate = 60            # Taxa de quadros por segundo
+lower_cutoff_freq = 50    # Freq. de corte inferior (Hz)
+higher_cutoff_freq = 10000 # Freq. de corte superior (Hz)
+
+[output]
+# Tipo de saída: alsa, pulseaudio, fifo, ncurses, etc.
+method = ncurses          # Modo visual em terminal
+
+[smoothing]
+# Suavização do áudio
+monstercat = 1            # Intensidade da suavização
+gravity = 80              # Gravidade das barras
+ignore = 0                # Ignorar frequências mais baixas
+
+[eq]
+# Equalizador
+1 = 1                     # Fator para a banda 1
+2 = 1.5                   # Fator para a banda 2
+3 = 1.5                   # Ajuste conforme necessário
+
+[color]
+
+gradient = 1
+
+gradient_color_1 = '#8BE9FD'
+gradient_color_2 = '#9AEDFE'
+gradient_color_3 = '#CAA9FA'
+gradient_color_4 = '#BD93F9'
+gradient_color_5 = '#FF92D0'
+gradient_color_6 = '#FF79C6'
+gradient_color_7 = '#FF6E67'
+gradient_color_8 = '#FF5555'
+
+[sensitivity]
+# Sensibilidade das barras
+sens = 200                # Valor de sensibilidade

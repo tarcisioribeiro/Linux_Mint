@@ -68,7 +68,7 @@ background = "#282a36"
 
 
 [window]
-opacity = 0.9
+opacity = 0.95
 padding.x = 10
 padding.y = 10
 blur = true

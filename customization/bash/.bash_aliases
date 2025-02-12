@@ -18,6 +18,10 @@ alias ipconfig='ifconfig'
 alias edit-bash="nvim ~/.bashrc"
 alias reload-bash="source ~/.bashrc"
 
+# MySQL
+alias mysql="mysql -uroot -porrARDrdr27!"
+alias mysqldump="mysqldump -uroot -porrARDrdr27!"
+
 # Virtualbox
 alias ssh_server="ssh serveruser@192.168.2.210"
 alias start_server="VBoxManage startvm UbuntuServer"

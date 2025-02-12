@@ -62,6 +62,8 @@ export EDITOR=nvim
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 export PATH="$PATH:$HOME/development/flutter/bin"
 
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"

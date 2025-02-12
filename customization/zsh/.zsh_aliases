@@ -17,6 +17,10 @@ alias vim="nvim"
 # Net Tools
 alias ipconfig='ifconfig'
 
+# MySQL
+alias mysql="mysql -uroot -porrARDrdr27!"
+alias mysqldump="mysqldump -uroot -porrARDrdr27!"
+
 # ZSH
 alias edit-zsh="nvim ~/.zshrc"
 alias reload-zsh="source ~/.zshrc"

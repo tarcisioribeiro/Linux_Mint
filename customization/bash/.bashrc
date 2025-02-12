@@ -111,6 +111,7 @@ _fzf_compgen_dir() {
 . /usr/share/doc/fzf/examples/key-bindings.bash
 export PATH="$PATH:~/.local/bin"
 export EDITOR=nvim
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 
 eval "$(starship init bash)"

@@ -3,16 +3,13 @@ set $mod Mod1
 font pango:JetBrainsMono NFM 11
 
 exec --no-startup-id ~/scripts/monitor_setup.sh
-exec nitrogen --restore
 exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id picom
-
-exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/scripts/lock
-
 exec --no-startup-id nm-applet
+exec ==no-startup-id nitrogen --restore
 
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -28,13 +25,14 @@ bindsym $mod+a exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F
 # start a terminal
 bindsym $mod+Return exec alacritty
 bindsym $mod+e exec nautilus
+bindsym $mod+o exec obsidian
+bindsym $mod+d exec google-chrome
 
 # kill focused window
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+space exec --no-startup-id rofi -show drun -show-icons
-bindsym $mod+d exec "google-chrome-stable"
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -128,9 +126,6 @@ bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-
-# Block i3 Session
-bindsym $mod+l exec "~/scripts/lock"
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+l exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"

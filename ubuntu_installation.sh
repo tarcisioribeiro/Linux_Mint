@@ -271,6 +271,8 @@ rm -r ~/Videos/
 
 title_green "Instalação concluída."
 
+brew install eza tldr git-delta fd zoxide
+
 read -p "Reiniciar agora? (s/n): " choice
 if [[ "$choice" == "s" ]]; then
   sudo reboot

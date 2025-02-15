@@ -5,24 +5,21 @@ alias eza='eza --color=always --long --git --no-filesize --icons=always --no-tim
 alias glow='glow -p'
 alias ls='logo-ls -1'
 alias lg='lazygit'
-alias new_tree='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree'
+alias new-tree='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree'
 alias weather='curl wttr.in'
 
 # Languages
 alias py='python3'
 
-# Text Editor
-alias vim="nvim"
-
 # Net Tools
 alias ipconfig='ifconfig'
 
 # MySQL
-alias mysql="mysql -uroot -porrARDrdr27!"
-alias mysqldump="mysqldump -uroot -porrARDrdr27!"
+alias mysql="mysql -uroot -p"
+alias mysqldump="mysqldump -uroot -p"
 
 # PostgreSQL
-alias postgresql="psql -U postgres -W"
+alias postgres="sudo -i -u postgres"
 
 # ZSH
 alias edit-zsh="nvim ~/.zshrc"

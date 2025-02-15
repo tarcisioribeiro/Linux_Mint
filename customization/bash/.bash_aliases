@@ -18,9 +18,12 @@ alias ipconfig='ifconfig'
 alias edit-bash="nvim ~/.bashrc"
 alias reload-bash="source ~/.bashrc"
 
+# PostgreSQL
+alias postgres="sudo -i -u postgres"
+
 # MySQL
-alias mysql="mysql -uroot -porrARDrdr27!"
-alias mysqldump="mysqldump -uroot -porrARDrdr27!"
+alias mysql="mysql -uroot -p"
+alias mysqldump="mysqldump -uroot -p"
 
 # PostgreSQL
 alias postgresql="psql -U postgres -W"

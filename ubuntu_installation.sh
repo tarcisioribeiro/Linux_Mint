@@ -40,9 +40,9 @@ title "Instalação - Parte 1"
 sudo apt install build-essential gcc g++ clang make cmake automake autoconf \
   git wget curl stow pkg-config meson ninja-build scdoc \
   neofetch tmux rofi fzf bat gdebi feh nitrogen polybar redshift \
-  gnome-tweaks gnome-shell-extension-manager \
+  gnome-tweaks gnome-shell-extension-manager tmux \
   mpv vlc shotcut obs-studio cava flatpak libpam0g-dev \
-  deluge doeluged deluge-web deluge-console \
+  deluge deluged deluge-web deluge-console \
   timeshift openssh-server mysql-server default-libmysqlclient-dev \
   dkms perl nodejs npm ruby-full libsdl2-dev libusb-1.0-0-dev \
   adb cpu-checker qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils \
@@ -62,9 +62,10 @@ sudo apt install build-essential gcc g++ clang make cmake automake autoconf \
   libxcb-render-util0-dev libxcb-util-dev libxcb-xfixes0-dev uthash-dev \
   libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev -y
 
+sleep 5
+
 sudo apt remove libmagickcore-6.q16-6 imagemagick-6.q16 imagemagick-6-common imagemagick idle-python3.10 -y
 
-sudo apt install zsh -y
 blue "Instalando o Oh My ZSH..."
 sh packages/terminals/oh_my_zsh_install.sh
 
@@ -143,16 +144,9 @@ tmux kill-session -t "dev"
 source ~/.bashrc
 
 title "Instalação - Parte 2"
-brew install eza glow tldr fd git-delta zoxide
-brew install jstkdng/programs/ueberzugpp
-cd ~/Downloads
-LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
-curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-tar xf lazygit.tar.gz lazygit
-sudo install lazygit -D -t /usr/local/bin/
-rm ~/Downloads/lazygit
-rm ~/Downloads/lazygit.tar.gz
-nvm install 20.17.0
+blue "Instalando o Lazygit..."
+cd ~/repos/Ubuntu/packages/cli-tools
+sh lazygit.sh
 
 blue "Instalando o i3wm..."
 /usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2024.03.04_all.deb keyring.deb SHA256:f9bb4340b5ce0ded29b7e014ee9ce788006e9bbfe31e96c09b2118ab91fca734
@@ -182,11 +176,8 @@ sudo tar -xvzf speed_test.tgz -C /usr/bin
 rm speed_test.tgz
 
 blue "Baixando o Flutter..."
-mkdir -p ~/development
-cd ~/Downloads
-wget -q https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.27.1-stable.tar.xz
-tar -xf ~/Downloads/flutter_linux_3.27.1-stable.tar.xz -C ~/development/
-rm flutter_linux_3.27.1-stable.tar.xz
+cd ~/repos/Ubuntu/packages/development-tools
+sh flutter.sh
 
 blue "Instalando o picom..."
 cd ~/Downloads
@@ -199,23 +190,8 @@ cd ~/Downloads
 sudo rm -r picom/
 
 blue "Instalando o Alacritty..."
-cd ~/Downloads/
-git clone https://github.com/alacritty/alacritty.git
-cd alacritty
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source ~/.bashrc
-sleep 5
-cargo build --release
-sudo cp target/release/alacritty /usr/local/bin
-sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-sudo desktop-file-install extra/linux/Alacritty.desktop
-sudo update-desktop-database
-sudo mkdir -p /usr/local/share/man/man1
-sudo mkdir -p /usr/local/share/man/man5
-scdoc <extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz >/dev/null
-scdoc <extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz >/dev/null
-scdoc <extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz >/dev/null
-scdoc <extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz >/dev/null
+cd ~/repos/Ubuntu/packages/terminals
+sh alacritty_install.sh
 
 blue "Instalando o scrcpy..."
 cd ~/Downloads
@@ -225,7 +201,6 @@ cd scrcpy
 cd ~/Downloads
 sudo rm -r scrcpy
 
-# Arquivos de configuração
 cd ~/repos/Ubuntu/stow
 mkdir -p ~/.config/autostart && stow -v -t ~/.config/autostart autostart
 mkdir -p ~/.config/btop && stow -v -t ~/.config/btop btop
@@ -264,13 +239,6 @@ gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
 gsettings set org.gnome.desktop.interface icon-theme "dracula-dark"
 gsettings set org.gnome.desktop.interface font-name "JetBrainsMono NFM"
 
-# blue "Instalando pacotes via Flatpak..."
-# flatpak install flathub io.github.shiftey.desktop
-# flatpak install flathub org.telegram.desktop
-# flatpak install flathub net.pcsx2.PCSX2
-# flatpak install flathub com.snes9x.Snes9x
-# flatpak install flathub org.duckstation.DuckStation
-
 blue "Instalando pacotes .deb..."
 cp /mnt/sda1/Packages/*.deb ~/Downloads/
 cd ~/Downloads/
@@ -280,11 +248,7 @@ sudo gdebi discord.deb
 sudo gdebi obsidian.deb
 sudo gdebi upscayl.deb
 sudo gdebi youtube-music-desktop.deb
-
-blue "Gerando chave SSH..."
-ssh-keygen
-sudo ufw enable
-sudo ufw allow OpenSSH
+rm *.deb
 
 blue "Removendo o Snap..."
 cd ~/repos/Ubuntu/packages/package-managers/
@@ -292,7 +256,11 @@ sudo ./remove_snapd.sh
 
 blue "Instalando o Android Studio..."
 cd ~/repos/Ubuntu/packages/development-tools
-sudo ./android_studio_install.sh
+sh android_studio_install.sh
+
+blue "Instalando o i3lock-color..."
+cd ~/repos/Ubuntu/packages/terminals
+sh i3lock-color.sh
 
 blue "Removendo diretórios..."
 rm -r ~/Documents/

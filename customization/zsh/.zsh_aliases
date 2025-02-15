@@ -5,7 +5,7 @@ alias eza='eza --color=always --long --git --no-filesize --icons=always --no-tim
 alias glow='glow -p'
 alias ls='logo-ls -1'
 alias lg='lazygit'
-alias tree='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree'
+alias new_tree='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree'
 alias weather='curl wttr.in'
 
 # Languages
@@ -20,6 +20,9 @@ alias ipconfig='ifconfig'
 # MySQL
 alias mysql="mysql -uroot -porrARDrdr27!"
 alias mysqldump="mysqldump -uroot -porrARDrdr27!"
+
+# PostgreSQL
+alias postgresql="psql -U postgres -W"
 
 # ZSH
 alias edit-zsh="nvim ~/.zshrc"

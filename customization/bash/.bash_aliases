@@ -22,6 +22,9 @@ alias reload-bash="source ~/.bashrc"
 alias mysql="mysql -uroot -porrARDrdr27!"
 alias mysqldump="mysqldump -uroot -porrARDrdr27!"
 
+# PostgreSQL
+alias postgresql="psql -U postgres -W"
+
 # Virtualbox
 alias ssh_server="ssh serveruser@192.168.2.210"
 alias start_server="VBoxManage startvm UbuntuServer"

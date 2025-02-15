@@ -115,3 +115,4 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 
 eval "$(starship init bash)"
+. "$HOME/.cargo/env"

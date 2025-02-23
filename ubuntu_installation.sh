@@ -1,14 +1,15 @@
 #!/bin/bash
 sudo apt update
 sudo apt upgrade -y
-sudo apt install toilet curl wget -y
+sudo apt install toilet curl wget zsh -y
+chsh -s /usr/bin/zsh
 
 title_green() {
   clear
   echo ""
   echo -e "\033[32m$(toilet --font pagga --filter border --width 200 "$1")\033[0m"
   echo ""
-  sleep 5
+  sleep 2
 }
 
 title() {
@@ -16,7 +17,7 @@ title() {
   echo ""
   echo -e "$(toilet --font pagga --filter border --width 200 "$1")"
   echo ""
-  sleep 5
+  sleep 2
 }
 
 green() {
@@ -24,7 +25,7 @@ green() {
   echo ""
   echo -e "\033[32m$1\033[0m"
   echo ""
-  sleep 5
+  sleep 2
 }
 
 blue() {
@@ -32,7 +33,7 @@ blue() {
   echo ""
   echo -e "\033[34m$1\033[0m"
   echo ""
-  sleep 5
+  sleep 2
 }
 
 title "Instalação - Parte 1"
@@ -50,7 +51,7 @@ sudo apt install build-essential gcc g++ clang make cmake automake autoconf \
   gimp libgtk-3-dev libgtk-4-dev libadwaita-1-dev \
   python3 python3-venv python3-tk python3-pip python3-openssl python3.10-full python3.10-dev \
   libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncurses5-dev libncursesw5-dev \
-  libffi-dev liblzma-dev tk-dev btop \
+  libffi-dev liblzma-dev tk-dev btop stow \
   libxcb1-dev libxcb-keysyms1-dev libxcb-util0-dev libxcb-icccm4-dev \
   libxcb-randr0-dev libxcb-xinerama0-dev libpango1.0-dev libx11-dev \
   libxrandr-dev libxinerama-dev libxss-dev libglib2.0-dev libev-dev \
@@ -62,12 +63,12 @@ sudo apt install build-essential gcc g++ clang make cmake automake autoconf \
   libxcb-render-util0-dev libxcb-util-dev libxcb-xfixes0-dev uthash-dev \
   libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev -y
 
-sleep 5
+sleep 2
 
-sudo apt remove libmagickcore-6.q16-6 imagemagick-6.q16 imagemagick-6-common imagemagick idle-python3.10 -y
+cd packages/terminals
 
 blue "Instalando o Oh My ZSH..."
-sh packages/terminals/oh_my_zsh_install.sh
+./oh_my_zsh_install.sh
 
 blue "Instalando o Oh My Posh..."
 sudo wget -q https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
@@ -89,6 +90,8 @@ sudo cp JetBrainsMonoNerdFontMono-Bold.ttf /usr/share/fonts/
 sudo cp JetBrainsMonoNerdFontMono-BoldItalic.ttf /usr/share/fonts/
 sudo cp JetBrainsMonoNerdFontMono-Italic.ttf /usr/share/fonts
 
+clear
+sleep 5
 # logo-ls
 cp ~/repos/Ubuntu/customization/bash/logo-ls_Linux_x86_64.tar.gz ~/Downloads
 cd ~/Downloads
@@ -102,53 +105,33 @@ rm logo-ls_Linux_x86_64.tar.gz
 blue "Ativando o acesso aos apps Flatpak..."
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-blue "Instalando o Neovim..."
-cd ~/Downloads
-git clone https://github.com/neovim/neovim.git
-cd neovim
-make CMAKE_BUILD_TYPE=Release
-sudo make install
-cd ~/Downloads
-sudo rm -r neovim
-
-blue "Instalando o NVM..."
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
-
 cd ~/repos/Ubuntu
 
 blue "Instalando o HomeBrew..."
-sh packages/package-managers/brew_install.sh
+cd ~/repos/Ubuntu/packages/package-managers
+./brew_install.sh
 
 blue "Instalando o Oh My Bash..."
-sh packages/terminals/oh_my_bash_install.sh
+cd ~/repos/Ubuntu/packages/terminals
+./oh_my_bash_install.sh
 
 blue "Instalando o Starship..."
-sh packages/terminals/starship_install.sh
-
-# Arquivos de customização dos shells
-rm ~/.zshrc && rm ~/.zsh_aliases && rm ~/.bashrc && rm ~/.bash_aliases
-cd ~/repos/Ubuntu/customization
-ln zsh/.zshrc ~/.zshrc && ln zsh/.zsh_aliases ~/.zsh_aliases
-ln bash/.bashrc ~/.bashrc && ln bash/.bash_aliases ~/.bash_aliases
-ln tmux/.tmux.conf ~/.tmux.conf
-ln starship/starship.toml ~/.config/starship.toml
-ln git/.gitconfig ~/.gitconfig
+cd ~/repos/Ubuntu/packages/terminals
+./starship_install.sh
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux new-session -d -s "dev"
-sleep 5
+sleep 2
 tmux source ~/.tmux.conf
-sleep 5
+sleep 2
 tmux kill-session -t "dev"
 
+sleep 2
 source ~/.bashrc
-
-title "Instalação - Parte 2"
-blue "Instalando o Lazygit..."
-cd ~/repos/Ubuntu/packages/cli-tools
-sh lazygit.sh
+sleep 2
 
 blue "Instalando o i3wm..."
+cd ~/Downloads
 /usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2024.03.04_all.deb keyring.deb SHA256:f9bb4340b5ce0ded29b7e014ee9ce788006e9bbfe31e96c09b2118ab91fca734
 cd ~/Downloads
 sudo apt install ./keyring.deb
@@ -177,7 +160,11 @@ rm speed_test.tgz
 
 blue "Baixando o Flutter..."
 cd ~/repos/Ubuntu/packages/development-tools
-sh flutter.sh
+./flutter.sh
+
+sleep 5
+clear
+sleep 5
 
 blue "Instalando o picom..."
 cd ~/Downloads
@@ -188,10 +175,6 @@ sudo ninja -C build
 sudo ninja -C build install
 cd ~/Downloads
 sudo rm -r picom/
-
-blue "Instalando o Alacritty..."
-cd ~/repos/Ubuntu/packages/terminals
-sh alacritty_install.sh
 
 blue "Instalando o scrcpy..."
 cd ~/Downloads
@@ -240,27 +223,18 @@ gsettings set org.gnome.desktop.interface icon-theme "dracula-dark"
 gsettings set org.gnome.desktop.interface font-name "JetBrainsMono NFM"
 
 blue "Instalando pacotes .deb..."
-cp /mnt/sda1/Packages/*.deb ~/Downloads/
+cp /mnt/sda/Packages/*.deb ~/Downloads/
 cd ~/Downloads/
 sudo gdebi chrome.deb
 sudo gdebi code.deb
 sudo gdebi discord.deb
 sudo gdebi obsidian.deb
 sudo gdebi upscayl.deb
-sudo gdebi youtube-music-desktop.deb
 rm *.deb
-
-blue "Removendo o Snap..."
-cd ~/repos/Ubuntu/packages/package-managers/
-sudo ./remove_snapd.sh
-
-blue "Instalando o Android Studio..."
-cd ~/repos/Ubuntu/packages/development-tools
-sh android_studio_install.sh
 
 blue "Instalando o i3lock-color..."
 cd ~/repos/Ubuntu/packages/terminals
-sh i3lock-color.sh
+./i3lock-color.sh
 
 blue "Removendo diretórios..."
 rm -r ~/Documents/
@@ -271,7 +245,22 @@ rm -r ~/Videos/
 
 title_green "Instalação concluída."
 
-brew install eza tldr git-delta fd zoxide
+brew install eza tldr git-delta fd zoxide neovim vim
+brew install jesseduffield/lazygit/lazygit
+
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+
+blue "Instalando o Alacritty..."
+cd ~/repos/Ubuntu/packages/terminals
+./alacritty_install.sh
+
+rm ~/.zshrc && rm ~/.zsh_aliases && rm ~/.bashrc && rm ~/.bash_aliases
+cd ~/repos/Ubuntu/customization
+ln zsh/.zshrc ~/.zshrc && ln zsh/.zsh_aliases ~/.zsh_aliases
+ln bash/.bashrc ~/.bashrc && ln bash/.bash_aliases ~/.bash_aliases
+ln tmux/.tmux.conf ~/.tmux.conf
+ln starship/starship.toml ~/.config/starship.toml
+ln git/.gitconfig ~/.gitconfig
 
 read -p "Reiniciar agora? (s/n): " choice
 if [[ "$choice" == "s" ]]; then

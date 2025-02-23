@@ -22,13 +22,12 @@ alias reload-bash="source ~/.bashrc"
 alias postgres="sudo -i -u postgres"
 
 # MySQL
-alias mysql="mysql -uroot -p"
-alias mysqldump="mysqldump -uroot -p"
+alias mysql="mysql -uroot -porrARDrdr27!"
+alias mysqldump="mysqldump -uroot -porrARDrdr27!"
 
 # PostgreSQL
 alias postgresql="psql -U postgres -W"
 
-# Virtualbox
-alias ssh_server="ssh serveruser@192.168.2.210"
-alias start_server="VBoxManage startvm UbuntuServer"
+# Key bindings
 alias show_nvim_keybinds="glow ~/.config/nvim/key_commands.md"
+alias show_i3-keybinds="glow ~/repos/Ubuntu/README.md"

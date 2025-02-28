@@ -2,14 +2,14 @@ set $mod Mod1
 
 font pango:JetBrainsMono NFM 11
 
-exec --no-startup-id ~/scripts/monitor_setup.sh
+exec --no-startup-id ~/scripts/desktop/monitor_setup.sh
+exec_always ~/scripts/desktop/start_picom.sh
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec --no-startup-id xrdb ~/.Xresources
-exec --no-startup-id picom
 exec --no-startup-id nm-applet
-exec --no-startup-id nitrogen --restore
 exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/scripts/lock
 
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -27,7 +27,8 @@ bindsym $mod+a exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F
 bindsym $mod+Return exec alacritty
 bindsym $mod+e exec nautilus
 bindsym $mod+o exec obsidian
-bindsym $mod+d exec google-chrome
+bindsym $mod+d exec google-chrome-stable
+bindsym $mod+t exec code
 
 # kill focused window
 bindsym $mod+q kill
@@ -131,8 +132,24 @@ bindsym $mod+Shift+r restart
 # Block i3 Session
 bindsym $mod+l exec "~/scripts/lock"
 
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+l exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# Power Menu
+bindsym $mod+Shift+l exec "~/.config/rofi/powermenu/type-4/powermenu.sh"
+# Screenshot
+bindsym $mod+Shift+p exec "~/.config/rofi/applets/bin/screenshot.sh"
+# Brightness
+bindsym $mod+Shift+j exec "~/.config/rofi/applets/bin/brightness.sh"
+# Battery
+bindsym $mod+b exec "~/.config/rofi/applets/bin/battery.sh"
+# Music Player
+bindsym $mod+m exec "~/.config/rofi/applets/bin/mpd.sh"
+# Browser Links
+bindsym $mod+g exec "~/.config/rofi/applets/bin/quicklinks.sh"
+# Root Apps
+bindsym $mod+Shift+e exec "~/.config/rofi/applets/bin/appasroot.sh"
+# Apps
+bindsym $mod+Shift+n exec "~/.config/rofi/applets/bin/apps.sh"
+# Volume
+bindsym $mod+Shift+a exec "~/.config/rofi/applets/bin/volume.sh"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

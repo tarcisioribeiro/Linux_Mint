@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 dir="$HOME/.config/rofi/powermenu/type-4"
 theme='style-2'
 

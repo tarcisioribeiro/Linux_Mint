@@ -1,10 +1,11 @@
+#!/usr/bin/env bash
 type="$HOME/.config/rofi/applets/type-2"
 style='style-2.rasi'
 theme="$type/$style"
 
 # Theme Elements
 prompt='Apps'
-mesg="Pacotes instalados : `pacman -Q | wc -l` (pacman)"
+mesg="Pacotes instalados : $(dpkg --list | grep '^ii' | wc -l) (APT)"
 
 if [[ ( "$theme" == *'type-1'* ) || ( "$theme" == *'type-3'* ) || ( "$theme" == *'type-5'* ) ]]; then
 	list_col='1'
@@ -17,10 +18,10 @@ fi
 # CMDs (add your apps here)
 term_cmd='alacritty'
 file_cmd='nautilus'
-text_cmd='alacritty -c nvim'
+text_cmd='code'
 web_cmd='google-chrome-stable'
 music_cmd='youtube-music-desktop-app'
-setting_cmd='gnome-settings'
+setting_cmd='gnome-control-center'
 
 # Options
 layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`

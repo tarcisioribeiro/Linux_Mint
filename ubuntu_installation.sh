@@ -41,17 +41,17 @@ title "Instalação - Parte 1"
 sudo apt install build-essential gcc g++ clang make cmake automake autoconf \
   git wget curl stow pkg-config meson ninja-build scdoc \
   neofetch tmux rofi fzf bat gdebi feh nitrogen polybar redshift \
-  gnome-tweaks gnome-shell-extension-manager tmux \
+  gnome-tweaks gnome-shell-extension-manager tmux xclip xsel \
   mpv vlc shotcut obs-studio cava flatpak libpam0g-dev \
-  deluge deluged deluge-web deluge-console \
+  deluge deluged deluge-web deluge-console kitty pavucontrol \
   timeshift openssh-server mysql-server default-libmysqlclient-dev \
   dkms perl nodejs npm ruby-full libsdl2-dev libusb-1.0-0-dev \
   adb cpu-checker qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils \
   ffmpeg libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev libswresample-dev \
-  gimp libgtk-3-dev libgtk-4-dev libadwaita-1-dev \
+  gimp libgtk-3-dev libgtk-4-dev libadwaita-1-dev blueman \
   python3 python3-venv python3-tk python3-pip python3-openssl python3.10-full python3.10-dev \
   libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncurses5-dev libncursesw5-dev \
-  libffi-dev liblzma-dev tk-dev btop stow \
+  libffi-dev liblzma-dev tk-dev btop stow scrot maim \
   libxcb1-dev libxcb-keysyms1-dev libxcb-util0-dev libxcb-icccm4-dev \
   libxcb-randr0-dev libxcb-xinerama0-dev libpango1.0-dev libx11-dev \
   libxrandr-dev libxinerama-dev libxss-dev libglib2.0-dev libev-dev \
@@ -201,7 +201,7 @@ mkdir -p $HOME/.config/cava && stow -v -t $HOME/.config/cava cava
 mkdir -p $HOME/.config/dunst && stow -v -t $HOME/.config/dunst dunst
 mkdir -p $HOME/.config/gtk-3.0 && stow -v -t $HOME/.config/gtk-3.0 gtk-3.0
 mkdir -p $HOME/.config/i3 && stow -v -t $HOME/.config/i3 i3
-mkdir -p $HOME/.config/alacritty && stow -v -t $HOME/.config/alacritty alacritty
+mkdir -p $HOME/.config/kitty && stow -v -t $HOME/.config/kitty kitty
 mkdir -p $HOME/.config/lazygit && stow -v -t $HOME/.config/lazygit lazygit
 mkdir -p $HOME/.config/nitrogen && stow -v -t $HOME/.config/nitrogen nitrogen
 mkdir -p $HOME/.config/nvim && stow -v -t $HOME/.config/nvim nvim
@@ -245,15 +245,12 @@ rm -r $HOME/Videos/
 
 title_green "Instalação concluída."
 
-brew install eza tldr git-delta fd zoxide neovim vim
-brew install eza tldr git-delta fd zoxide neovim vim
+brew install eza tldr git-delta glow yazi onefetch cmatrix lolcat dust fd zoxide neovim vim
+brew install eza tldr git-delta glow yazi onefetch cmatrix lolcat dust fd zoxide neovim vim
 brew install jesseduffield/lazygit/lazygit
 
 git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.10.2
 
-blue "Instalando o Alacritty..."
-cd $HOME/repos/Ubuntu/packages/terminals
-./alacritty_install.sh
 
 rm $HOME/.zshrc && rm $HOME/.zsh_aliases && rm $HOME/.bashrc && rm $HOME/.bash_aliases
 cd $HOME/repos/Ubuntu/customization

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 type="$HOME/.config/rofi/applets/type-3"
 style='style-2.rasi'
 theme="$type/$style"
@@ -18,10 +19,10 @@ elif [[ "$theme" == *'type-5'* ]]; then
   list_col='1'
   list_row='5'
   win_width='520px'
-elif [[ ("$theme" == *'type-2'*) || ("$theme" == *'type-4'*) ]]; then
-  list_col='5'
-  list_row='1'
-  win_width='670px'
+# elif [[ ("$theme" == *'type-2'*) || ("$theme" == *'type-4'*) ]]; then
+#   list_col='5'
+#   list_row='1'
+#   win_width='670px'
 fi
 
 # Options

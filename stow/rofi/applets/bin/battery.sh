@@ -43,7 +43,7 @@ if [[ $status = *"Charging"* ]]; then
     ICON_CHRG=""
 elif [[ $status = *"Full"* ]]; then
     active="-u 1"
-    ICON_CHRG=""
+    ICON_CHRG=""
 else
     urgent="-u 1"
     ICON_CHRG=""
@@ -96,15 +96,14 @@ run_rofi() {
 
 # Execute Command
 run_cmd() {
-	polkit_cmd="pkexec env PATH=$PATH DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY"
 	if [[ "$1" == '--opt1' ]]; then
 		notify-send -u low " Restante : ${percentage}%"
 	elif [[ "$1" == '--opt2' ]]; then
 		notify-send -u low "$ICON_CHRG Status : $status"
 	elif [[ "$1" == '--opt3' ]]; then
-		lxqt-config
+		gnome-control-center power
 	elif [[ "$1" == '--opt4' ]]; then
-		${polkit_cmd} kitty -e powertop
+		alacritty -e sudo powertop
 	fi
 }
 

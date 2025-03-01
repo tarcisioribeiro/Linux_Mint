@@ -1,13 +1,14 @@
 set $mod Mod1
 
 font pango:JetBrainsMono NFM 11
-
 exec --no-startup-id ~/scripts/desktop/monitor_setup.sh
-exec_always ~/scripts/desktop/start_picom.sh
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id nitrogen --restore
+exec --no-startup-id /usr/lib/polkit-1/polkit-agent-helper-1
 exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+exec_always --no-startup-id kilall picom
+exec_always --no-startup-id picom
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id nm-applet
 exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/scripts/lock

@@ -8,6 +8,10 @@ higher_cutoff_freq = 10000 # Freq. de corte superior (Hz)
 [output]
 # Tipo de saída: alsa, pulseaudio, fifo, ncurses, etc.
 method = ncurses          # Modo visual em terminal
+# method = raw
+# raw_target = /tmp/cava.fifo
+# data_format = ascii
+# channels = mono
 
 [smoothing]
 # Suavização do áudio

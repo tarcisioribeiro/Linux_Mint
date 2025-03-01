@@ -4,7 +4,7 @@ style='style-2.rasi'
 theme="$type/$style"
 
 # Brightness Info
-backlight="$(printf "%.0f\n" `light -G`)"
+backlight="$(LC_NUMERIC=C printf "%.0f\n" $(light -G))"
 card="`light -L | grep 'backlight' | head -n1 | cut -d'/' -f3`"
 
 if [[ $backlight -ge 0 ]] && [[ $backlight -le 29 ]]; then
@@ -79,7 +79,7 @@ run_cmd() {
 	elif [[ "$1" == '--opt3' ]]; then
 		light -U 5
 	elif [[ "$1" == '--opt4' ]]; then
-		lxqt-config
+		gnome-control-center
 	fi
 }
 

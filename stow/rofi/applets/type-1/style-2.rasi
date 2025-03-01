@@ -1,3 +1,7 @@
+configuration {
+    show-icons:                 false;
+}
+
 * {
     font: "JetBrainsMono NFM Medium 12";
     foreground: #f8f8f2;
@@ -7,10 +11,6 @@
     urgent: #ff5555;
     selected: #bd93f9;
     active: #8be9fd;
-}
-
-configuration {
-    show-icons:                 false;
 }
 
 * {

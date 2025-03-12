@@ -1,7 +1,5 @@
-# Use the color palette
 palette = "dracula"
 
-# Define Dracula color palette
 [palettes.dracula]
 background = "#282a36"
 current_line = "#44475a"

@@ -1,7 +1,8 @@
 set $mod Mod1
 
-font pango:JetBrainsMono NFM 11
-exec --no-startup-id ~/scripts/desktop/monitor_setup.sh
+font pango:JetBrainsMono NFM 12
+exec --no-startup-id gnome-shell
+exec_always --no-startup-id ~/scripts/desktop/monitor_setup.sh
 exec_always --no-startup-id nitrogen --restore
 exec --no-startup-id /usr/lib/polkit-1/polkit-agent-helper-1
 exec --no-startup-id dex --autostart --environment i3
@@ -73,18 +74,17 @@ bindsym $mod+c focus mode_toggle
 bindsym $mod+p focus parent
 
 # redshift modes
-bindsym $mod+r mode "$mode_redshift"
-set $mode_redshift Set colour temperature: (a)uto, (r)eset, (2)500K, (3)000K, (4)000K, (5)000K
+bindsym $mod+Shift+s mode "$mode_redshift"
+set $mode_redshift Set colour temperature: (a)uto, (r)eset, (1)3000K, (2)3500K, (3)4000K, (4)4500K, (5)5000K
 set $kill_redshift pkill -9 redshift;
 mode "$mode_redshift" {
     bindsym a exec --no-startup-id "$kill_redshift redshift -P -t 5000:4000", mode "default"
     bindsym r exec --no-startup-id "$kill_redshift redshift -x", mode "default"
-    bindsym 2 exec --no-startup-id "$kill_redshift redshift -P -O 2500", mode "default"
-    bindsym 3 exec --no-startup-id "$kill_redshift redshift -P -O 3000", mode "default"
-    bindsym 4 exec --no-startup-id "$kill_redshift redshift -P -O 4000", mode "default"
+    bindsym 1 exec --no-startup-id "$kill_redshift redshift -P -O 3000", mode "default"
+    bindsym 2 exec --no-startup-id "$kill_redshift redshift -P -O 3500", mode "default"
+    bindsym 3 exec --no-startup-id "$kill_redshift redshift -P -O 4000", mode "default"
+    bindsym 4 exec --no-startup-id "$kill_redshift redshift -P -O 4500", mode "default"
     bindsym 5 exec --no-startup-id "$kill_redshift redshift -P -O 5000", mode "default"
- 
-    # exit mode: "Enter" or "Escape"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -133,34 +133,23 @@ bindsym $mod+Shift+r restart
 # Block i3 Session
 bindsym $mod+l exec "~/scripts/lock"
 
-# Power Menu
+# Rofi Menus
 bindsym $mod+Shift+l exec "~/.config/rofi/powermenu/type-4/powermenu.sh"
-# Screenshot
 bindsym $mod+Shift+p exec "~/.config/rofi/applets/bin/screenshot.sh"
-# Brightness
 bindsym $mod+Shift+j exec "~/.config/rofi/applets/bin/brightness.sh"
-# Battery
 bindsym $mod+b exec "~/.config/rofi/applets/bin/battery.sh"
-# Music Player
 bindsym $mod+m exec "~/.config/rofi/applets/bin/mpd.sh"
-# Browser Links
 bindsym $mod+g exec "~/.config/rofi/applets/bin/quicklinks.sh"
-# Root Apps
 bindsym $mod+Shift+e exec "~/.config/rofi/applets/bin/appasroot.sh"
-# Apps
 bindsym $mod+Shift+n exec "~/.config/rofi/applets/bin/apps.sh"
-# Volume
 bindsym $mod+Shift+a exec "~/.config/rofi/applets/bin/volume.sh"
 
-# resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
 mode "resize" {
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
@@ -208,3 +197,6 @@ for_window [class="Gedit"] floating enable, move position center
 for_window [class="Gnome-terminal"] floating enable, move position center
 for_window [class="obs"] floating enable, move position center
 for_window [class="obsidian"] floating disable
+for_window [class="Emulator"] floating enable, move position center
+for_window [class="vlc"] floating enable, move position center
+for_window [class="scrcpy"] floating enable

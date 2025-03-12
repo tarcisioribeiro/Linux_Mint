@@ -62,6 +62,7 @@ export PATH="$PATH:$HOME/.local/bin"
 export EDITOR=nvim
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 export PATH="$PATH:$HOME/development/flutter/bin"
+export TERM=xterm-256color
 . $HOME/.asdf/asdf.sh
 . "$HOME/.cargo/env"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
@@ -69,3 +70,7 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+eval "$(zoxide init zsh)"
+
+export PATH=$PATH:/home/tarcisio/.spicetify

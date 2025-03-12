@@ -82,7 +82,7 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
+  . "$HOME/.bash_aliases"
 fi
 
 if ! shopt -oq posix; then
@@ -111,9 +111,14 @@ _fzf_compgen_dir() {
 . /usr/share/doc/fzf/examples/key-bindings.bash
 export PATH="$PATH:~/.local/bin"
 export EDITOR=nvim
-. $HOME/.asdf/asdf.sh
+export TERM=xterm-256color
+. "$HOME/.asdf/asdf.sh"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 
 eval "$(starship init bash)"
 . "$HOME/.cargo/env"
+
+eval "$(zoxide init bash)"
+export PATH=$PATH:/home/tarcisio/.spicetify
+export PAGER="batcat --theme=Dracula --color=always --paging=never --style=plain"

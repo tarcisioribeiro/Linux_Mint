@@ -3,7 +3,7 @@ configuration {
 }
 
 * {
-    font: "JetBrainsMono NFM 12";
+    font: "JetBrainsMono NFM Medium 12";
     foreground: #f8f8f2;
     background: #282a36;
     background-alt: #44475a;
@@ -24,9 +24,9 @@ configuration {
     prompt-font:                 "JetBrainsMono Nerd Font Bold 72";
     textbox-font:                "JetBrainsMono Nerd Font 14";
     element-text-font:           "feather 64";
-    background-window:           black/50%;
+    background-window:           black/80%;
     background-normal:           white/5%;
-    background-selected:         white/15%;
+    background-selected:         white/25%;
     foreground-normal:           white;
     foreground-selected:         white;
 }

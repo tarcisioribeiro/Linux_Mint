@@ -20,25 +20,25 @@ term_cmd='alacritty'
 file_cmd='nautilus'
 text_cmd='code'
 web_cmd='google-chrome-stable'
-music_cmd='youtube-music-desktop-app'
+music_cmd='spotify'
 setting_cmd='gnome-control-center'
 
 # Options
 layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`
 if [[ "$layout" == 'NO' ]]; then
-	option_1=" Terminal <span weight='light' size='small'><i>($term_cmd)</i></span>"
-	option_2=" Arquivos <span weight='light' size='small'><i>($file_cmd)</i></span>"
-	option_3=" Editor <span weight='light' size='small'><i>($text_cmd)</i></span>"
-	option_4=" Navegador <span weight='light' size='small'><i>($web_cmd)</i></span>"
-	option_5=" Música <span weight='light' size='small'><i>($music_cmd)</i></span>"
-	option_6=" Configurações <span weight='light' size='small'><i>($setting_cmd)</i></span>"
+	option_1=" Terminal <span weight='light' size='small'><i>($term_cmd)</i></span>"
+	option_2=" Arquivos <span weight='light' size='small'><i>($file_cmd)</i></span>"
+	option_3=" Editor <span weight='light' size='small'><i>($text_cmd)</i></span>"
+	option_4=" Navegador <span weight='light' size='small'><i>($web_cmd)</i></span>"
+	option_5=" Música <span weight='light' size='small'><i>($music_cmd)</i></span>"
+	option_6=" Configurações <span weight='light' size='small'><i>($setting_cmd)</i></span>"
 else
-	option_1=""
-	option_2=""
-	option_3=""
-	option_4=""
-	option_5=""
-	option_6=""
+	option_1=""
+	option_2=""
+	option_3=""
+	option_4=""
+	option_5=""
+	option_6=""
 fi
 
 # Rofi CMD

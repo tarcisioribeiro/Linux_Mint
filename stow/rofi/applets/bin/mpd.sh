@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
+
 type="$HOME/.config/rofi/applets/type-1"
 style='style-3.rasi'
 theme="$type/$style"
 
-# Obter status do player
 status=""
 
-# Verificar se o YouTube Music Desktop App está rodando
-if pgrep -x "YouTube Music" > /dev/null; then
-  # Usando xdotool para detectar o status via atalhos de mídia
+if playerctl status &>/dev/null; then
   status="Playing"
 else
   status="Offline"
@@ -19,11 +17,10 @@ if [[ "$status" == "Offline" ]]; then
   mesg="Nenhum player detectado"
 else
   formatted_status="Tocando"
-  prompt="YouTube Music"
+  prompt="Player Online"
   mesg="Player Online :: $formatted_status"
 fi
 
-# Definir layout do Rofi
 if [[ ("$theme" == *'type-1'*) || ("$theme" == *'type-3'*) || ("$theme" == *'type-5'*) ]]; then
   list_col='1'
   list_row='6'
@@ -32,7 +29,6 @@ elif [[ ("$theme" == *'type-2'*) || ("$theme" == *'type-4'*) ]]; then
   list_row='1'
 fi
 
-# Definir opções
 toggle_icon=""
 if [[ "$status" == "Playing" ]]; then
   toggle_icon=""
@@ -55,24 +51,21 @@ rofi_cmd() {
     -theme ${theme}
 }
 
-# Rodar Rofi
 run_rofi() {
   echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | rofi_cmd
 }
 
-# Executar comando com xdotool
 run_cmd() {
   case "$1" in
-    '--opt1') xdotool key XF86AudioPlay ;;   # Play/Pause
-    '--opt2') xdotool key XF86AudioStop ;;   # Parar
-    '--opt3') xdotool key XF86AudioPrev ;;   # Anterior
-    '--opt4') xdotool key XF86AudioNext ;;   # Próxima
-    '--opt5') xdotool key XF86AudioRepeat ;; # Repetir
-    '--opt6') xdotool key XF86AudioShuffle ;;# Aleatório
+    '--opt1') playerctl play-pause ;;
+    '--opt2') playerctl stop ;;
+    '--opt3') playerctl previous ;;
+    '--opt4') playerctl next ;;
+    '--opt5') playerctl loop ;;
+    '--opt6') playerctl shuffle ;;
   esac
 }
 
-# Capturar escolha e executar ação
 chosen="$(run_rofi)"
 case ${chosen} in
   "$option_1") run_cmd --opt1 ;;

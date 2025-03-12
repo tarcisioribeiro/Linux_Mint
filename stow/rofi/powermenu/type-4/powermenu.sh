@@ -71,7 +71,7 @@ $reboot)
   run_cmd --reboot
   ;;
 $lock)
-  if [[ -x '/sbin/i3lock' ]]; then
+  if [[ -x '/usr/bin/i3lock' ]]; then
     ~/scripts/lock
   fi
   ;;

@@ -146,6 +146,18 @@
           }
         },
         {
+          "type": "spotify",
+          "style": "diamnond",
+          "leading_diamond": "\ue0b2",
+          "foreground": "#f8f8f2",
+          "background": "#50fa7b",
+          "properties": {
+            "playing_icon": " ",
+            "paused_icon": " ",
+            "stopped_icon": " "
+          }
+        },
+        {
           "properties": {
             "cache_duration": "none",
             "display_mode": "environment",

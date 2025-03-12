@@ -23,3 +23,9 @@ set listchars=tab:»·,trail:·,eol:¬
 set scrolloff=8
 set incsearch
 set termguicolors
+
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
+highlight Folded ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE

@@ -77,8 +77,8 @@ decorations_theme_variant = "Dark"
 
 [font]
 normal.family = "JetBrainsMono NFM"
-bold.family = "JetBrainsMono Nerd Font Mono"
-italic.family = "JetBrainsMono Nerd Font Mono"
-bold_italic.family = "JetBraisnMono Nerd Font Mono"
+bold.family = "JetBrainsMono NFM"
+italic.family = "JetBrainsMono NFM"
+bold_italic.family = "JetBrainsMono NFM"
 
 size = 14.0

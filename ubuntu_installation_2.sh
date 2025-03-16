@@ -113,7 +113,7 @@ gsettings set org.gnome.desktop.interface font-name "JetBrainsMono NFM 11"
 gsettings set org.gnome.cursor.interface cursor-theme "breeze_cursors"
 
 blue "Instalando o i3lock-color..."
-cd "$HOME/repos/Ubuntu/packages/terminals" || exit
+cd "$HOME/repos/Ubuntu/packages/programs/" || exit
 ./i3lock-color.sh
 
 cd "$HOME/Downloads" || exit

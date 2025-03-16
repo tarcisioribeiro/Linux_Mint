@@ -1,12 +1,16 @@
 #!/bin/bash
 
-set -e  # Interrompe a execução se algum comando falhar
+set -e # Interrompe a execução se algum comando falhar
 
 msg_color() {
   clear
   echo -e "\n\033[$1m$2\033[0m\n"
   sleep 2
 }
+
+sudo snap remove firefox
+sudo apt purge snapd
+sudo rm -rf ~/snap
 
 PACKAGES=(
   toilet curl wget build-essential gcc g++ clang make cmake automake autoconf git stow pkg-config meson ninja-build scdoc cargo
@@ -21,8 +25,8 @@ PACKAGES=(
   libglib2.0-dev libev-dev libxcb-cursor-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev libxcb-xrm0 libxcb-xrm-dev
   libxcb-shape0-dev libconfig-dev libdbus-1-dev libegl-dev libgl-dev libepoxy-dev libpcre2-dev libpixman-1-dev
   autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev nvidia-driver-550
-  libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev build-essential dkms nvtop
-  libxcb-image0-dev libxcb-util0-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
+  libev-dev libx12-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev build-essential dkms nvtop firefox
+  libxcb-image0-dev libxcb-util0-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev ranger
   libx11-xcb-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-glx0-dev libxcb-image0-dev libxcb-present-dev libxcb-render0-dev
   acpi light libxcb-render-util0-dev libxcb-util-dev libxcb-xfixes0-dev uthash-dev libfreetype6-dev libfontconfig1-dev
   libxcb-xfixes0-dev libgtk-3-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev
@@ -86,4 +90,4 @@ tmux source "$HOME/.tmux.conf"
 tmux kill-session -t "dev"
 
 msg_color "34" "Configurando HomeBrew no shell..."
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' | tee -a "$HOME/.bashrc" "$HOME/.zshrc" > /dev/null
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' | tee -a "$HOME/.bashrc" "$HOME/.zshrc" >/dev/null

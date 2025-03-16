@@ -15,3 +15,7 @@ asdf install neovim stable
 asdf install nodejs 23.9.0
 
 asdf reshim
+
+asdf global java oracle-21
+asdf global neovim stable
+asdf global nodejs 23.9.0

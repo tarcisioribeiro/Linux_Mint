@@ -14,6 +14,8 @@ blue() {
   echo ""
   sleep 2
 }
+brew install fd git-delta vim lazygit eza onefetch spotifyd tldr zoxide
+
 cd "$HOME/repos/Ubuntu/packages/programs" || exit
 ./alacritty_install.sh
 

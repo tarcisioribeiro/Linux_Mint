@@ -1,7 +1,6 @@
 #!/usr/bin/bash
 sudo apt update
 sudo apt upgrade
-sudo apt install nala toilet curl wget git build-essential neofetch htop
 ssh-keygen -t ed25519 -C "tarcisio.ribeiro.1840@hotmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519

@@ -6,7 +6,7 @@
 | `$mod+Return` | Abrir terminal (Alacritty) |
 | `$mod+e` | Abrir gerenciador de arquivos (Nautilus) |
 | `$mod+o` | Abrir Obsidian |
-| `$mod+d` | Abrir Google Chrome |
+| `$mod+d` | Abrir Firefox |
 | `$mod+t` | Abrir VS Code |
 
 ## Controle de Janelas

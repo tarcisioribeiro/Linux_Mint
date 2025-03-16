@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-cd ~/Downloads/
+cd "$HOME/Downloads"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 sleep 5
@@ -10,6 +10,12 @@ ln .bash_aliases $HOME/.bash_aliases
 ln .bashrc $HOME/.bashrc
 sleep 5
 
+cd "$HOME/Downloads"
+git clone https://github.com/rust-lang/cargo.git
+cd cargo
+cargo build --relsease
+
+cd "$HOME/Downloads"
 git clone https://github.com/alacritty/alacritty.git
 cd alacritty
 cargo build --release

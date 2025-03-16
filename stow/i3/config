@@ -29,7 +29,7 @@ bindsym $mod+a exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F
 bindsym $mod+Return exec alacritty
 bindsym $mod+e exec nautilus
 bindsym $mod+o exec obsidian
-bindsym $mod+d exec google-chrome-stable
+bindsym $mod+d exec firefox
 bindsym $mod+t exec code
 
 # kill focused window
@@ -75,15 +75,14 @@ bindsym $mod+p focus parent
 
 # redshift modes
 bindsym $mod+Shift+s mode "$mode_redshift"
-set $mode_redshift Set colour temperature: (a)uto, (r)eset, (1)3000K, (2)3500K, (3)4000K, (4)4500K, (5)5000K
+set $mode_redshift Set colour temperature: (a)uto, (r)eset, (2)500K, (3)000K, (4)000K, (5)000K
 set $kill_redshift pkill -9 redshift;
 mode "$mode_redshift" {
     bindsym a exec --no-startup-id "$kill_redshift redshift -P -t 5000:4000", mode "default"
     bindsym r exec --no-startup-id "$kill_redshift redshift -x", mode "default"
-    bindsym 1 exec --no-startup-id "$kill_redshift redshift -P -O 3000", mode "default"
-    bindsym 2 exec --no-startup-id "$kill_redshift redshift -P -O 3500", mode "default"
-    bindsym 3 exec --no-startup-id "$kill_redshift redshift -P -O 4000", mode "default"
-    bindsym 4 exec --no-startup-id "$kill_redshift redshift -P -O 4500", mode "default"
+    bindsym 2 exec --no-startup-id "$kill_redshift redshift -P -O 2500", mode "default"
+    bindsym 3 exec --no-startup-id "$kill_redshift redshift -P -O 3000", mode "default"
+    bindsym 4 exec --no-startup-id "$kill_redshift redshift -P -O 4000", mode "default"
     bindsym 5 exec --no-startup-id "$kill_redshift redshift -P -O 5000", mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"

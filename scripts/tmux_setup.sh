@@ -7,7 +7,10 @@ if [ $? -eq 0 ]; then
 fi
 
 tmux new-session -d -s $SESSION_NAME -n 'explorer'
-tmux send-keys -t $SESSION_NAME:0 "ranger $HOME" C-m
+tmux send-keys -t $SESSION_NAME:0 "nvim $HOME" C-m
+tmux split-window -h -t $SESSION_NAME:0
+tmux select-pane -t $SESSION_NAME:0.1
+tmux send-keys "ranger $HOME" C-m
 
 tmux new-window -t $SESSION_NAME:1 -n 'database'
 tmux send-keys -t $SESSION_NAME:1 'mysql -u root -p' C-m

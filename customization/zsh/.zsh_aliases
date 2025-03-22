@@ -20,4 +20,6 @@ alias reload-zsh="source ~/.zshrc"
 alias show_nvim_keybinds="glow ~/.config/nvim/key_commands.md"
 alias show_i3_keybinds="glow ~/repos/Ubuntu/README.md"
 
-alias launch_avd="~/Android/Sdk/emulator/emulator -avd Pixel -gpu host"
+alias launch_avd="~/Android/Sdk/emulator/emulator -avd 'Pixel' -gpu host"
+
+alias show_aliases='batcat --theme="Dracula" --language zsh $HOME/.zsh_aliases'

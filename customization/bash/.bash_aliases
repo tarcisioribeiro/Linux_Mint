@@ -20,3 +20,5 @@ alias mysqldump="mysqldump -uroot -porrARDrdr27!"
 
 alias show_nvim_keybinds="glow ~/.config/nvim/key_commands.md"
 alias show_i3-keybinds="glow ~/repos/Ubuntu/README.md"
+
+alias show_aliases='batcat --theme="Dracula" --language .bash_aliases $HOME/.bash_aliases'

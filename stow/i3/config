@@ -8,7 +8,7 @@ exec --no-startup-id /usr/lib/polkit-1/polkit-agent-helper-1
 exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
-exec_always --no-startup-id kilall picom
+exec_always --no-startup-id killall picom
 exec_always --no-startup-id picom
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id nm-applet
@@ -29,7 +29,7 @@ bindsym $mod+a exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F
 bindsym $mod+Return exec alacritty
 bindsym $mod+e exec nautilus
 bindsym $mod+o exec obsidian
-bindsym $mod+d exec firefox
+bindsym $mod+d exec google-chrome-stable
 bindsym $mod+t exec code
 
 # kill focused window
@@ -164,6 +164,7 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
 
 bar {
+  tray_output HDMI-0
   colors {
     background #282A36
     statusline #F8F8F2
@@ -198,4 +199,7 @@ for_window [class="obs"] floating enable, move position center
 for_window [class="obsidian"] floating disable
 for_window [class="Emulator"] floating enable, move position center
 for_window [class="vlc"] floating enable, move position center
+for_window [class="jetbrains-studio"] floating enable, move position center
 for_window [class="scrcpy"] floating enable
+for_window [class="Gnome-control-center"] floating enable, move position center
+for_window [class="Gnome-disks"] floating enable, move position center

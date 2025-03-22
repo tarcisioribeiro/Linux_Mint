@@ -1,15 +1,20 @@
+# This file is part of ranger, the console file manager.
+# License: GNU GPL version 3, see the file "AUTHORS" for details.
+# This theme was greatly inspired by "RougarouTheme" for ranger
+# It can be found in: `https://github.com/RougarouTheme/ranger`
+
 from __future__ import absolute_import, division, print_function
 
 from ranger.gui.colorscheme import ColorScheme
 from ranger.gui.color import (
     black,
-    red,
-    green,
-    yellow,
     blue,
-    magenta,
     cyan,
+    green,
+    magenta,
+    red,
     white,
+    yellow,
     default,
     normal,
     bold,
@@ -18,153 +23,196 @@ from ranger.gui.color import (
 )
 
 
-class FullColorScheme(ColorScheme):
-    progress_bar_color = magenta
+class Dracula(ColorScheme):
+    progress_bar_color = 13
 
     def verify_browser(self, context, fg, bg, attr):
         if context.selected:
             attr = reverse
         else:
             attr = normal
-
         if context.empty or context.error:
-            bg = red
-            fg = white
+            bg = 1
+            fg = 0
         if context.border:
             fg = default
         if context.document:
-            fg = magenta
+            attr |= normal
+            fg = 13
         if context.media:
             if context.image:
-                fg = yellow
+                attr |= normal
+                fg = 3
             elif context.video:
-                fg = red
+                fg = 1
             elif context.audio:
-                fg = cyan
+                fg = 6
             else:
-                fg = green
+                fg = 10
         if context.container:
-            fg = white
             attr |= bold
+            fg = 9
         if context.directory:
-            fg = blue
             attr |= bold
+            fg = 4
         elif context.executable and not any(
             (context.media, context.container, context.fifo, context.socket)
         ):
-            fg = green
             attr |= bold
+            fg = 2
         if context.socket:
-            fg = magenta
+            fg = 5
             attr |= bold
         if context.fifo or context.device:
-            fg = yellow
+            fg = 3
             if context.device:
                 attr |= bold
         if context.link:
-            fg = cyan if context.good else magenta
+            fg = 6 if context.good else 13
         if context.tag_marker and not context.selected:
             attr |= bold
-            fg = red if fg in (red, magenta) else white
+            if fg in (red, magenta):
+                fg = 1
+            else:
+                fg = 15
         if not context.selected and (context.cut or context.copied):
-            fg = black
+            fg = 8
             attr |= bold
         if context.main_column:
             if context.selected:
                 attr |= bold
             if context.marked:
-                fg = yellow
                 attr |= bold
+                fg = 11
         if context.badinfo:
-            fg = magenta if attr & reverse else magenta
+            if attr & reverse:
+                bg = 5
+            else:
+                fg = 5
+
         if context.inactive_pane:
-            fg = cyan
+            fg = 6
+
         return fg, bg, attr
 
     def verify_titlebar(self, context, fg, bg, attr):
         attr |= bold
         if context.hostname:
-            fg = red if context.bad else green
+            fg = 1 if context.bad else 2
         elif context.directory:
-            fg = blue
+            fg = 4
         elif context.tab:
-            bg = green if context.good else default
+            if context.good:
+                bg = 2
         elif context.link:
-            fg = cyan
+            fg = 6
+
         return fg, bg, attr
 
     def verify_statusbar(self, context, fg, bg, attr):
         if context.permissions:
-            fg = green if context.good else black
-            bg = red if context.bad else bg
+            if context.good:
+                fg = 2
+            elif context.bad:
+                bg = 5
+                fg = 8
         if context.marked:
-            fg = yellow
             attr |= bold | reverse
+            fg = 3
         if context.frozen:
-            fg = cyan
             attr |= bold | reverse
+            fg = 6
         if context.message:
-            fg = red if context.bad else fg
-            attr |= bold
+            if context.bad:
+                attr |= bold
+                fg = 1
         if context.loaded:
             bg = self.progress_bar_color
         if context.vcsinfo:
-            fg = blue
+            fg = 4
+            attr &= ~bold
         if context.vcscommit:
-            fg = yellow
+            fg = 3
+            attr &= ~bold
         if context.vcsdate:
-            fg = cyan
+            fg = 6
+            attr &= ~bold
+
         return fg, bg, attr
 
     def verify_taskview(self, context, fg, bg, attr):
         if context.title:
-            fg = blue
+            fg = 4
+
         if context.selected:
             attr |= reverse
+
         if context.loaded:
-            bg = self.progress_bar_color if not context.selected else fg
+            if context.selected:
+                fg = self.progress_bar_color
+            else:
+                bg = self.progress_bar_color
+
         return fg, bg, attr
 
     def verify_vcsfile(self, context, fg, bg, attr):
         attr &= ~bold
-        fg = {
-            "vcsconflict": magenta,
-            "vcschanged": red,
-            "vcsunknown": red,
-            "vcsstaged": green,
-            "vcssync": green,
-            "vcsignored": default,
-        }.get(context.vcsstate, fg)
+        if context.vcsconflict:
+            fg = 5
+        elif context.vcschanged:
+            fg = 1
+        elif context.vcsunknown:
+            fg = 1
+        elif context.vcsstaged:
+            fg = 2
+        elif context.vcssync:
+            fg = 2
+        elif context.vcsignored:
+            fg = default
+
         return fg, bg, attr
 
     def verify_vcsremote(self, context, fg, bg, attr):
         attr &= ~bold
-        fg = {
-            "vcssync": green,
-            "vcsnone": green,
-            "vcsbehind": red,
-            "vcsahead": cyan,
-            "vcsdiverged": magenta,
-            "vcsunknown": red,
-        }.get(context.vcsstate, fg)
+        if context.vcssync or context.vcsnone:
+            fg = 2
+        elif context.vcsbehind:
+            fg = 1
+        elif context.vcsahead:
+            fg = 6
+        elif context.vcsdiverged:
+            fg = 5
+        elif context.vcsunknown:
+            fg = 1
+
         return fg, bg, attr
 
     def use(self, context):
         fg, bg, attr = default_colors
+
         if context.reset:
             return default_colors
+
         elif context.in_browser:
             fg, bg, attr = self.verify_browser(context, fg, bg, attr)
+
         elif context.in_titlebar:
             fg, bg, attr = self.verify_titlebar(context, fg, bg, attr)
+
         elif context.in_statusbar:
             fg, bg, attr = self.verify_statusbar(context, fg, bg, attr)
-        if context.text and context.highlight:
-            attr |= reverse
+
+        if context.text:
+            if context.highlight:
+                attr |= reverse
+
         if context.in_taskview:
             fg, bg, attr = self.verify_taskview(context, fg, bg, attr)
+
         if context.vcsfile and not context.selected:
             fg, bg, attr = self.verify_vcsfile(context, fg, bg, attr)
+
         elif context.vcsremote and not context.selected:
             fg, bg, attr = self.verify_vcsremote(context, fg, bg, attr)
+
         return fg, bg, attr

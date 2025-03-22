@@ -7,7 +7,7 @@ if [ $? -eq 0 ]; then
 fi
 
 tmux new-session -d -s $SESSION_NAME -n 'explorer'
-tmux send-keys -t $SESSION_NAME:0 "nvim $HOME" C-m
+tmux send-keys -t $SESSION_NAME:0 "bash -c 'nvim $HOME'" C-m
 tmux split-window -h -t $SESSION_NAME:0
 tmux select-pane -t $SESSION_NAME:0.1
 tmux send-keys "ranger $HOME" C-m
@@ -19,9 +19,9 @@ tmux select-pane -t $SESSION_NAME:1.1
 tmux send-keys 'journalctl -fu mysql' C-m
 
 tmux new-window -t $SESSION_NAME:2 -n 'monitoring'
-tmux send-keys -t $SESSION_NAME:2 'btop' C-m
+tmux send-keys -t $SESSION_NAME:2 "bash -c 'btop'" C-m
 tmux split-window -h -t $SESSION_NAME:2
 tmux select-pane -t $SESSION_NAME:2.1
-tmux send-keys 'nvtop' C-m
+tmux send-keys "bash -c 'nvtop'" C-m
 
 tmux select-window -t $SESSION_NAME:0

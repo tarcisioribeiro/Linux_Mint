@@ -8,7 +8,7 @@ setopt hist_verify
 
 export ZSH="$HOME/.oh-my-zsh"
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting ssh)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -74,3 +74,4 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(zoxide init zsh)"
 
 export PATH=$PATH:/home/tarcisio/.spicetify
+. /home/tarcisio/.asdf/asdf.sh

@@ -15,8 +15,6 @@ blue() {
   sleep 2
 }
 
-brew install fd git-delta vim lazygit eza onefetch tldr zoxide
-
 # blue "Instalando o i3wm..."
 # cd "$HOME/Downloads" || exit
 # /usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2024.03.04_all.deb keyring.deb SHA256:f9bb4340b5ce0ded29b7e014ee9ce788006e9bbfe31e96c09b2118ab91fca734
@@ -119,7 +117,10 @@ wget https://raw.githubusercontent.com/dracula/gedit/master/dracula.xml
 mkdir -p ~/.local/share/gedit/styles/
 mv dracula.xml ~/.local/share/gedit/styles/
 
-rm "$HOME/.zshrc" && rm "$HOME/.zsh_aliases" && rm "$HOME/.bashrc" && rm "$HOME/.bash_aliases"
+cd "$HOME/repos/Ubuntu/packages/programs" || exit
+./alacritty_install.sh
+
+rm "$HOME/.zshrc" && rm && rm "$HOME/.bashrc" && rm "$HOME/.bash_aliases"
 cd "$HOME/repos/Ubuntu/customization" || exit
 ln zsh/.zshrc "$HOME/.zshrc" && ln zsh/.zsh_aliases "$HOME/.zsh_aliases"
 ln bash/.bashrc "$HOME/.bashrc" && ln bash/.bash_aliases "$HOME/.bash_aliases"

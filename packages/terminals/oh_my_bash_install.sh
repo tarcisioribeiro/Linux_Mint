@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 if [ -z "${BASH_VERSION-}" ]; then
   printf "Error: Bash 3.2 or higher is required for Oh My Bash.\n"
   printf "Error: Install Bash and try running this installation script with Bash.\n"
@@ -8,7 +7,6 @@ if [ -z "${BASH_VERSION-}" ]; then
   fi
   return 1 >/dev/null 2>&1 || exit 1
 fi
-
 if [[ ! ${BASH_VERSINFO[0]-} ]] || ((BASH_VERSINFO[0] < 3 || BASH_VERSINFO[0] == 3 && BASH_VERSINFO[1] < 2)); then
   printf "Error: Bash 3.2 required for Oh My Bash.\n" >&2
   printf "Error: Upgrade Bash and try again.\n" >&2
@@ -17,21 +15,18 @@ elif ((BASH_VERSINFO[0] < 4)); then
   printf "Warning: Bash >=4 is no longer required for Oh My Bash but is cool to have ;)\n" >&2
   printf "Warning: Why don't you upgrade your Bash to 4 or higher?\n" >&2
 fi
-
 function _omb_install_print_version {
   local OMB_VERSINFO
   OMB_VERSINFO=(1 0 0 0 master noarch)
   printf '%s\n' 'Install script for Oh-My-Bash (https://github.com/ohmybash/oh-my-bash)'
   printf 'oh-my-bash, version %s.%s.%s(%s)-%s (%s)\n' "${OMB_VERSINFO[@]}"
 }
-
 function _omb_install_print_usage {
   printf '%s\n' \
     'usage: ./install.sh [--unattended | --dry-run | --help | --usage | --version]' \
     'usage: bash -c "$(< install.sh)" [--unattended | --dry-run | --help | --usage |' \
     '           --version]'
 }
-
 function _omb_install_print_help {
   _omb_install_print_version
   _omb_install_print_usage
@@ -46,7 +41,6 @@ function _omb_install_print_help {
     '  --prefix=PATH     install oh-my-bash into "PATH/share/oh-my-bash"' \
     ''
 }
-
 function _omb_install_readargs {
   install_opts=
   install_prefix=
@@ -98,12 +92,10 @@ function _omb_install_readargs {
         ;;
       esac
     fi
-
     install_opts+=:error
     printf 'install (oh-my-bash): %s\n' "$RED$BOLD[Error]$NORMAL unrecognized argument '$arg'." >&2
   done
 }
-
 function _omb_install_run {
   if [[ :$install_opts: == *:dry-run:* ]]; then
     printf '%s\n' "$BOLD$GREEN[dryrun]$NORMAL $BOLD$*$NORMAL" >&5
@@ -112,7 +104,6 @@ function _omb_install_run {
     command "$@"
   fi
 }
-
 function _omb_install_banner {
   printf '%s' "$GREEN"
   printf '%s\n' \
@@ -124,23 +115,19 @@ function _omb_install_banner {
     '                        /____/                            .... is now installed!'
   printf '%s' "$NORMAL"
 }
-
 function _omb_install_has_proper_bash_profile {
   if [[ -s ~/.bash_profile ]]; then
     if command grep -qE '(source|\.)[[:space:]].*/\.bashrc' ~/.bash_profile 2>/dev/null; then
       return 0
     fi
   fi
-
   if [[ -s ~/.profile ]]; then
     if command grep -qE '(source|\.)[[:space:]].*/\.bashrc' ~/.profile 2>/dev/null; then
       return 0
     fi
   fi
-
   return 1
 }
-
 function _omb_install_user_bashrc {
   printf '%s\n' "${BLUE}Looking for an existing bash config...${NORMAL}"
   if [[ -f ~/.bashrc || -L ~/.bashrc ]]; then
@@ -148,13 +135,11 @@ function _omb_install_user_bashrc {
     printf '%s\n' "${YELLOW}Found ~/.bashrc.${NORMAL} ${GREEN}Backing up to $bashrc_backup${NORMAL}"
     _omb_install_run mv ~/.bashrc "$bashrc_backup"
   fi
-
   printf '%s\n' "${BLUE}Copying the Oh-My-Bash template file to ~/.bashrc${NORMAL}"
   sed "/^export OSH=/ c\\
 export OSH='${OSH//\'/\'\\\'\'}'
   " "$OSH"/templates/bashrc.osh-template >|~/.bashrc.omb-temp &&
     _omb_install_run mv -f ~/.bashrc.omb-temp ~/.bashrc
-
   if ! _omb_install_has_proper_bash_profile; then
     if [[ ! -e ~/.bash_profile ]]; then
       if [[ -L ~/.bash_profile ]]; then
@@ -165,12 +150,10 @@ export OSH='${OSH//\'/\'\\\'\'}'
       printf '%s\n' "${GREEN}Please make sure that ~/.bash_profile contains \"source ~/.bashrc\"${NORMAL}"
     fi
   fi
-
   set +e
   _omb_install_banner
   printf '%s\n' "${GREEN}Please look over the ~/.bashrc file to select a theme, plugins, completions, aliases, and options${NORMAL}"
   printf '%s\n' "${BLUE}${BOLD}To keep up on the latest news and updates, follow us on GitHub: https://github.com/ohmybash/oh-my-bash${NORMAL}"
-
   if [[ :$install_opts: == *:dry-run:* ]]; then
     printf '%s\n' "$GREEN$BOLD[dryrun]$NORMAL Sample bashrc is created at '$BOLD$HOME/.bashrc-ombtemp$NORMAL'."
   elif [[ :$install_opts: != *:unattended:* ]]; then
@@ -181,7 +164,6 @@ export OSH='${OSH//\'/\'\\\'\'}'
     fi
   fi
 }
-
 function _omb_install_system_bashrc {
   printf '%s\n' "${BLUE}Creating a bashrc template at '$OSH/bashrc'...${NORMAL}"
   local q=\' Q="'\''"
@@ -190,20 +172,16 @@ function _omb_install_system_bashrc {
   local sed_script='/^export OSH=.*/c \
 '"export OSH=$osh"
   _omb_install_run sed "$sed_script" "$OSH"/templates/bashrc.osh-template >|"$OSH"/bashrc
-
   _omb_install_banner
   printf '%s\n' "${GREEN}To enable Oh My Bash, please copy '${BOLD}$OSH/bashrc${NORMAL}${GREEN}' to '${BOLD}~/.bashrc${NORMAL}${GREEN}'.${NORMAL}"
   printf '%s\n' "${GREEN}Please look over the ~/.bashrc file to select a theme, plugins, completions, aliases, and options${NORMAL}"
   printf '%s\n' "${BLUE}${BOLD}To keep up on the latest news and updates, follow us on GitHub: https://github.com/ohmybash/oh-my-bash${NORMAL}"
 }
-
 function _omb_install_main {
-  
   local ncolors=
   if type -P tput &>/dev/null; then
     ncolors=$(tput colors 2>/dev/null || tput Co 2>/dev/null || echo -1)
   fi
-
   local RED GREEN YELLOW BLUE BOLD NORMAL
   if [[ -t 1 && $ncolors && $ncolors -ge 8 ]]; then
     RED=$(tput setaf 1 2>/dev/null || tput AF 1 2>/dev/null)
@@ -220,10 +198,8 @@ function _omb_install_main {
     BOLD=""
     NORMAL=""
   fi
-
   local install_opts install_prefix
   _omb_install_readargs "$@"
-
   if [[ :$install_opts: == *:error:* ]]; then
     printf '\n'
     install_opts+=:usage
@@ -246,7 +222,6 @@ function _omb_install_main {
   elif [[ :$install_opts: == *:exit:* ]]; then
     return 0
   fi
-
   if [[ $install_prefix ]]; then
     [[ $install_prefix == /* ]] ||
       install_prefix=$PWD/$install_prefix
@@ -254,27 +229,21 @@ function _omb_install_main {
   elif [[ ! $OSH ]]; then
     OSH=~/.oh-my-bash
   fi
-
   if [[ ! $OSH_REPOSITORY ]]; then
     OSH_REPOSITORY=https://github.com/ohmybash/oh-my-bash.git
   fi
-
   set -e
-
   if [[ -d $OSH ]]; then
     printf '%s\n' "${YELLOW}You already have Oh My Bash installed.${NORMAL}" >&2
     printf '%s\n' "You'll need to remove '$OSH' if you want to re-install it." >&2
     return 1
   fi
-
   umask g-w,o-w
-
   printf '%s\n' "${BLUE}Cloning Oh My Bash...${NORMAL}"
   type -P git &>/dev/null || {
     echo "Error: git is not installed"
     return 1
   }
-  
   if [[ $OSTYPE == cygwin ]]; then
     if command git --version | command grep msysgit >/dev/null; then
       echo "Error: Windows/MSYS Git is not supported on Cygwin"
@@ -286,15 +255,12 @@ function _omb_install_main {
     printf "Error: git clone of oh-my-bash repo failed\n"
     return 1
   }
-
   if [[ $install_prefix ]]; then
     _omb_install_system_bashrc
   else
     _omb_install_user_bashrc
   fi
 }
-
 [[ ${BASH_EXECUTION_STRING-} && $0 == -* ]] &&
   set -- "$0" "$@"
-
 _omb_install_main "$@" 5>&2

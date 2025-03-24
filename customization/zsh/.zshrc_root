@@ -1,12 +1,13 @@
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
 HISTSIZE=999
-setopt share_history 
+setopt share_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
 
 export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="agnoster"
 
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting ssh)
 
@@ -16,9 +17,7 @@ if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
 
-eval "$(oh-my-posh init zsh --config ~/.poshthemes/tj-dracula.omp.json)"
-
-source ~/scripts/zsh-syntax-highlighting.sh
+source "$HOME/scripts/zsh-syntax-highlighting.sh"
 
 export PATH="$PATH:~/.local/bin"
 
@@ -60,13 +59,8 @@ _fzf_comprun() {
 
 export PATH="$PATH:$HOME/.local/bin"
 export EDITOR=nvim
-export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
-export PATH="$PATH:$HOME/development/flutter/bin"
 export TERM=xterm-256color
-. "$HOME/.cargo/env"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 eval "$(zoxide init zsh)"
-
-export PATH=$PATH:/home/tarcisio/.spicetify
 . /home/tarcisio/.asdf/asdf.sh

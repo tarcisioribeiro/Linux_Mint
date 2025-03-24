@@ -21,7 +21,7 @@ cd "$HOME/repos/Ubuntu/packages/development-tools" || exit
 ./docker_install.sh
 cd "$HOME/repos/Ubuntu/packages/package-managers" || exit
 ./asdf_packages.sh
-cd "$HOME/repos/Ubuntu/packages/development-tools" || exit
+cd "$HOME/repos/Ubuntu/packages/programs" || exit
 ./android-studio.sh
 
 sudo apt update && sudo apt upgrade
@@ -29,8 +29,10 @@ cd /tmp && wget -qO- https://download.spotify.com/debian/pubkey_C85668DF69375001
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt update
 sudo apt install spotify-client
+
 cd "$HOME"
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+
 cd "$HOME/Downloads"
 git clone https://github.com/dracula/ranger.git
 cd ranger
@@ -41,4 +43,9 @@ sudo rm -r ranger
 sudo nala remove gnome-mines gnome-mahjongg transmission-common transmission-gtk \
   gnome-sudoku aisleriot mpv imagemagick-6-common imagemagick-6.q16 imagemagick \
   libmagickcore-6.q16-6-extra libmagickcore-6.q16-6 libmagickwand-6.q16-6 remmina \
-  remmina-common remmina-plugin-rdp remmina-plugin-secret remmina-plugin-vnc
+  remmina-common remmina-plugin-rdp remmina-plugin-secret remmina-plugin-vnc gnome-sudoku \
+  idle-python3.10 imagemagick imagemagick-6-common imagemagick-6.q16 libmagickcore-6.q16-6 \
+  libmagickcore-6.q16-6-extra libmagickcore-6.q16-6-extra busybox-static librhythmbox-core10 \
+  rhythmbox rhythmbox-data rhythmbox-plugin-alternative-toolbar rhythmbox-plugins gnome-todo \
+  gnome-todo-common libgnome-todo gir1.2-snapd-1 gnome-video-effects libsnapd-glib1 libsnapd-glib1 \
+  snapd totem shotwell

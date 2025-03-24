@@ -2,10 +2,7 @@
 
 git clone https://github.com/asdf-vm/asdf.git "$HOME/.asdf" --branch v0.10.2
 
-echo ". $HOME/.asdf/asdf.sh" >>"$HOME/.bashrc"
-echo ". $HOME/.asdf/asdf.sh" >>"$HOME/.zshrc"
-
-source "$HOME/.bashrc"
+cd "$HOME/repos/Ubuntu/customization"
 
 asdf reshim
 

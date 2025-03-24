@@ -5,4 +5,5 @@ cd i3lock-color
 ./build.sh
 ./install-i3lock-color.sh
 cd "$HOME/Downloads"
-sudo rm -r i3lock-color
+rm -rf i3lock-color
+

@@ -10,10 +10,10 @@ ln .bash_aliases $HOME/.bash_aliases
 ln .bashrc $HOME/.bashrc
 sleep 5
 
-cd "$HOME/Downloads"
-git clone https://github.com/rust-lang/cargo.git
-cd cargo
-cargo build --relsease
+# cd "$HOME/Downloads"
+# git clone https://github.com/rust-lang/cargo.git
+# cd cargo
+# cargo build --relsease
 
 cd "$HOME/Downloads"
 git clone https://github.com/alacritty/alacritty.git

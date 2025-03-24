@@ -2,6 +2,9 @@
 
 git clone https://github.com/asdf-vm/asdf.git "$HOME/.asdf" --branch v0.10.2
 
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+. /home/tarcisio/.asdf/asdf.sh
+
 cd "$HOME/repos/Ubuntu/customization"
 
 asdf reshim

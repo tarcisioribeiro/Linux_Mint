@@ -15,16 +15,6 @@ blue() {
   sleep 2
 }
 
-# blue "Instalando o i3wm..."
-# cd "$HOME/Downloads" || exit
-# /usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2024.03.04_all.deb keyring.deb SHA256:f9bb4340b5ce0ded29b7e014ee9ce788006e9bbfe31e96c09b2118ab91fca734
-# cd "$HOME/Downloads" || exit
-# sudo apt install ./keyring.deb
-# echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" | sudo tee /etc/apt/sources.list.d/sur5r-i3.list
-# sudo apt update
-# sudo rm keyring.deb
-# sudo apt install i3
-
 echo "Instalando gaps do i3..."
 cd "$HOME/Downloads" || exit
 git clone https://www.github.com/jbenden/i3-gaps-rounded i3-gaps
@@ -120,9 +110,11 @@ mv dracula.xml ~/.local/share/gedit/styles/
 cd "$HOME/repos/Ubuntu/packages/programs" || exit
 ./alacritty_install.sh
 
-rm "$HOME/.zshrc" && rm && rm "$HOME/.bashrc" && rm "$HOME/.bash_aliases"
+rm "$HOME/.zshrc" && rm "$HOME/.bashrc" && rm "$HOME/.bash_aliases"
 cd "$HOME/repos/Ubuntu/customization" || exit
 ln zsh/.zshrc "$HOME/.zshrc" && ln zsh/.zsh_aliases "$HOME/.zsh_aliases"
 ln bash/.bashrc "$HOME/.bashrc" && ln bash/.bash_aliases "$HOME/.bash_aliases"
 ln starship/starship.toml "$HOME/.config/starship.toml"
 ln git/.gitconfig "$HOME/.gitconfig"
+
+brew install fd git-delta vim lazygit eza onefetch tldr zoxide asdf

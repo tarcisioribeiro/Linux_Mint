@@ -88,8 +88,5 @@ tmux new-session -d -s "dev"
 tmux source "$HOME/.tmux.conf"
 tmux kill-session -t "dev"
 
-cd "$HOME/repos/Ubuntu/packages/package-managers" || exit
-./asdf_packages.sh
-
 msg_color "34" "Configurando HomeBrew no shell..."
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' | tee -a "$HOME/.bashrc" "$HOME/.zshrc" >/dev/null

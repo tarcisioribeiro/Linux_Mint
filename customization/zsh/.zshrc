@@ -68,5 +68,4 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 eval "$(zoxide init zsh)"
 
-export PATH=$PATH:/home/tarcisio/.spicetify
-. /home/tarcisio/.asdf/asdf.sh
+export PATH=$PATH:$HOME/.spicetify

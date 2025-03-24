@@ -33,6 +33,9 @@ sudo apt install spotify-client
 cd "$HOME"
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
+cd "$HOME/repos/Ubuntu/packages/package-managers" || exit
+./asdf_packages.sh
+
 cd "$HOME/Downloads"
 git clone https://github.com/dracula/ranger.git
 cd ranger

@@ -3,7 +3,7 @@ case $- in
 *) return ;;
 esac
 
-export OSH='/home/tarcisio/.oh-my-bash'
+export OSH="$HOME/.oh-my-bash"
 
 ENABLE_CORRECTION="true"
 
@@ -112,7 +112,6 @@ _fzf_compgen_dir() {
 export PATH="$PATH:~/.local/bin"
 export EDITOR=nvim
 export TERM=xterm-256color
-. "$HOME/.asdf/asdf.sh"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 
@@ -120,4 +119,4 @@ eval "$(starship init bash)"
 . "$HOME/.cargo/env"
 
 eval "$(zoxide init bash)"
-export PATH=$PATH:/home/tarcisio/.spicetify
+export PATH=$PATH:"$HOME/.spicetify"

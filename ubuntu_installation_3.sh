@@ -19,8 +19,6 @@ cd "$HOME/repos/Ubuntu/packages/programs" || exit
 ./alacritty_install.sh
 cd "$HOME/repos/Ubuntu/packages/development-tools" || exit
 ./docker_install.sh
-cd "$HOME/repos/Ubuntu/packages/package-managers" || exit
-./asdf_packages.sh
 cd "$HOME/repos/Ubuntu/packages/programs" || exit
 ./android-studio.sh
 

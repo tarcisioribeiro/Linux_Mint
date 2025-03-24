@@ -6,4 +6,3 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 sudo apt update
 sudo apt install docker-ce
 sudo usermod -aG docker "${USER}"
-su - "${USER}"

@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 green() {
   clear
   echo ""
@@ -25,8 +27,8 @@ cd "$HOME/repos/Ubuntu/packages/programs" || exit
 sudo apt update && sudo apt upgrade
 cd /tmp && wget -qO- https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg && cd $HOME
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt update
-sudo apt install spotify-client
+sudo nala update
+sudo nala install spotify-client
 
 cd "$HOME"
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons

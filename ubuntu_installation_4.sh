@@ -1,20 +1,48 @@
 #!/usr/bin/bash
+set -e
+
 flatpak install flathub com.getpostman.Postman
 flatpak install flathub io.github.shiftey.Desktop
 flatpak install flathub org.telegram.desktop
 
-cp /media/tarcisio/Seagate/Packages/*.deb "$HOME/Downloads"
-cd "$HOME/Downloads"
-sudo gdebi chrome.deb
-sudo gdebi code.deb
-sudo gdebi discord.deb
-sudo gdebi obsidian.deb
-sudo gdebi upscayl.deb
-sudo gdebi virtualbox.deb
-rm *.deb
+DISK_PATH="/media/tarcisio/Seagate"
+PACKAGE_PATH="$DISK_PATH/Packages"
+DOWNLOAD_PATH="$HOME/Downloads"
 
-cd "$HOME/repos/Ubuntu/packages/programs"
-./android-studio.sh
+if mount | grep -q "$DISK_PATH"; then
+  echo "Disco montado: $DISK_PATH"
+else
+  echo "Erro: O disco não está montado!"
+  exit 1
+fi
+
+if [ ! -d "$PACKAGE_PATH" ]; then
+  echo "Erro: O diretório $PACKAGE_PATH não existe!"
+  exit 1
+fi
+
+if ls "$PACKAGE_PATH"/*.deb 1>/dev/null 2>&1; then
+  echo "Pacotes encontrados, iniciando instalação..."
+else
+  echo "Erro: Nenhum pacote .deb encontrado em $PACKAGE_PATH!"
+  exit 1
+fi
+
+cp "$PACKAGE_PATH"/*.deb "$DOWNLOAD_PATH"
+
+cd "$DOWNLOAD_PATH" || exit 1
+
+for pkg in chrome.deb code.deb discord.deb obsidian.deb upscayl.deb virtualbox.deb; do
+  if [ -f "$pkg" ]; then
+    sudo gdebi -n "$pkg"
+  else
+    echo "Aviso: $pkg não encontrado. Pulando..."
+  fi
+done
+
+rm -f *.deb
+
+echo "Instalação concluída!"
 
 sudo chsh -s /usr/bin/zsh
 cd "$HOME/repos/Ubuntu/customization/bash" || exit

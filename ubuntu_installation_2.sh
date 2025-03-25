@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 green() {
   clear
   echo ""
@@ -59,21 +61,41 @@ cd "$HOME/Downloads" || exit
 sudo rm -r rofi
 
 cd "$HOME/repos/Ubuntu/stow" || exit
-mkdir -p "$HOME/.config/autostart" && stow -v -t "$HOME/.config/autostart" autostart
-mkdir -p "$HOME/.config/btop" && stow -v -t "$HOME/.config/btop" btop
-mkdir -p "$HOME/.config/cava" && stow -v -t "$HOME/.config/cava" cava
-mkdir -p "$HOME/.config/dunst" && stow -v -t "$HOME/.config/dunst" dunst
-mkdir -p "$HOME/.config/gtk-3.0" && stow -v -t "$HOME/.config/gtk-3.0" gtk-3.0
-mkdir -p "$HOME/.config/i3" && stow -v -t "$HOME/.config/i3" i3
-mkdir -p "$HOME/.config/alacritty" && stow -v -t "$HOME/.config/alacritty" alacritty
-mkdir -p "$HOME/.config/lazygit" && stow -v -t "$HOME/.config/lazygit" lazygit
-mkdir -p "$HOME/.config/nitrogen" && stow -v -t "$HOME/.config/nitrogen" nitrogen
-mkdir -p "$HOME/.config/nvim" && stow -v -t "$HOME/.config/nvim" nvim
-mkdir -p "$HOME/.config/polybar" && stow -v -t "$HOME/.config/polybar" polybar
-mkdir -p "$HOME/.config/rofi" && stow -v -t "$HOME/.config/rofi" rofi
-mkdir -p "$HOME/.config/ranger" && stow -v -t "$HOME/.config/ranger" ranger
-ln picom.conf "$HOME/.config/picom.conf"
-ln Xresources "$HOME/Xresources"
+
+declare -a configs=(
+  "autostart"
+  "btop"
+  "cava"
+  "dunst"
+  "gtk-3.0"
+  "i3"
+  "alacritty"
+  "lazygit"
+  "nitrogen"
+  "nvim"
+  "polybar"
+  "rofi"
+  "ranger"
+)
+
+for config in "${configs[@]}"; do
+  target_dir="$HOME/.config/$config"
+  if [ -e "$target_dir" ]; then
+    rm -rf "$target_dir"
+  fi
+  mkdir -p "$target_dir"
+  stow -v -t "$target_dir" "$config"
+done
+
+if [ -e "$HOME/.config/picom.conf" ]; then
+  rm "$HOME/.config/picom.conf"
+fi
+ln -s "$HOME/repos/Ubuntu/stow/picom.conf" "$HOME/.config/picom.conf"
+
+if [ -e "$HOME/Xresources" ]; then
+  rm "$HOME/Xresources"
+fi
+ln -s "$HOME/repos/Ubuntu/stow/Xresources" "$HOME/Xresources"
 
 cd "$HOME/repos/Ubuntu/" || exit
 mkdir -p "$HOME/Pictures" && stow -v -t "$HOME/Pictures" wallpapers
@@ -110,11 +132,22 @@ mv dracula.xml ~/.local/share/gedit/styles/
 cd "$HOME/repos/Ubuntu/packages/programs" || exit
 ./alacritty_install.sh
 
-rm "$HOME/.zshrc" && rm "$HOME/.bashrc" && rm "$HOME/.bash_aliases"
-cd "$HOME/repos/Ubuntu/customization" || exit
-ln zsh/.zshrc "$HOME/.zshrc" && ln zsh/.zsh_aliases "$HOME/.zsh_aliases"
-ln bash/.bashrc "$HOME/.bashrc" && ln bash/.bash_aliases "$HOME/.bash_aliases"
-ln starship/starship.toml "$HOME/.config/starship.toml"
-ln git/.gitconfig "$HOME/.gitconfig"
+files=(
+  "$HOME/.zshrc:$HOME/repos/Ubuntu/customization/zsh/.zshrc"
+  "$HOME/.zsh_aliases:$HOME/repos/Ubuntu/customization/zsh/.zsh_aliases"
+  "$HOME/.bashrc:$HOME/repos/Ubuntu/customization/bash/.bashrc"
+  "$HOME/.bash_aliases:$HOME/repos/Ubuntu/customization/bash/.bash_aliases"
+  "$HOME/.config/starship.toml:$HOME/repos/Ubuntu/customization/starship/starship.toml"
+  "$HOME/.gitconfig:$HOME/repos/Ubuntu/customization/git/.gitconfig"
+)
+
+for file in "${files[@]}"; do
+  target="${file%%:*}"
+  source="${file##*:}"
+  if [ -e "$target" ]; then
+    rm "$target"
+  fi
+  ln -s "$source" "$target"
+done
 
 brew install fd git-delta vim lazygit eza onefetch tldr zoxide asdf

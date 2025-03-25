@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e # Interrompe a execução se algum comando falhar
+set -e
 
 msg_color() {
   clear
@@ -8,8 +8,6 @@ msg_color() {
   sleep 2
 }
 sudo apt install nala
-
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/BryanDollery/remove-snap/main/remove-snap.sh)"
 
 PACKAGES=(
   toilet curl wget build-essential gcc g++ clang make cmake automake autoconf git stow pkg-config meson ninja-build scdoc cargo

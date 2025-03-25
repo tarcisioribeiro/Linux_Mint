@@ -67,7 +67,5 @@ export TERM=xterm-256color
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 . "$HOME/.asdf/asdf.sh"
 eval "$(zoxide init zsh)"
-
-export PATH=$PATH:$HOME/.spicetify
-
 export PATH=$PATH:/home/tarcisio/.spicetify
+. /home/tarcisio/.asdf/asdf.sh

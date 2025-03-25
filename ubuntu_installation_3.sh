@@ -42,12 +42,3 @@ cd ranger
 cp dracula.py "$HOME/.config/ranger/colorschemes/dracula.py"
 cd "$HOME/Downloads"
 sudo rm -r ranger
-
-sudo nala remove gnome-mines gnome-mahjongg transmission-common transmission-gtk totem \
-  gnome-sudoku aisleriot mpv imagemagick-6-common imagemagick-6.q16 imagemagick shotwell \
-  libmagickcore-6.q16-6-extra libmagickcore-6.q16-6 libmagickwand-6.q16-6 remmina \
-  remmina-common remmina-plugin-rdp remmina-plugin-secret remmina-plugin-vnc gnome-sudoku \
-  idle-python3.10 imagemagick imagemagick-6-common imagemagick-6.q16 libmagickcore-6.q16-6 \
-  libmagickcore-6.q16-6-extra libmagickcore-6.q16-6-extra busybox-static librhythmbox-core10 \
-  rhythmbox rhythmbox-data rhythmbox-plugin-alternative-toolbar rhythmbox-plugins gnome-todo \
-  gnome-todo-common libgnome-todo gir1.2-snapd-1 gnome-video-effects libsnapd-glib1 libsnapd-glib1

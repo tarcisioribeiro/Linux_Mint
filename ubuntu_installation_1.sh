@@ -21,7 +21,7 @@ PACKAGES=(
   libxcb-icccm4-dev libxcb-randr0-dev libxcb-xinerama0-dev libpango1.0-dev libx11-dev libxrandr-dev libxinerama-dev libxss-dev
   libglib2.0-dev libev-dev libxcb-cursor-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev libxcb-xrm0 libxcb-xrm-dev
   libxcb-shape0-dev libconfig-dev libdbus-1-dev libegl-dev libgl-dev libepoxy-dev libpcre2-dev libpixman-1-dev xdotool
-  autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev nvidia-driver-550
+  autoconf gcc pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev nvidia-driver-550
   libev-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev build-essential dkms nvtop breeze-cursor-theme
   libxcb-image0-dev libxcb-util0-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev ranger nala
   libx11-xcb-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-glx0-dev libxcb-image0-dev libxcb-present-dev libxcb-render0-dev
@@ -88,3 +88,6 @@ tmux kill-session -t "dev"
 
 msg_color "34" "Configurando HomeBrew no shell..."
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' | tee -a "$HOME/.bashrc" "$HOME/.zshrc" >/dev/null
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+echo ". $HOME/.asdf/asdf.sh" >>~/.bashrc
+echo ". $HOME/.asdf/asdf.sh" >>~/.zshrc

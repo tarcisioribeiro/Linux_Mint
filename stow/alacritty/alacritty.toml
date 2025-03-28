@@ -81,5 +81,9 @@ normal.family = "JetBrainsMono NFM"
 bold.family = "JetBrainsMono NFM"
 italic.family = "JetBrainsMono NFM"
 bold_italic.family = "JetBrainsMono NFM"
+# normal.family = "UbuntuMono Nerd Font Mono"
+# bold.family = "UbuntuMono Nerd Font Mono"
+# italic.family = "UbuntuMono Nerd Font Mono"
+# bold_italic.family = "UbuntuMono Nerd Font Mono"
 
 size = 14.0

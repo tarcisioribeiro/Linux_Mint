@@ -118,6 +118,7 @@ gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
 gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
 gsettings set org.gnome.desktop.interface icon-theme "dracula-dark"
 gsettings set org.gnome.desktop.interface font-name "JetBrainsMono NFM 11"
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 
 blue "Instalando o i3lock-color..."
 cd "$HOME/repos/Ubuntu/packages/programs/" || exit

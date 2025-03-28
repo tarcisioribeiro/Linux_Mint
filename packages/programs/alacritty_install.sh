@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 cd "$HOME/Downloads"
+
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 sleep 5

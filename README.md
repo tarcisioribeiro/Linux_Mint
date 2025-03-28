@@ -6,7 +6,7 @@
 | `$mod+Return` | Abrir terminal (Alacritty) |
 | `$mod+e` | Abrir gerenciador de arquivos (Nautilus) |
 | `$mod+o` | Abrir Obsidian |
-| `$mod+d` | Abrir Firefox |
+| `$mod+d` | Abrir Google Chrome |
 | `$mod+t` | Abrir VS Code |
 
 ## Controle de Janelas
@@ -34,7 +34,7 @@
 ## Redshift
 | Atalho | Ação |
 |--------|------|
-| `$mod+r` | Modo Redshift |
+| `$mod+Shift+s` | Modo Redshift |
 | `a` | Modo automático |
 | `r` | Resetar temperatura |
 | `2` | Temperatura 2500K |
@@ -76,9 +76,9 @@
 ## Modo de Redimensionamento
 | Atalho | Ação |
 |--------|------|
+| `$mod+r` | Entrar no modo de redimensionamento |
 | `Left` | Reduzir largura |
 | `Down` | Aumentar altura |
 | `Up` | Reduzir altura |
 | `Right` | Aumentar largura |
 | `Return` ou `Escape` | Sair do modo |
-| `$mod+r` | Sair do modo |

@@ -10,14 +10,14 @@ msg_color() {
 sudo apt install nala
 
 PACKAGES=(
-  toilet curl wget build-essential gcc g++ clang make cmake automake autoconf git stow pkg-config meson ninja-build scdoc cargo
+  toilet curl wget build-essential gcc g++ clang make cmake automake autoconf git stow pkg-config meson ninja-build scdoc
   neofetch tmux rofi fzf bat gdebi feh nitrogen polybar redshift gnome-tweaks gnome-shell-extension-manager xclip xsel
   mpv vlc shotcut obs-studio cava flatpak libpam0g-dev deluge deluged deluge-web deluge-console pavucontrol timeshift openssh-server
   mysql-server default-libmysqlclient-dev dkms perl ruby-full libsdl2-dev libusb-1.0-0-dev adb cpu-checker gh p7zip pv
   qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils ffmpeg libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev
   libswresample-dev gimp libgtk-4-dev libadwaita-1-dev blueman python3 python3-venv python3-tk python3-pip python3-openssl
   python3.10-full python3.10-dev libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncurses5-dev libncursesw5-dev
-  libffi-dev liblzma-dev tk-dev btop stow scrot maim playerctl libxcb1-dev libxcb-keysyms1-dev libxcb-util0-dev
+  libffi-dev liblzma-dev tk-dev btop stow scrot maim playerctl libxcb1-dev libxcb-keysyms1-dev libxcb-util0-dev i3lock
   libxcb-icccm4-dev libxcb-randr0-dev libxcb-xinerama0-dev libpango1.0-dev libx11-dev libxrandr-dev libxinerama-dev libxss-dev
   libglib2.0-dev libev-dev libxcb-cursor-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev libxcb-xrm0 libxcb-xrm-dev
   libxcb-shape0-dev libconfig-dev libdbus-1-dev libegl-dev libgl-dev libepoxy-dev libpcre2-dev libpixman-1-dev xdotool
@@ -57,8 +57,14 @@ mkdir -p "$HOME/repos" "$HOME/.icons" "$HOME/.themes" "$HOME/scripts"
 
 msg_color "34" "Instalando fontes..."
 FONT_DIR="/usr/share/fonts"
+LOCAL_FONT_DIR="$HOME/.local/share/fonts"
 cd "$REPO_DIR/fonts" || exit
+sudo cp JetBrains_Mono_Medium_Nerd_Font_Complete_Mono_Windows_Compatible.ttf "$FONT_DIR"
+sudo cp JetBrains_Mono_Medium_Nerd_Font_Complete_Mono_Windows_Compatible.ttf "$LOCAL_FONT_DIR"
+sudo cp Ubuntu_Mono_Nerd_Font_Complete_Mono.ttf "$FONT_DIR"
+sudo cp Ubuntu_Mono_Nerd_Font_Complete_Mono.ttf "$LOCAL_FONT_DIR"
 sudo cp JetBrainsMonoNerdFontMono-*.ttf "$FONT_DIR"
+sudo cp JetBrainsMonoNerdFontMono-*.ttf "$LOCAL_FONT_DIR"
 
 msg_color "34" "Instalando logo-ls..."
 cp "$CUSTOMIZATION_DIR/bash/logo-ls_Linux_x86_64.tar.gz" "$HOME/Downloads"

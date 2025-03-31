@@ -56,8 +56,10 @@ msg_color "34" "Criando diretórios..."
 mkdir -p "$HOME/repos" "$HOME/.icons" "$HOME/.themes" "$HOME/scripts"
 
 msg_color "34" "Instalando fontes..."
-FONT_DIR="/usr/share/fonts"
-LOCAL_FONT_DIR="$HOME/.local/share/fonts"
+FONT_DIR="/usr/share/fonts/"
+LOCAL_FONT_DIR="$HOME/.local/share/fonts/"
+mkdir -p $LOCAL_FONT_DIR
+sudo mkdir -p $FONT_DIR
 cd "$REPO_DIR/fonts" || exit
 sudo cp JetBrains_Mono_Medium_Nerd_Font_Complete_Mono_Windows_Compatible.ttf "$FONT_DIR"
 sudo cp JetBrains_Mono_Medium_Nerd_Font_Complete_Mono_Windows_Compatible.ttf "$LOCAL_FONT_DIR"

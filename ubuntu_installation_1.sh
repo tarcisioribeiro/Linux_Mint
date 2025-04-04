@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -e
 
 msg_color() {
@@ -7,7 +6,7 @@ msg_color() {
   echo -e "\n\033[$1m$2\033[0m\n"
   sleep 2
 }
-sudo apt install nala
+sudo apt upgrade && sudo apt install nala -y
 
 PACKAGES=(
   toilet curl wget build-essential gcc g++ clang make cmake automake autoconf git stow pkg-config meson ninja-build scdoc
@@ -97,5 +96,5 @@ tmux kill-session -t "dev"
 msg_color "34" "Configurando HomeBrew no shell..."
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' | tee -a "$HOME/.bashrc" "$HOME/.zshrc" >/dev/null
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-echo ". $HOME/.asdf/asdf.sh" >>~/.bashrc
-echo ". $HOME/.asdf/asdf.sh" >>~/.zshrc
+echo ". $HOME/.asdf/asdf.sh" >> ~/.bashrc
+echo ". $HOME/.asdf/asdf.sh" >> ~/.zshrc

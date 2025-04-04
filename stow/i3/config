@@ -1,8 +1,8 @@
 set $mod Mod1
 
 font pango:JetBrainsMono NFM 12
-exec --no-startup-id gnome-shell
-exec_always --no-startup-id ~/scripts/desktop/monitor_setup.sh
+exec_always --no-startup-id gnome-shell
+exec_always --no-startup-id ~/scripts/monitor_setup.sh
 exec_always --no-startup-id nitrogen --restore
 exec --no-startup-id /usr/lib/polkit-1/polkit-agent-helper-1
 exec --no-startup-id dex --autostart --environment i3

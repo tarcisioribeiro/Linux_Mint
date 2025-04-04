@@ -5,6 +5,8 @@ flatpak install flathub com.getpostman.Postman
 flatpak install flathub io.github.shiftey.Desktop
 flatpak install flathub org.telegram.desktop
 flatpak install flathub org.gabmus.hydrapaper
+flatpak install flathub net.pcsx2.PCSX2
+flatpak install flathub com.snes9x.Snes9x
 
 DISK_PATH="/media/tarcisio/Seagate"
 PACKAGE_PATH="$DISK_PATH/Packages"
@@ -33,7 +35,7 @@ cp "$PACKAGE_PATH"/*.deb "$DOWNLOAD_PATH"
 
 cd "$DOWNLOAD_PATH" || exit 1
 
-for pkg in chrome.deb code.deb discord.deb obsidian.deb upscayl.deb virtualbox.deb; do
+for pkg in chrome.deb code.deb discord.deb obsidian.deb steam.deb upscayl.deb; do
   if [ -f "$pkg" ]; then
     sudo gdebi -n "$pkg"
   else

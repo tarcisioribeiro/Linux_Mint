@@ -129,9 +129,6 @@ wget https://raw.githubusercontent.com/dracula/gedit/master/dracula.xml
 mkdir -p ~/.local/share/gedit/styles/
 mv dracula.xml ~/.local/share/gedit/styles/
 
-cd "$HOME/repos/Ubuntu/packages/programs" || exit
-./alacritty_install.sh
-
 files=(
   "$HOME/.zshrc:$HOME/repos/Ubuntu/customization/zsh/.zshrc"
   "$HOME/.zsh_aliases:$HOME/repos/Ubuntu/customization/zsh/.zsh_aliases"

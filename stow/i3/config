@@ -1,8 +1,8 @@
 set $mod Mod1
 
 font pango:JetBrainsMono NFM 12
-exec_always --no-startup-id gnome-shell
-exec_always --no-startup-id ~/scripts/monitor_setup.sh
+exec --no-startup-id gnome-shell
+exec --no-startup-id "$HOME/scripts/monitor_setup.sh"
 exec_always --no-startup-id nitrogen --restore
 exec --no-startup-id /usr/lib/polkit-1/polkit-agent-helper-1
 exec --no-startup-id dex --autostart --environment i3
@@ -12,7 +12,7 @@ exec_always --no-startup-id killall picom
 exec_always --no-startup-id picom
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id nm-applet
-exec --no-startup-id xss-lock --transfer-sleep-lock --i3lock --nofork
+exec_always --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-color --nofork
 
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -108,20 +108,22 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 bindsym $mod+Shift+c reload
-
 bindsym $mod+Shift+r restart
-
 bindsym $mod+l exec "~/scripts/lock"
 
-bindsym $mod+Shift+l exec "~/.config/rofi/powermenu/type-4/powermenu.sh"
-bindsym $mod+Shift+p exec "~/.config/rofi/applets/bin/screenshot.sh"
-bindsym $mod+Shift+j exec "~/.config/rofi/applets/bin/brightness.sh"
-bindsym $mod+b exec "~/.config/rofi/applets/bin/battery.sh"
-bindsym $mod+m exec "~/.config/rofi/applets/bin/mpd.sh"
-bindsym $mod+g exec "~/.config/rofi/applets/bin/quicklinks.sh"
-bindsym $mod+Shift+e exec "~/.config/rofi/applets/bin/appasroot.sh"
-bindsym $mod+Shift+n exec "~/.config/rofi/applets/bin/apps.sh"
-bindsym $mod+Shift+a exec "~/.config/rofi/applets/bin/volume.sh"
+# Task Manager
+bindsym $mod+Shift+t exec --no-startup-id ~/scripts/i3-task-pop.py
+
+bindsym $mod+Shift+l exec "$HOME/.config/rofi/powermenu/type-4/powermenu.sh"
+bindsym $mod+Shift+p exec "$HOME/.config/rofi/applets/bin/screenshot.sh"
+bindsym $mod+Shift+j exec "$HOME/.config/rofi/applets/bin/brightness.sh"
+bindsym $mod+b exec "$HOME/.config/rofi/applets/bin/battery.sh"
+bindsym $mod+m exec "$HOME/.config/rofi/applets/bin/mpd.sh"
+bindsym $mod+g exec "$HOME/.config/rofi/applets/bin/quicklinks.sh"
+bindsym $mod+Shift+e exec "$HOME/.config/rofi/applets/bin/appasroot.sh"
+bindsym $mod+Shift+n exec "$HOME/.config/rofi/applets/bin/apps.sh"
+bindsym $mod+Shift+a exec "$HOME/.config/rofi/applets/bin/volume.sh"
+bindsym $mod+Ctrl+r exec --no-startup-id "$HOME/.config/rofi/applets/bin/see_routine.sh"
 
 bindsym $mod+r mode "resize"
 mode "resize" {
@@ -180,3 +182,4 @@ for_window [class="jetbrains-studio"] floating enable, move position center
 for_window [class="scrcpy"] floating enable
 for_window [class="Gnome-control-center"] floating enable, move position center
 for_window [class="Gnome-disks"] floating enable, move position center
+for_window [class="Gnome-terminal"] floating enable, move position center

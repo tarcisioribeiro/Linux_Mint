@@ -69,3 +69,6 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 eval "$(zoxide init zsh)"
 export PATH=$PATH:/home/tarcisio/.spicetify
 . /home/tarcisio/.asdf/asdf.sh
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/tarcisio/.lmstudio/bin"

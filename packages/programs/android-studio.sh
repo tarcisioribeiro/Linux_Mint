@@ -8,4 +8,5 @@ sudo cp "$HOME/repos/Ubuntu/packages/programs/android-studio.desktop" /usr/share
 cd "$HOME/Downloads" || exit
 rm -rf android-studio
 rm -rf cargo
-rm android-studio-2024.3.13.-linux.tar.gz
+cd "$HOME/Downloads" || exit
+rm android-studio-2024.3.1.13-linux.tar.gz

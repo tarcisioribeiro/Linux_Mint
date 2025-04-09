@@ -3,10 +3,8 @@ set -e
 
 flatpak install flathub com.getpostman.Postman
 flatpak install flathub io.github.shiftey.Desktop
-flatpak install flathub org.telegram.desktop
 flatpak install flathub org.gabmus.hydrapaper
 flatpak install flathub net.pcsx2.PCSX2
-flatpak install flathub com.snes9x.Snes9x
 
 DISK_PATH="/media/tarcisio/Seagate"
 PACKAGE_PATH="$DISK_PATH/Packages"
@@ -57,6 +55,9 @@ sudo cp .zshrc_root /root && sudo mv /root/.zshrc_root /root/.zshrc
 sudo cp .zsh_aliases_root /root && sudo mv /root/.zsh_aliases_root /root/.zsh_aliases
 sudo cp -r "$HOME/.oh-my-zsh" /root
 
+rmdir Documents Music Public Templates Videos
+
 cd "$HOME/repos/Ubuntu"
 sudo cp -r scripts /root
-sudo snap install spt figma-linux
+sudo snap install spt
+sudo snap install glow

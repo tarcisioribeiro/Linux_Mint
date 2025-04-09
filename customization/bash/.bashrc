@@ -122,3 +122,6 @@ eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 export PATH=$PATH:"$HOME/.spicetify"
 . /home/tarcisio/.asdf/asdf.sh
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/tarcisio/.lmstudio/bin"

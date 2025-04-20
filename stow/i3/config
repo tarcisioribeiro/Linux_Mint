@@ -1,7 +1,6 @@
 set $mod Mod1
 
 font pango:JetBrainsMono NFM 12
-exec --no-startup-id gnome-shell
 exec --no-startup-id "$HOME/scripts/monitor_setup.sh"
 exec_always --no-startup-id nitrogen --restore
 exec --no-startup-id /usr/lib/polkit-1/polkit-agent-helper-1
@@ -12,6 +11,7 @@ exec_always --no-startup-id killall picom
 exec_always --no-startup-id picom
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id nm-applet
+exec --no-startup-id "$HOME/scripts/autostart.py"
 exec_always --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-color --nofork
 
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -24,7 +24,7 @@ floating_modifier $mod
 
 bindsym $mod+a exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'JetBrainsMono NFM' -p 'dmenu%'"
 
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec "$HOME/development/kitty/kitty/launcher/kitty"
 bindsym $mod+e exec nautilus
 bindsym $mod+o exec obsidian
 bindsym $mod+d exec google-chrome-stable
@@ -120,6 +120,7 @@ bindsym $mod+Shift+j exec "$HOME/.config/rofi/applets/bin/brightness.sh"
 bindsym $mod+b exec "$HOME/.config/rofi/applets/bin/battery.sh"
 bindsym $mod+m exec "$HOME/.config/rofi/applets/bin/mpd.sh"
 bindsym $mod+g exec "$HOME/.config/rofi/applets/bin/quicklinks.sh"
+bindsym $mod+Shift+g exec "$HOME/.config/rofi/applets/bin/games.sh"
 bindsym $mod+Shift+e exec "$HOME/.config/rofi/applets/bin/appasroot.sh"
 bindsym $mod+Shift+n exec "$HOME/.config/rofi/applets/bin/apps.sh"
 bindsym $mod+Shift+a exec "$HOME/.config/rofi/applets/bin/volume.sh"
@@ -183,3 +184,5 @@ for_window [class="scrcpy"] floating enable
 for_window [class="Gnome-control-center"] floating enable, move position center
 for_window [class="Gnome-disks"] floating enable, move position center
 for_window [class="Gnome-terminal"] floating enable, move position center
+for_window [class="steam"] fullscreen enable
+for_window [class="Eog"] floating enable, move position center

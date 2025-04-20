@@ -1,4 +1,5 @@
-alias cat='batcat --theme="Dracula"'
+# CLI Tools
+alias bat='batcat --theme="Dracula"'
 alias cls='clear'
 alias eza='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
 alias glow='glow -p'
@@ -6,13 +7,26 @@ alias ls='logo-ls -1'
 alias lg='lazygit'
 alias new_tree='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree'
 alias weather='curl wttr.in'
+
+# Languages
 alias py='python3'
-alias ipconfig='ifconfig'
 alias mysql="mysql -uroot -porrARDrdr27!"
 alias mysqldump="mysqldump -uroot -porrARDrdr27!"
+
+# Net Tools
+alias ipconfig='ifconfig'
+
+# ZSH
 alias edit-zsh="nvim ~/.zshrc"
 alias reload-zsh="source ~/.zshrc"
+
+# I3
 alias show_nvim_keybinds="glow ~/.config/nvim/key_commands.md"
 alias show_i3_keybinds="glow ~/repos/Ubuntu/README.md"
-alias launch_avd="~/Android/Sdk/emulator/emulator -avd Pixel -gpu host"
+
+# Android Studio
+alias launch_avd="~/Android/Sdk/emulator/emulator -avd Pixel -gpu host > /dev/null &"
 alias show_aliases='batcat --theme="Dracula" --language zsh $HOME/.zsh_aliases'
+
+# Docker
+alias dps='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"'

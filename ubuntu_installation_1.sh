@@ -22,7 +22,7 @@ PACKAGES=(
   libxcb-shape0-dev libconfig-dev libdbus-1-dev libegl-dev libgl-dev libepoxy-dev libpcre2-dev libpixman-1-dev xdotool
   autoconf gcc pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev cargo xss-lock gradle
   libev-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev build-essential dkms nvtop breeze-cursor-theme dunst
-  libxcb-image0-dev libxcb-util0-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev ranger dmenu
+  libxcb-image0-dev libxcb-util0-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev ranger dmenu golang
   libx11-xcb-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-glx0-dev libxcb-image0-dev libxcb-present-dev libxcb-render0-dev
   acpi light libxcb-render-util0-dev libxcb-util-dev libxcb-xfixes0-dev uthash-dev libfreetype6-dev libfontconfig1-dev
   libxcb-xfixes0-dev libgtk-3-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev
@@ -36,7 +36,7 @@ sudo nala update && sudo nala upgrade -y
 sudo nala install -y "${PACKAGES[@]}"
 
 msg_color "34" "Instalando o Oh My ZSH..."
-REPO_DIR="$HOME/repos/Ubuntu"
+REPO_DIR="$HOME/Documents/Ubuntu"
 TERMINALS_DIR="$REPO_DIR/packages/terminals"
 CUSTOMIZATION_DIR="$REPO_DIR/customization"
 
@@ -52,7 +52,7 @@ rm "$HOME/.poshthemes/themes.zip"
 ln -sf "$CUSTOMIZATION_DIR/zsh/tj-dracula.omp.json" "$HOME/.poshthemes/tj-dracula.omp.json"
 
 msg_color "34" "Criando diretórios..."
-mkdir -p "$HOME/repos" "$HOME/.icons" "$HOME/.themes" "$HOME/scripts"
+mkdir -p "$HOME/Documents" "$HOME/.icons" "$HOME/.themes" "$HOME/scripts"
 
 msg_color "34" "Instalando fontes..."
 FONT_DIR="/usr/share/fonts/"

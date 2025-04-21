@@ -63,7 +63,6 @@ export EDITOR=nvim
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 export PATH="$PATH:$HOME/development/flutter/bin"
 export TERM=xterm-256color
-. "$HOME/.cargo/env"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 . "$HOME/.asdf/asdf.sh"
 eval "$(zoxide init zsh)"

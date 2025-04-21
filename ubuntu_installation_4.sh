@@ -46,18 +46,18 @@ rm -f *.deb
 echo "Instalação concluída!"
 
 sudo chsh -s /usr/bin/zsh
-cd "$HOME/repos/Ubuntu/customization/bash" || exit
+cd "$HOME/Documents/Ubuntu/customization/bash" || exit
 sudo cp .bashrc_root /root && sudo mv /root/.bashrc_root /root/.bashrc
 sudo cp .bash_aliases_root /root && sudo mv /root/.bash_aliases_root /root/.bash_aliases
 
-cd "$HOME/repos/Ubuntu/customization/zsh" || exit
+cd "$HOME/Documents/Ubuntu/customization/zsh" || exit
 sudo cp .zshrc_root /root && sudo mv /root/.zshrc_root /root/.zshrc
 sudo cp .zsh_aliases_root /root && sudo mv /root/.zsh_aliases_root /root/.zsh_aliases
 sudo cp -r "$HOME/.oh-my-zsh" /root
 
 rmdir Documents Music Public Templates Videos
 
-cd "$HOME/repos/Ubuntu"
+cd "$HOME/Documents/Ubuntu"
 sudo cp -r scripts /root
 sudo snap install spt
 sudo snap install glow

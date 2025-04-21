@@ -30,7 +30,7 @@ cd "$HOME/Downloads" || exit
 sudo rm -r i3-gaps
 
 blue "Baixando o Flutter..."
-cd "$HOME/repos/Ubuntu/packages/development-tools" || exit
+cd "$HOME/Documents/Ubuntu/packages/development-tools" || exit
 ./flutter.sh
 
 blue "Instalando o picom..."
@@ -60,7 +60,7 @@ rm -r ~/.config/rofi
 cd "$HOME/Downloads" || exit
 sudo rm -r rofi
 
-cd "$HOME/repos/Ubuntu/stow" || exit
+cd "$HOME/Documents/Ubuntu/stow" || exit
 
 declare -a configs=(
   "autostart"
@@ -90,14 +90,14 @@ done
 if [ -e "$HOME/.config/picom.conf" ]; then
   rm "$HOME/.config/picom.conf"
 fi
-ln -s "$HOME/repos/Ubuntu/stow/picom.conf" "$HOME/.config/picom.conf"
+ln -s "$HOME/Documents/Ubuntu/stow/picom.conf" "$HOME/.config/picom.conf"
 
 if [ -e "$HOME/Xresources" ]; then
   rm "$HOME/Xresources"
 fi
-ln -s "$HOME/repos/Ubuntu/stow/Xresources" "$HOME/Xresources"
+ln -s "$HOME/Documents/Ubuntu/stow/Xresources" "$HOME/Xresources"
 
-cd "$HOME/repos/Ubuntu/" || exit
+cd "$HOME/Documents/Ubuntu/" || exit
 mkdir -p "$HOME/Pictures" && stow -v -t "$HOME/Pictures" wallpapers
 mkdir -p "$HOME/scripts" && stow -v -t "$HOME/scripts" scripts
 
@@ -121,7 +121,7 @@ gsettings set org.gnome.desktop.interface font-name "JetBrainsMono NFM 11"
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 
 blue "Instalando o i3lock-color..."
-cd "$HOME/repos/Ubuntu/packages/programs/" || exit
+cd "$HOME/Documents/Ubuntu/packages/programs/" || exit
 ./i3lock-color.sh
 
 cd "$HOME/Downloads" || exit
@@ -130,12 +130,12 @@ mkdir -p ~/.local/share/gedit/styles/
 mv dracula.xml ~/.local/share/gedit/styles/
 
 files=(
-  "$HOME/.zshrc:$HOME/repos/Ubuntu/customization/zsh/.zshrc"
-  "$HOME/.zsh_aliases:$HOME/repos/Ubuntu/customization/zsh/.zsh_aliases"
-  "$HOME/.bashrc:$HOME/repos/Ubuntu/customization/bash/.bashrc"
-  "$HOME/.bash_aliases:$HOME/repos/Ubuntu/customization/bash/.bash_aliases"
-  "$HOME/.config/starship.toml:$HOME/repos/Ubuntu/customization/starship/starship.toml"
-  "$HOME/.gitconfig:$HOME/repos/Ubuntu/customization/git/.gitconfig"
+  "$HOME/.zshrc:$HOME/Documents/Ubuntu/customization/zsh/.zshrc"
+  "$HOME/.zsh_aliases:$HOME/Documents/Ubuntu/customization/zsh/.zsh_aliases"
+  "$HOME/.bashrc:$HOME/Documents/Ubuntu/customization/bash/.bashrc"
+  "$HOME/.bash_aliases:$HOME/Documents/Ubuntu/customization/bash/.bash_aliases"
+  "$HOME/.config/starship.toml:$HOME/Documents/Ubuntu/customization/starship/starship.toml"
+  "$HOME/.gitconfig:$HOME/Documents/Ubuntu/customization/git/.gitconfig"
 )
 
 for file in "${files[@]}"; do

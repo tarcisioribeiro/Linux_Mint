@@ -113,15 +113,10 @@ export PATH="$PATH:~/.local/bin"
 export EDITOR=nvim
 export TERM=xterm-256color
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-# . "$HOME/.asdf/asdf.sh"
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
-
 eval "$(starship init bash)"
-. "$HOME/.cargo/env"
-
 eval "$(zoxide init bash)"
 export PATH=$PATH:"$HOME/.spicetify"
 . /home/tarcisio/.asdf/asdf.sh
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/tarcisio/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
+export PATH="$PATH:$HOME/development/kitty/kitty/launcher/"

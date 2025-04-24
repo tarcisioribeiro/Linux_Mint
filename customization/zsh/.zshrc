@@ -64,10 +64,8 @@ export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 export PATH="$PATH:$HOME/development/flutter/bin"
 export TERM=xterm-256color
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-. "$HOME/.asdf/asdf.sh"
 eval "$(zoxide init zsh)"
 export PATH=$PATH:/home/tarcisio/.spicetify
 . /home/tarcisio/.asdf/asdf.sh
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/tarcisio/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
+export PATH="$PATH:$HOME/development/kitty/kitty/launcher/"

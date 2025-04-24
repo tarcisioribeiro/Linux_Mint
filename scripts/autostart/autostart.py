@@ -2,6 +2,10 @@
 from datetime import datetime
 import subprocess
 import time
+import os
+
+
+home_dir = os.environ.get("HOME")
 
 
 def disable_input_devices():
@@ -49,36 +53,65 @@ def calculate_seconds():
     time_seconds = [3600, 60, 1]
     seconds = sum([t * s for t, s in zip(time_values, time_seconds)])
 
-    if 0 <= seconds < 14400:
+    if seconds >= 18000 and seconds < 25200:
+        temp = 4000
+        wp_command = f"""
+        bash '{home_dir}/scripts/autostart/wallpapers/aurora.sh'
+        """
+
+    elif seconds >= 25200 and seconds < 39600:
         temp = 4500
-    elif 14400 <= seconds < 28800:
-        temp = 5000
-    elif 28800 <= seconds < 57600:
+        wp_command = f"""
+        bash '{home_dir}/scripts/autostart/wallpapers/morning.sh'
+        """
+
+    elif seconds >= 39600 and seconds < 57600:
         temp = 5500
-    elif 57600 <= seconds < 72000:
-        temp = 5000
-    elif 72000 <= seconds < 72000:
+        wp_command = f"""
+        bash '{home_dir}/scripts/autostart/wallpapers/afternoon.sh'
+        """
+
+    elif seconds >= 57600 and seconds < 64800:
         temp = 4500
+        wp_command = f"bash '{home_dir}/scripts/autostart/wallpapers/dusk.sh'"
+
+    elif seconds >= 64800 and seconds < 79200:
+        temp = 4000
+        wp_command = f"bash '{home_dir}/scripts/autostart/wallpapers/night.sh'"
+
+    elif (
+            seconds >= 79200 and seconds <= 86400
+        ) or (
+            seconds >= 1 and seconds < 18000):
+        temp = 3500
+        wp_command = f"bash '{home_dir}/scripts/autostart/wallpapers/dawn.sh'"
+
     else:
         temp = 4000
 
+    subprocess.run(
+        wp_command,
+        shell=True,
+        capture_output=False,
+        text=True
+    )
+
     command = f"redshift -x && redshift -P -O {temp}"
-    result = subprocess.run(
+
+    subprocess.run(
         command,
         shell=True,
         capture_output=True,
         text=True
     )
 
-    print("Saída:", result.stdout)
-    print("Erros:", result.stderr)
-
     time.sleep(2)
 
     print("Ambiente configurado com sucesso!")
-
     print("Reativando teclado e mouse...")
+
     enable_input_devices(keyboard_id, mouse_id)
+
 
 if __name__ == "__main__":
     calculate_seconds()

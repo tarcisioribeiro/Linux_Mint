@@ -11,7 +11,7 @@ exec_always --no-startup-id killall picom
 exec_always --no-startup-id picom
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id nm-applet
-exec --no-startup-id "$HOME/scripts/autostart.py"
+exec --no-startup-id python3 "$HOME/scripts/autostart/autostart.py"
 exec_always --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-color --nofork
 
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -186,3 +186,4 @@ for_window [class="Gnome-disks"] floating enable, move position center
 for_window [class="Gnome-terminal"] floating enable, move position center
 for_window [class="steam"] fullscreen enable
 for_window [class="Eog"] floating enable, move position center
+for_window [class="pcsx2-qt"] floating enable, move position center

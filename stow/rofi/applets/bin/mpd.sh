@@ -40,7 +40,6 @@ option_4="󰒭 Próxima"
 option_5=" Repetir"
 option_6=" Aleatório"
 
-# Comando do Rofi
 rofi_cmd() {
   rofi -theme-str "listview {columns: $list_col; lines: $list_row;}" \
     -theme-str 'textbox-prompt-colon {str: "";}' \
@@ -57,21 +56,21 @@ run_rofi() {
 
 run_cmd() {
   case "$1" in
-    '--opt1') playerctl play-pause ;;
-    '--opt2') playerctl stop ;;
-    '--opt3') playerctl previous ;;
-    '--opt4') playerctl next ;;
-    '--opt5') playerctl loop ;;
-    '--opt6') playerctl shuffle ;;
+  '--opt1') playerctl play-pause ;;
+  '--opt2') playerctl stop ;;
+  '--opt3') playerctl previous ;;
+  '--opt4') playerctl next ;;
+  '--opt5') playerctl loop ;;
+  '--opt6') playerctl shuffle ;;
   esac
 }
 
 chosen="$(run_rofi)"
 case ${chosen} in
-  "$option_1") run_cmd --opt1 ;;
-  "$option_2") run_cmd --opt2 ;;
-  "$option_3") run_cmd --opt3 ;;
-  "$option_4") run_cmd --opt4 ;;
-  "$option_5") run_cmd --opt5 ;;
-  "$option_6") run_cmd --opt6 ;;
+"$option_1") run_cmd --opt1 ;;
+"$option_2") run_cmd --opt2 ;;
+"$option_3") run_cmd --opt3 ;;
+"$option_4") run_cmd --opt4 ;;
+"$option_5") run_cmd --opt5 ;;
+"$option_6") run_cmd --opt6 ;;
 esac

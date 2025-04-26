@@ -3,14 +3,12 @@ type="$HOME/.config/rofi/applets/type-2"
 style='style-2.rasi'
 theme="$type/$style"
 
-# Volume Info
 speaker="$(pactl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}')%"
 mic="$(pactl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print int($2 * 100)}')%"
 
 active=""
 urgent=""
 
-# Speaker Info
 if pactl get-mute @DEFAULT_AUDIO_SINK@ | grep -q "false"; then
   active="-a 1"
   stext='Desmutar'
@@ -21,7 +19,6 @@ else
   sicon=''
 fi
 
-# Microphone Info
 if pactl get-mute @DEFAULT_AUDIO_SOURCE@ | grep -q "false"; then
   [ -n "$active" ] && active+="3" || active="-a 3"
   mtext='Desmutar'
@@ -32,11 +29,9 @@ else
   micon=''
 fi
 
-# Theme Elements
 prompt="S:$stext, M:$mtext"
 mesg="Alto-Falante: $speaker, Microfone: $mic"
 
-# Options
 layout=$(grep 'USE_ICON' "${theme}" | cut -d'=' -f2)
 if [[ "$layout" == 'NO' ]]; then
   option_1=" Aumentar"
@@ -52,7 +47,6 @@ else
   option_5=""
 fi
 
-# Rofi CMD
 rofi_cmd() {
   rofi -theme-str "window {width: 800px;}" \
     -theme-str "listview {columns: 5; lines: 1;}" \
@@ -65,12 +59,10 @@ rofi_cmd() {
     -theme ${theme}
 }
 
-# Pass variables to rofi dmenu
 run_rofi() {
   echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5" | rofi_cmd
 }
 
-# Execute Command
 run_cmd() {
   case "$1" in
   '--opt1')
@@ -91,7 +83,6 @@ run_cmd() {
   esac
 }
 
-# Actions
 chosen="$(run_rofi)"
 case ${chosen} in
 $option_1)

@@ -3,7 +3,6 @@ type="$HOME/.config/rofi/applets/type-3"
 style='style-2.rasi'
 theme="$type/$style"
 
-# Theme Elements
 prompt='Aplicações'
 mesg='Executar aplicações como Root'
 
@@ -19,16 +18,11 @@ elif [[ "$theme" == *'type-5'* ]]; then
   list_col='1'
   list_row='5'
   win_width='520px'
-# elif [[ ("$theme" == *'type-2'*) || ("$theme" == *'type-4'*) ]]; then
-#   list_col='5'
-#   list_row='1'
-#   win_width='670px'
 fi
 
-# Options
 layout=$(cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2)
 if [[ "$layout" == 'NO' ]]; then
-  option_1=" Alacritty"
+  option_1=" Kitty"
   option_2=" Nautilus"
   option_3=" Gedit"
   option_4=" Ranger"
@@ -41,7 +35,6 @@ else
   option_5=""
 fi
 
-# Rofi CMD
 rofi_cmd() {
   rofi -theme-str "window {width: $win_width;}" \
     -theme-str "listview {columns: $list_col; lines: $list_row;}" \
@@ -53,7 +46,6 @@ rofi_cmd() {
     -theme ${theme}
 }
 
-# Pass variables to rofi dmenu
 run_rofi() {
   echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5" | rofi_cmd
 }
@@ -68,29 +60,28 @@ run_cmd() {
   polkit_cmd="pkexec env PATH=$PATH DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS"
 
   case "$1" in
-    '--opt1')
-      ${polkit_cmd} kitty
-      ;;
-    '--opt2')
-      ${polkit_cmd} nautilus
-      ;;
-    '--opt3')
-      ${polkit_cmd} gedit
-      ;;
-    '--opt4')
-      ${polkit_cmd} kitty -e ranger
-      ;;
-    '--opt5')
-      ${polkit_cmd} kitty -e vim
-      ;;
-    *)
-      echo "Opção inválida."
-      return 1
-      ;;
+  '--opt1')
+    ${polkit_cmd} "$HOME/development/kitty/kitty/launcher/kitty"
+    ;;
+  '--opt2')
+    ${polkit_cmd} nautilus
+    ;;
+  '--opt3')
+    ${polkit_cmd} gedit
+    ;;
+  '--opt4')
+    ${polkit_cmd} "$HOME/development/kitty/kitty/launcher/kitty -e ranger"
+    ;;
+  '--opt5')
+    ${polkit_cmd} "$HOME/development/kitty/kitty/launcher/kitty -e vim"
+    ;;
+  *)
+    echo "Opção inválida."
+    return 1
+    ;;
   esac
 }
 
-# Actions
 chosen="$(run_rofi)"
 case ${chosen} in
 $option_1)

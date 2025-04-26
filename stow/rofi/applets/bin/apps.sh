@@ -3,7 +3,6 @@ type="$HOME/.config/rofi/applets/type-2"
 style='style-2.rasi'
 theme="$type/$style"
 
-# Theme Elements
 prompt='Apps'
 mesg="Pacotes instalados : $(dpkg --list | grep '^ii' | wc -l) (APT)"
 
@@ -15,8 +14,7 @@ elif [[ ("$theme" == *'type-2'*) || ("$theme" == *'type-4'*) ]]; then
   list_row='1'
 fi
 
-# CMDs (add your apps here)
-term_cmd='alacritty'
+term_cmd='$HOME/development/kitty/kitty/launcher/kitty'
 file_cmd='nautilus'
 text_cmd='code'
 web_cmd='google-chrome-stable'
@@ -41,7 +39,6 @@ else
   option_6=""
 fi
 
-# Rofi CMD
 rofi_cmd() {
   rofi -theme-str "listview {columns: $list_col; lines: $list_row;}" \
     -theme-str 'textbox-prompt-colon {str: "";}' \
@@ -52,12 +49,10 @@ rofi_cmd() {
     -theme ${theme}
 }
 
-# Pass variables to rofi dmenu
 run_rofi() {
   echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | rofi_cmd
 }
 
-# Execute Command
 run_cmd() {
   if [[ "$1" == '--opt1' ]]; then
     ${term_cmd}
@@ -74,7 +69,6 @@ run_cmd() {
   fi
 }
 
-# Actions
 chosen="$(run_rofi)"
 case ${chosen} in
 $option_1)

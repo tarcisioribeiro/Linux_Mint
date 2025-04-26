@@ -1,0 +1,14 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": ["workspaces", "clock"],
+  "modules-center": [],
+  "modules-right": ["pulseaudio", "network", "battery", "tray", "clock#date"],
+  "clock": {
+    "format": "%H:%M"
+  },
+  "clock#date": {
+    "format": "%Y-%m-%d",
+    "tooltip": false
+  }
+}

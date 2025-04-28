@@ -114,12 +114,6 @@ cd Tela-icon-theme || exit
 cd ..
 sudo rm -r Tela-icon-theme
 
-gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
-gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
-gsettings set org.gnome.desktop.interface icon-theme "dracula-dark"
-gsettings set org.gnome.desktop.interface font-name "JetBrainsMono NFM 11"
-gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-
 blue "Instalando o i3lock-color..."
 cd "$HOME/Documents/Ubuntu/packages/programs/" || exit
 ./i3lock-color.sh

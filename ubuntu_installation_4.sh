@@ -58,4 +58,3 @@ sudo cp -r "$HOME/.oh-my-zsh" /root
 
 cd "$HOME/Documents/Ubuntu"
 sudo cp -r scripts /root
-sudo snap install glow

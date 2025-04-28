@@ -10,8 +10,8 @@ sudo apt upgrade && sudo apt install nala -y
 
 PACKAGES=(
   toilet curl wget build-essential gcc g++ clang make cmake automake autoconf git stow pkg-config meson ninja-build scdoc
-  neofetch tmux rofi fzf bat gdebi feh nitrogen polybar redshift gnome-tweaks gnome-shell-extension-manager xclip xsel
-  mpv vlc shotcut obs-studio cava flatpak libpam0g-dev deluge deluged deluge-web deluge-console pavucontrol timeshift openssh-server
+  neofetch tmux rofi fzf bat gdebi feh nitrogen polybar redshift xclip xsel mpv vlc shotcut obs-studio cava
+  flatpak libpam0g-dev deluge deluged deluge-web deluge-console pavucontrol timeshift openssh-server
   mysql-server default-libmysqlclient-dev dkms perl ruby-full libsdl2-dev libusb-1.0-0-dev adb cpu-checker gh p7zip pv
   libvirt-daemon-system libvirt-clients bridge-utils ffmpeg libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev
   libswresample-dev gimp libgtk-4-dev libadwaita-1-dev blueman python3 python3-venv python3-tk python3-pip python3-openssl

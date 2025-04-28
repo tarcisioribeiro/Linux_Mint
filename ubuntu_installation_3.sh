@@ -18,15 +18,15 @@ blue() {
 }
 
 
-cd "$HOME/Documents/Ubuntu/packages/development-tools" || exit
+cd "$HOME/Documents/Linux_Mint/packages/development-tools" || exit
 ./docker_install.sh
-cd "$HOME/Documents/Ubuntu/packages/programs" || exit
+cd "$HOME/Documents/Linux_Mint/packages/programs" || exit
 ./android-studio.sh
 
 cd "$HOME"
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
-cd "$HOME/Documents/Ubuntu/packages/package-managers" || exit
+cd "$HOME/Documents/Linux_Mint/packages/package-managers" || exit
 ./asdf_packages.sh
 
 cd "$HOME/Downloads"
@@ -36,5 +36,5 @@ cp dracula.py "$HOME/.config/ranger/colorschemes/dracula.py"
 cd "$HOME/Downloads"
 sudo rm -r ranger
 
-cd "$HOME/Documents/Ubuntu/packages/programs" || exit
+cd "$HOME/Documents/Linux_Mint/packages/programs" || exit
 ./kitty_install.sh

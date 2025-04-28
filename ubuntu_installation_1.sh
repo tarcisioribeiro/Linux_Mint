@@ -36,7 +36,7 @@ sudo nala update && sudo nala upgrade -y
 sudo nala install -y "${PACKAGES[@]}"
 
 msg_color "34" "Instalando o Oh My ZSH..."
-REPO_DIR="$HOME/Documents/Ubuntu"
+REPO_DIR="$HOME/Documents/Linux_Mint"
 TERMINALS_DIR="$REPO_DIR/packages/terminals"
 CUSTOMIZATION_DIR="$REPO_DIR/customization"
 
@@ -62,8 +62,6 @@ sudo mkdir -p $FONT_DIR
 cd "$REPO_DIR/fonts" || exit
 sudo cp JetBrains_Mono_Medium_Nerd_Font_Complete_Mono_Windows_Compatible.ttf "$FONT_DIR"
 sudo cp JetBrains_Mono_Medium_Nerd_Font_Complete_Mono_Windows_Compatible.ttf "$LOCAL_FONT_DIR"
-sudo cp Ubuntu_Mono_Nerd_Font_Complete_Mono.ttf "$FONT_DIR"
-sudo cp Ubuntu_Mono_Nerd_Font_Complete_Mono.ttf "$LOCAL_FONT_DIR"
 sudo cp JetBrainsMonoNerdFontMono-*.ttf "$FONT_DIR"
 sudo cp JetBrainsMonoNerdFontMono-*.ttf "$LOCAL_FONT_DIR"
 
@@ -96,5 +94,5 @@ tmux kill-session -t "dev"
 msg_color "34" "Configurando HomeBrew no shell..."
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' | tee -a "$HOME/.bashrc" "$HOME/.zshrc" >/dev/null
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-echo ". $HOME/.asdf/asdf.sh" >>~/.bashrc
-echo ". $HOME/.asdf/asdf.sh" >>~/.zshrc
+echo ". $HOME/.asdf/asdf.sh" >> ~/.bashrc
+echo ". $HOME/.asdf/asdf.sh" >> ~/.zshrc

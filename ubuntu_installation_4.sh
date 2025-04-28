@@ -47,14 +47,14 @@ rm -f *.deb
 echo "Instalação concluída!"
 
 sudo chsh -s /usr/bin/zsh
-cd "$HOME/Documents/Ubuntu/customization/bash" || exit
+cd "$HOME/Documents/Linux_Mint/customization/bash" || exit
 sudo cp .bashrc_root /root && sudo mv /root/.bashrc_root /root/.bashrc
 sudo cp .bash_aliases_root /root && sudo mv /root/.bash_aliases_root /root/.bash_aliases
 
-cd "$HOME/Documents/Ubuntu/customization/zsh" || exit
+cd "$HOME/Documents/Linux_Mint/customization/zsh" || exit
 sudo cp .zshrc_root /root && sudo mv /root/.zshrc_root /root/.zshrc
 sudo cp .zsh_aliases_root /root && sudo mv /root/.zsh_aliases_root /root/.zsh_aliases
 sudo cp -r "$HOME/.oh-my-zsh" /root
 
-cd "$HOME/Documents/Ubuntu"
+cd "$HOME/Documents/Linux_Mint"
 sudo cp -r scripts /root

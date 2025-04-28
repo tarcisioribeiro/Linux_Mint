@@ -16,3 +16,6 @@ cp versions/dracula-highway-road/dracula-highway-road-night.png dracula-highway-
 sleep 1
 
 nitrogen --restore
+sleep 1
+
+flatpak run org.gabmus.hydrapaper -c "$HOME/Pictures/dracula-drag-race.png" "$HOME/Pictures/dracula-highway-road.png" "$HOME/Pictures/dracula-city-ride.png"

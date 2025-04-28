@@ -3,7 +3,7 @@ set -e
 
 flatpak install flathub com.getpostman.Postman
 flatpak install flathub org.gabmus.hydrapaper
-flatpak install flathub net.pcsx2.PCSX2
+# flatpak install flathub net.pcsx2.PCSX2
 
 DISK_PATH="/media/tarcisio/Seagate"
 PACKAGE_PATH="$DISK_PATH/Packages"
@@ -32,7 +32,9 @@ cp "$PACKAGE_PATH"/*.deb "$DOWNLOAD_PATH"
 
 cd "$DOWNLOAD_PATH" || exit 1
 
-for pkg in chrome.deb code.deb discord.deb obsidian.deb steam.deb upscayl.deb; do
+# chrome.deb
+
+for pkg in code.deb discord.deb obsidian.deb steam.deb upscayl.deb; do
   if [ -f "$pkg" ]; then
     sudo gdebi -n "$pkg"
   else

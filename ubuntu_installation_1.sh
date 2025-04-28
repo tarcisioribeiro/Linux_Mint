@@ -1,4 +1,4 @@
-#!/bin/bash
+/bin/bash
 set -e
 
 msg_color() {
@@ -13,22 +13,22 @@ PACKAGES=(
   neofetch tmux rofi fzf bat gdebi feh nitrogen polybar redshift gnome-tweaks gnome-shell-extension-manager xclip xsel
   mpv vlc shotcut obs-studio cava flatpak libpam0g-dev deluge deluged deluge-web deluge-console pavucontrol timeshift openssh-server
   mysql-server default-libmysqlclient-dev dkms perl ruby-full libsdl2-dev libusb-1.0-0-dev adb cpu-checker gh p7zip pv
-  qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils ffmpeg libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev
+  libvirt-daemon-system libvirt-clients bridge-utils ffmpeg libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev
   libswresample-dev gimp libgtk-4-dev libadwaita-1-dev blueman python3 python3-venv python3-tk python3-pip python3-openssl
-  python3.10-full python3.10-dev libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncurses5-dev libncursesw5-dev
+  python3-full python3-dev libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
   libffi-dev liblzma-dev tk-dev btop stow scrot maim playerctl libxcb1-dev libxcb-keysyms1-dev libxcb-util0-dev i3lock
   libxcb-icccm4-dev libxcb-randr0-dev libxcb-xinerama0-dev libpango1.0-dev libx11-dev libxrandr-dev libxinerama-dev libxss-dev
   libglib2.0-dev libev-dev libxcb-cursor-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev libxcb-xrm0 libxcb-xrm-dev
   libxcb-shape0-dev libconfig-dev libdbus-1-dev libegl-dev libgl-dev libepoxy-dev libpcre2-dev libpixman-1-dev xdotool
   autoconf gcc pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev cargo xss-lock gradle
   libev-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev build-essential dkms nvtop breeze-cursor-theme dunst
-  libxcb-image0-dev libxcb-util0-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev ranger dmenu golang
+  libxcb-image0-dev libxcb-util0-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev ranger golang
   libx11-xcb-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-glx0-dev libxcb-image0-dev libxcb-present-dev libxcb-render0-dev
-  acpi light libxcb-render-util0-dev libxcb-util-dev libxcb-xfixes0-dev uthash-dev libfreetype6-dev libfontconfig1-dev
+  acpi light libxcb-render-util0-dev libxcb-util-dev libxcb-xfixes0-dev uthash-dev libfontconfig1-dev
   libxcb-xfixes0-dev libgtk-3-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev
   gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav libgif-dev
   gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
-  libmpv1 locate libcurl4-openssl-dev libgd-dev libonig-dev libpq-dev libzip-dev unzip jq zsh toilet libstartup-notification0-dev libyajl-dev
+  locate libcurl4-openssl-dev libgd-dev libonig-dev libpq-dev libzip-dev unzip jq zsh toilet libstartup-notification0-dev libyajl-dev
 )
 
 msg_color "34" "Atualizando pacotes e instalando dependências..."

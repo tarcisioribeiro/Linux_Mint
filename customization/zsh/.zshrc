@@ -69,3 +69,7 @@ export PATH=$PATH:/home/tarcisio/.spicetify
 . /home/tarcisio/.asdf/asdf.sh
 export PATH="$PATH:$HOME/.lmstudio/bin"
 export PATH="$PATH:$HOME/development/kitty/kitty/launcher/"
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/tarcisio/.lmstudio/bin"
+# End of LM Studio CLI section
+

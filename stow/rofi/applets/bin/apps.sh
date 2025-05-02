@@ -17,9 +17,9 @@ fi
 term_cmd='$HOME/development/kitty/kitty/launcher/kitty'
 file_cmd='nautilus'
 text_cmd='code'
-web_cmd='google-chrome-stable'
+web_cmd='firefox'
 music_cmd='spotify'
-setting_cmd='gnome-control-center'
+setting_cmd='cinnamon-settings'
 
 # Options
 layout=$(cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2)
@@ -34,7 +34,7 @@ else
   option_1=""
   option_2=""
   option_3=""
-  option_4=""
+  option_4=""
   option_5=""
   option_6=""
 fi

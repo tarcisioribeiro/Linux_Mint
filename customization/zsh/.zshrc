@@ -61,15 +61,13 @@ _fzf_comprun() {
 export PATH="$PATH:$HOME/.local/bin"
 export EDITOR=nvim
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
-export PATH="$PATH:$HOME/development/flutter/bin"
+export PATH="$PATH:$HOME/Development/flutter/bin"
 export TERM=xterm-256color
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 eval "$(zoxide init zsh)"
 export PATH=$PATH:/home/tarcisio/.spicetify
 . /home/tarcisio/.asdf/asdf.sh
 export PATH="$PATH:$HOME/.lmstudio/bin"
-export PATH="$PATH:$HOME/development/kitty/kitty/launcher/"
-# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/Development/kitty/kitty/launcher/"
 export PATH="$PATH:/home/tarcisio/.lmstudio/bin"
-# End of LM Studio CLI section
 

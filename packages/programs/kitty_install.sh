@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Variáveis
-DEV_DIR="$HOME/development"
+DEV_DIR="$HOME/Development"
 REPO_DIR="$DEV_DIR/kitty"
 DESKTOP_FILE="$HOME/.local/share/applications/kitty.desktop"
-EXEC_BIN="$REPO_DIR/launcher/kitty"
-ICON_PATH="$REPO_DIR/launcher/kitty.png"
+EXEC_BIN="$REPO_DIR/kitty/launcher/kitty"
+ICON_PATH="$HOME/.icons/dracula-icons/scalable/apps/kitty.svg"
+Icon=/home/tarcisio/
 
-# Cria a pasta development se não existir
 mkdir -p "$DEV_DIR"
 
 echo "Clonando repositório em $REPO_DIR..."
@@ -35,7 +35,7 @@ cat >"$DESKTOP_FILE" <<EOF
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Kitty Terminal
+Name=Kitty
 GenericName=Terminal Emulator
 Comment=Fast, feature-rich, GPU based terminal
 Exec=$EXEC_BIN
@@ -49,3 +49,9 @@ echo "Atualizando cache de atalhos..."
 update-desktop-database ~/.local/share/applications 2>/dev/null || echo "Você pode precisar reiniciar a sessão."
 
 echo "Instalação concluída! Rode 'kitty' via ~/bin/kitty ou pelo menu de aplicativos."
+
+cd "$DEV_DIR" || exit 1
+cd Linux_Mint/stow
+rm -rf "$HOME/.config/kitty" && mkdir -p "$HOME/.config/kitty" && stow -v -t "$HOME/.config/kitty" kitty
+rm -rf "$HOME/bin/"
+

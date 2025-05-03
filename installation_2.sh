@@ -1,149 +1,79 @@
 #!/bin/bash
-set -e
-
-green() {
-  clear
-  echo ""
-  echo -e "\033[32m$1\033[0m"
-  echo ""
-  sleep 2
-}
-
-blue() {
-  clear
-  echo ""
-  echo -e "\033[34m$1\033[0m"
-  echo ""
-  sleep 2
-}
-
-echo "Instalando gaps do i3..."
-cd "$HOME/Downloads" || exit
-git clone https://www.github.com/jbenden/i3-gaps-rounded i3-gaps
-cd i3-gaps || exit
-mkdir -p build
-cd build || exit
-meson ..
-ninja
-sudo ninja install
-cd "$HOME/Downloads" || exit
-sudo rm -r i3-gaps
-
-blue "Baixando o Flutter..."
-cd "$HOME/Documents/Linux_Mint/packages/development-tools" || exit
-./flutter.sh
-
-blue "Instalando o picom..."
-cd "$HOME/Downloads" || exit
-git clone https://github.com/yshui/picom.git
-cd picom || exit
-meson setup --buildtype=release build
-sudo ninja -C build
-sudo ninja -C build install
-cd "$HOME/Downloads" || exit
-sudo rm -r picom/
-
-blue "Instalando o scrcpy..."
-cd "$HOME/Downloads" || exit
-git clone https://github.com/Genymobile/scrcpy
-cd scrcpy || exit
-./install_release.sh
-cd "$HOME/Downloads" || exit
-sudo rm -r scrcpy
-
-cd "$HOME/Downloads" || exit
-git clone --depth=1 https://github.com/adi1090x/rofi.git
-cd rofi || exit
-chmod +x setup.sh
-./setup.sh
-rm -r ~/.config/rofi
-cd "$HOME/Downloads" || exit
-sudo rm -r rofi
-
-cd "$HOME/Documents/Linux_Mint/stow" || exit
-
-declare -a configs=(
-  "autostart"
-  "btop"
-  "cava"
-  "dunst"
-  "gtk-3.0"
-  "i3"
-  "kitty"
-  "lazygit"
-  "nitrogen"
-  "nvim"
-  "polybar"
-  "rofi"
-  "ranger"
-)
-
-for config in "${configs[@]}"; do
-  target_dir="$HOME/.config/$config"
-  if [ -e "$target_dir" ]; then
-    rm -rf "$target_dir"
-  fi
-  mkdir -p "$target_dir"
-  stow -v -t "$target_dir" "$config"
-done
-
-if [ -e "$HOME/.config/picom.conf" ]; then
-  rm "$HOME/.config/picom.conf"
-fi
-ln -s "$HOME/Documents/Linux_Mint/stow/picom.conf" "$HOME/.config/picom.conf"
-
-if [ -e "$HOME/Xresources" ]; then
-  rm "$HOME/Xresources"
-fi
-ln -s "$HOME/Documents/Linux_Mint/stow/Xresources" "$HOME/Xresources"
-
-if [ -e "$HOME/Xauthority" ]; then
-  rm "$HOME/Xauthority"
-fi
-ln -s "$HOME/Documents/Linux_Mint/stow/Xauthority" "$HOME/Xauthority"
-
-cd "$HOME/Documents/Linux_Mint/" || exit
-mkdir -p "$HOME/Pictures" && stow -v -t "$HOME/Pictures" wallpapers
-mkdir -p "$HOME/scripts" && stow -v -t "$HOME/scripts" scripts
-
-cd "$HOME/Downloads/" || exit
-wget -q https://github.com/dracula/gtk/archive/master.zip
-unzip master.zip
-mv gtk-master Dracula
-mv Dracula "$HOME/.themes"
-rm master.zip
-cd "$HOME/Downloads" || exit
-git clone https://github.com/vinceliuice/Tela-icon-theme.git
-cd Tela-icon-theme || exit
-./install.sh -n dracula
-cd ..
-sudo rm -r Tela-icon-theme
-
-blue "Instalando o i3lock-color..."
-cd "$HOME/Documents/Linux_Mint/packages/programs/" || exit
-./i3lock-color.sh
-
-cd "$HOME/Downloads" || exit
-wget https://raw.githubusercontent.com/dracula/gedit/master/dracula.xml
-mkdir -p ~/.local/share/gedit/styles/
-mv dracula.xml ~/.local/share/gedit/styles/
-
-files=(
-  "$HOME/.zshrc:$HOME/Documents/Linux_Mint/customization/zsh/.zshrc"
-  "$HOME/.zsh_aliases:$HOME/Documents/Linux_Mint/customization/zsh/.zsh_aliases"
-  "$HOME/.bashrc:$HOME/Documents/Linux_Mint/customization/bash/.bashrc"
-  "$HOME/.bash_aliases:$HOME/Documents/Linux_Mint/customization/bash/.bash_aliases"
-  "$HOME/.config/starship.toml:$HOME/Documents/Linux_Mint/customization/starship/starship.toml"
-  "$HOME/.gitconfig:$HOME/Documents/Linux_Mint/customization/git/.gitconfig"
-)
-
-for file in "${files[@]}"; do
-  target="${file%%:*}"
-  source="${file##*:}"
-  if [ -e "$target" ]; then
-    rm "$target"
-  fi
-  ln -s "$source" "$target"
-done
-
 brew install fd git-delta vim lazygit eza onefetch tldr zoxide asdf
+
+cd "$HOME/Development/Linux_Mint/packages/development-tools" || exit
+./docker_install.sh
+# cd "$HOME/Development/Linux_Mint/packages/programs" || exit
+# ./android-studio.sh
+
+cd "$HOME"
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+
+cd "$HOME/Development/Linux_Mint/packages/package-managers" || exit
+./asdf_packages.sh
+
+cd "$HOME/Downloads"
+git clone https://github.com/dracula/ranger.git
+cd ranger
+cp dracula.py "$HOME/.config/ranger/colorschemes/dracula.py"
+cd "$HOME/Downloads"
+sudo rm -r ranger
+
+cd "$HOME/Development/Linux_Mint/packages/programs" || exit
+./kitty_install.sh
+
+flatpak install flathub com.getpostman.Postman
+flatpak install flathub org.gabmus.hydrapaper
+flatpak install flathub net.pcsx2.PCSX2
+
+DISK_PATH="/media/tarcisio/Seagate"
+PACKAGE_PATH="$DISK_PATH/Packages"
+DOWNLOAD_PATH="$HOME/Downloads"
+
+if mount | grep -q "$DISK_PATH"; then
+  echo "Disco montado: $DISK_PATH"
+else
+  echo "Erro: O disco não está montado!"
+  exit 1
+fi
+
+if [ ! -d "$PACKAGE_PATH" ]; then
+  echo "Erro: O diretório $PACKAGE_PATH não existe!"
+  exit 1
+fi
+
+if ls "$PACKAGE_PATH"/*.deb 1>/dev/null 2>&1; then
+  echo "Pacotes encontrados, iniciando instalação..."
+else
+  echo "Erro: Nenhum pacote .deb encontrado em $PACKAGE_PATH!"
+  exit 1
+fi
+
+cp "$PACKAGE_PATH"/*.deb "$DOWNLOAD_PATH"
+
+cd "$DOWNLOAD_PATH" || exit 1
+
+for pkg in code.deb chrome.deb discord.deb obsidian.deb steam.deb upscayl.deb; do
+  if [ -f "$pkg" ]; then
+    sudo gdebi -n "$pkg"
+  else
+    echo "Aviso: $pkg não encontrado. Pulando..."
+  fi
+done
+
+rm -f *.deb
+
+echo "Instalação concluída!"
+
+sudo chsh -s /usr/bin/zsh
+cd "$HOME/Development/Linux_Mint/customization/bash" || exit
+sudo cp .bashrc_root /root && sudo mv /root/.bashrc_root /root/.bashrc
+sudo cp .bash_aliases_root /root && sudo mv /root/.bash_aliases_root /root/.bash_aliases
+
+cd "$HOME/Development/Linux_Mint/customization/zsh" || exit
+sudo cp .zshrc_root /root && sudo mv /root/.zshrc_root /root/.zshrc
+sudo cp .zsh_aliases_root /root && sudo mv /root/.zsh_aliases_root /root/.zsh_aliases
+sudo cp -r "$HOME/.oh-my-zsh" /root
+
+cd "$HOME/Development/Linux_Mint"
+sudo cp -r scripts /root

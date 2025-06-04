@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/tarcisio/Development/Linux_Mint/scripts/fix-screen-tearing.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Configurar Monitores NVIDIA
+Comment=Aplica layout e composição NVIDIA na inicialização
+X-GNOME-Autostart-Delay=5

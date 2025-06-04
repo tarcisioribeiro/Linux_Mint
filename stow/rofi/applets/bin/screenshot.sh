@@ -63,7 +63,7 @@ notify_view() {
   notify_cmd_shot='dunstify -u low -t 1000'
   if [[ -e "$file" ]]; then
     ${notify_cmd_shot} "Captura de tela salva."
-    eog "$file" &
+    xviewer "$file" &
   else
     ${notify_cmd_shot} "Falha ao capturar tela."
   fi

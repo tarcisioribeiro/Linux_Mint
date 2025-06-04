@@ -3,8 +3,6 @@ brew install fd git-delta vim lazygit eza onefetch tldr zoxide asdf
 
 cd "$HOME/Development/Linux_Mint/packages/development-tools" || exit
 ./docker_install.sh
-# cd "$HOME/Development/Linux_Mint/packages/programs" || exit
-# ./android-studio.sh
 
 cd "$HOME"
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons

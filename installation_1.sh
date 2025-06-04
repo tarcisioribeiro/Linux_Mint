@@ -95,8 +95,8 @@ tmux kill-session -t "dev"
 msg_color "34" "Configurando HomeBrew no shell..."
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' | tee -a "$HOME/.bashrc" "$HOME/.zshrc" >/dev/null
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-echo ". $HOME/.asdf/asdf.sh" >> ~/.bashrc
-echo ". $HOME/.asdf/asdf.sh" >> ~/.zshrc
+echo ". $HOME/.asdf/asdf.sh" >>~/.bashrc
+echo ". $HOME/.asdf/asdf.sh" >>~/.zshrc
 
 echo "Instalando gaps do i3..."
 cd "$HOME/Downloads" || exit
@@ -175,6 +175,11 @@ if [ -e "$HOME/Xresources" ]; then
 fi
 ln -s "$HOME/Development/Linux_Mint/stow/Xresources" "$HOME/Xresources"
 
+if [ -e "$HOME/.xprofile" ]; then
+  rm "$HOME/.xprofile"
+fi
+ln -s "$HOME/Development/Linux_Mint/stow/.xprofile" "$HOME/.xprofile"
+
 if [ -e "$HOME/Xauthority" ]; then
   rm "$HOME/Xauthority"
 fi
@@ -222,5 +227,3 @@ for file in "${files[@]}"; do
   fi
   ln -s "$source" "$target"
 done
-
-

@@ -101,9 +101,9 @@ run_cmd() {
 	elif [[ "$1" == '--opt2' ]]; then
 		notify-send -u low "$ICON_CHRG Status : $status"
 	elif [[ "$1" == '--opt3' ]]; then
-		gnome-control-center power
+		cinnamon-settings power
 	elif [[ "$1" == '--opt4' ]]; then
-		alacritty -e sudo powertop
+		kitty -e sudo powertop
 	fi
 }
 

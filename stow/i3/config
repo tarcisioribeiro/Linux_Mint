@@ -1,14 +1,15 @@
 exec_always --no-startup-id "$HOME/scripts/monitor_setup.sh"
-exec --no-startup-id "$HOME/scripts/fix_tearing.sh"
+exec_always --no-startup-id "$HOME/scripts/fix-screen-tearing.sh"
 exec_always --no-startup-id nitrogen --restore
 exec --no-startup-id /usr/lib/polkit-1/polkit-agent-helper-1
 exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id killall polybar
-exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+exec_always --no-startup-id "$HOME/.config/polybar/launch_polybar.sh"
 exec_always --no-startup-id picom
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id nm-applet
 exec --no-startup-id python3 "$HOME/scripts/autostart/autostart.py"
+exec --no-startup-id gnome-settings-daemon
 exec_always --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-color --nofork
 
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -24,7 +25,7 @@ floating_modifier $mod
 
 bindsym $mod+a exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'JetBrainsMono NFM' -p 'dmenu%'"
 
-bindsym $mod+Return exec "$HOME/development/kitty/kitty/launcher/kitty"
+bindsym $mod+Return exec "$HOME/Development/kitty/kitty/launcher/kitty"
 bindsym $mod+e exec nemo
 bindsym $mod+o exec obsidian
 bindsym $mod+d exec google-chrome
@@ -180,4 +181,6 @@ for_window [class="scrcpy"] floating enable
 for_window [class="steam"] fullscreen enable
 for_window [class="pcsx2-qt"] floating enable, move position center
 for_window [class="Cinnamon-settings.py"] floating enable, move position center
-# for_window [class="kitty"] floating enable, move position center
+for_window [class="Gnome-calculator"] floating enable, move position center
+for_window [class="python3"] floating enable, move position center
+for_window [class="Xreader"] floating enable, move position center

@@ -138,6 +138,7 @@ configuration {
 
 
 * {
+    icon-theme: "dracula-icons";
     font: "JetBrainsMono NFM 12";
     foreground: #f8f8f2;
     background: #282a36;
@@ -166,6 +167,7 @@ configuration {
     alternate-urgent-foreground: var(background);
     alternate-active-background: var(selected);
     alternate-active-foreground: var(background);
+
 }
 
 window {

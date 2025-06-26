@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=i3
-Comment=Dynamic tiling window manager
-Exec=i3
-TryExec=i3
-Type=Application
-DesktopNames=i3

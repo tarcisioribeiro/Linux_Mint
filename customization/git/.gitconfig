@@ -50,7 +50,7 @@
   updated = green bold
 
 [user]
-	name = tarcisioribeiro
+	name = Tarcísio Ribeiro
   email = tarcisio.ribeiro.1840@hotmail.com
 
 [init]
@@ -72,3 +72,8 @@
 
 [diff]
   colorMoved = default
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

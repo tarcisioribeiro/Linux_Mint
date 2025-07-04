@@ -147,12 +147,11 @@ declare -a configs=(
   "dunst"
   "gtk-3.0"
   "i3"
-  "kitty"
   "lazygit"
   "nitrogen"
-  "nvim"
   "polybar"
   "rofi"
+  "vim"
   "ranger"
 )
 

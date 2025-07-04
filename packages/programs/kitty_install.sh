@@ -50,8 +50,8 @@ update-desktop-database ~/.local/share/applications 2>/dev/null || echo "Você p
 
 echo "Instalação concluída! Rode 'kitty' via ~/bin/kitty ou pelo menu de aplicativos."
 
-cd "$DEV_DIR" || exit 1
-cd Linux_Mint/stow
-rm -rf "$HOME/.config/kitty" && mkdir -p "$HOME/.config/kitty" && stow -v -t "$HOME/.config/kitty" kitty
-rm -rf "$HOME/bin/"
+# cd "$DEV_DIR" || exit 1
+# cd Linux_Mint/stow
+# rm -rf "$HOME/.config/kitty" && mkdir -p "$HOME/.config/kitty" && stow -v -t "$HOME/.config/kitty" kitty
+# rm -rf "$HOME/bin/"
 

@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+brew install fd git-delta vim lazygit eza onefetch tldr zoxide asdf
+
 DISK_PATH="/media/tarcisio/Seagate"
 PACKAGE_PATH="$DISK_PATH/Packages"
 DOWNLOAD_PATH="$HOME/Downloads"

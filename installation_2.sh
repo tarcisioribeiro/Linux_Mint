@@ -1,4 +1,5 @@
 #!/bin/bash
+
 brew install fd git-delta vim lazygit eza onefetch tldr zoxide asdf
 
 cd "$HOME/Development/Linux_Mint/packages/development-tools" || exit
@@ -22,10 +23,9 @@ cd "$HOME/Development/Linux_Mint/packages/programs" || exit
 
 flatpak install flathub com.getpostman.Postman
 flatpak install flathub org.gabmus.hydrapaper
-flatpak install flathub net.pcsx2.PCSX2
 
-DISK_PATH="/media/tarcisio/Seagate"
-PACKAGE_PATH="$DISK_PATH/Packages"
+DISK_PATH="/mnt/sda1/Seagate"
+PACKAGE_PATH="$DISK_PATH/Programas/Pacotes"
 DOWNLOAD_PATH="$HOME/Downloads"
 
 if mount | grep -q "$DISK_PATH"; then
@@ -51,7 +51,7 @@ cp "$PACKAGE_PATH"/*.deb "$DOWNLOAD_PATH"
 
 cd "$DOWNLOAD_PATH" || exit 1
 
-for pkg in code.deb chrome.deb discord.deb obsidian.deb steam.deb upscayl.deb; do
+for pkg in code.deb discord.deb obsidian.deb; do
   if [ -f "$pkg" ]; then
     sudo gdebi -n "$pkg"
   else

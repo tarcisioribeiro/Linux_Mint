@@ -66,8 +66,15 @@ export TERM=xterm-256color
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 eval "$(zoxide init zsh)"
 export PATH=$PATH:/home/tarcisio/.spicetify
-. /home/tarcisio/.asdf/asdf.sh
 export PATH="$PATH:$HOME/.lmstudio/bin"
 export PATH="$PATH:$HOME/Development/kitty/kitty/launcher/"
 export PATH="$PATH:/home/tarcisio/.lmstudio/bin"
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
+export PATH="$HOME/.asdf/shims:$HOME/.asdf/bin:$PATH"

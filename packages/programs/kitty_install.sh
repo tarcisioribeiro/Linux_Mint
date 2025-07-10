@@ -5,8 +5,7 @@ DEV_DIR="$HOME/Development"
 REPO_DIR="$DEV_DIR/kitty"
 DESKTOP_FILE="$HOME/.local/share/applications/kitty.desktop"
 EXEC_BIN="$REPO_DIR/kitty/launcher/kitty"
-ICON_PATH="$HOME/.icons/dracula-icons/scalable/apps/kitty.svg"
-Icon=/home/tarcisio/
+ICON_PATH="$HOME/.local/share/icons/dracula/scalable/apps/kitty.svg"
 
 mkdir -p "$DEV_DIR"
 

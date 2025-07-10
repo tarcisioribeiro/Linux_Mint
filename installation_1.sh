@@ -145,7 +145,6 @@ declare -a configs=(
   "btop"
   "cava"
   "dunst"
-  "gtk-3.0"
   "i3"
   "lazygit"
   "nitrogen"

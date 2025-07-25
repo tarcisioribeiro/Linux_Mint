@@ -13,11 +13,11 @@ PACKAGES=(
   toilet curl wget build-essential gcc g++ clang make cmake automake autoconf git stow pkg-config meson ninja-build scdoc
   neofetch tmux rofi fzf bat gdebi feh nitrogen polybar redshift xclip xsel mpv vlc shotcut obs-studio cava
   flatpak libpam0g-dev deluge deluged deluge-web deluge-console pavucontrol timeshift openssh-server
-  mysql-server default-libmysqlclient-dev dkms perl ruby-full libsdl2-dev libusb-1.0-0-dev adb cpu-checker gh p7zip pv
+  default-libmysqlclient-dev dkms perl ruby-full libsdl2-dev libusb-1.0-0-dev adb cpu-checker gh p7zip pv
   libvirt-daemon-system libvirt-clients bridge-utils ffmpeg libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev
   libswresample-dev gimp libgtk-4-dev libadwaita-1-dev blueman python3 python3-venv python3-tk python3-pip python3-openssl
-  python3-full python3-dev libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev spotify-client
-  libffi-dev liblzma-dev tk-dev btop stow scrot maim playerctl libxcb1-dev libxcb-keysyms1-dev libxcb-util0-dev i3lock
+  python3-full python3-dev libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libffi-dev
+  liblzma-dev tk-dev btop stow scrot maim playerctl libxcb1-dev libxcb-keysyms1-dev libxcb-util0-dev i3lock
   libxcb-icccm4-dev libxcb-randr0-dev libxcb-xinerama0-dev libpango1.0-dev libx11-dev libxrandr-dev libxinerama-dev libxss-dev
   libglib2.0-dev libev-dev libxcb-cursor-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev libxcb-xrm0 libxcb-xrm-dev
   libxcb-shape0-dev libconfig-dev libdbus-1-dev libegl-dev libgl-dev libepoxy-dev libpcre2-dev libpixman-1-dev xdotool

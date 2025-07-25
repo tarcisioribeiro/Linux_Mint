@@ -78,3 +78,4 @@ export NVM_DIR="$HOME/.nvm"
 . "$HOME/.asdf/asdf.sh"
 . "$HOME/.asdf/completions/asdf.bash"
 export PATH="$HOME/.asdf/shims:$HOME/.asdf/bin:$PATH"
+

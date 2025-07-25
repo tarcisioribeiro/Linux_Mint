@@ -24,7 +24,7 @@ cd "$HOME/Development/Linux_Mint/packages/programs" || exit
 flatpak install flathub com.getpostman.Postman
 flatpak install flathub org.gabmus.hydrapaper
 
-DISK_PATH="/mnt/sda1/Seagate"
+DISK_PATH="/media/tarcisio/Seagate"
 PACKAGE_PATH="$DISK_PATH/Programas/Pacotes"
 DOWNLOAD_PATH="$HOME/Downloads"
 
@@ -51,7 +51,7 @@ cp "$PACKAGE_PATH"/*.deb "$DOWNLOAD_PATH"
 
 cd "$DOWNLOAD_PATH" || exit 1
 
-for pkg in code.deb discord.deb obsidian.deb; do
+for pkg in code.deb discord.deb obsidian.deb mysql-workbench.deb chrome.deb; do
   if [ -f "$pkg" ]; then
     sudo gdebi -n "$pkg"
   else

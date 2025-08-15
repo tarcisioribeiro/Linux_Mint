@@ -140,6 +140,7 @@ configuration {
 * {
     icon-theme: "dracula-icons";
     font: "JetBrainsMono NFM 12";
+    // font: "FantasqueSansM Nerd Font Mono 14";
     foreground: #f8f8f2;
     background: #282a36;
     selected: #6272a4;

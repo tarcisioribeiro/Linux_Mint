@@ -3,7 +3,8 @@ configuration {
 }
 
 * {
-    font: "JetBrainsMono NFM Medium 12";
+    //font: "JetBrainsMono NFM Medium 12";
+    font: "FantasqueSansM Nerd Font Mono 14";
     foreground: #f8f8f2;
     background: #282a36;
     background-alt: #44475a;

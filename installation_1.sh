@@ -1,5 +1,4 @@
 #!/usr/bin/bash
-#!/bin/bash
 set -e
 
 msg_color() {

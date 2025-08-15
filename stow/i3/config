@@ -20,6 +20,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 set $mod Mod1
 font pango:JetBrainsMono NFM 12
+# font pango:FantasqueSansM Nerd Font Mono 16
 
 floating_modifier $mod
 

@@ -1,0 +1,30 @@
+# Título: Resumo conciso das mudanças (máx 50 caracteres)
+#
+# Corpo: Explicação mais detalhada do que e por que (quebrar em 72 caracteres)
+# - Use pontos para listas de mudanças
+# - Explique o problema que está resolvendo
+# - Descreva o comportamento anterior vs novo comportamento
+#
+# Tipo de mudança (descomente o apropriado):
+# feat: nova funcionalidade
+# fix: correção de bug
+# docs: mudanças na documentação
+# style: formatação, ponto e vírgula, etc (sem mudança de código)
+# refactor: refatoração de código
+# test: adição ou correção de testes
+# chore: atualização de tarefas de build, configurações, etc
+#
+# Closes #123 (se aplicável - referencia issue)
+
+# Exemplo de commit bem estruturado:
+# feat: adicionar controle Xbox para navegação do sistema
+#
+# - Implementar mapeamento de botões do controle Xbox
+# - Adicionar suporte para D-pad como teclas direcionais  
+# - Configurar botões analógicos como clicks de mouse
+# - Criar script Python para captura de eventos do gamepad
+#
+# Resolve problema de acessibilidade para usuários que preferem
+# controle em vez de teclado/mouse para navegação básica.
+#
+# Closes #45

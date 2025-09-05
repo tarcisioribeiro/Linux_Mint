@@ -14,7 +14,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font: "JetBrainsMono NFM Medium 12";
+    font: "FantasqueSansM Nerd Font Mono 16";
     background:                  #2D1B14;
     background-alt:              #462D23;
     foreground:                  #FFFFFF;

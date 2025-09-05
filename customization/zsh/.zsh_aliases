@@ -1,9 +1,8 @@
 # CLI Tools
 alias bat='batcat --theme="Dracula"'
 alias cls='clear'
-alias eza='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
+alias ls='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
 alias glow='glow -p'
-alias ls='logo-ls -1'
 alias lg='lazygit'
 alias new_tree='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree'
 alias weather='curl wttr.in'
@@ -22,7 +21,7 @@ alias reload-zsh="source ~/.zshrc"
 
 # I3
 alias show_nvim_keybinds="glow ~/.config/nvim/key_commands.md"
-alias show_i3_keybinds="glow ~/repos/Ubuntu/README.md"
+alias show_i3_keybinds="glow ~/Development/Linux_Mint/README.md"
 
 # Android Studio
 alias launch_avd="~/Android/Sdk/emulator/emulator -avd Pixel -gpu host > /dev/null &"

@@ -50,8 +50,8 @@
   updated = green bold
 
 [user]
-	name = Tarcísio Ribeiro
-  email = tarcisio.ribeiro.1840@hotmail.com
+	name = tarcisioribeiro
+	email = tarcisio.ribeiro.1840@hotmail.com
 
 [init]
   defaultBranch = main
@@ -77,3 +77,9 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

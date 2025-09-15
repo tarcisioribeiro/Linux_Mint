@@ -3,8 +3,6 @@ configuration {
 }
 
 * {
-    //font: "FantasqueSansM Nerd Font Mono 16";
-    // font: "FantasqueSansM Nerd Font Mono 16";
     font: "FantasqueSansM Nerd Font Mono 16";
     foreground: #f8f8f2;
     background: #282a36;
@@ -23,8 +21,8 @@ configuration {
     listview-spacing:            50px;
     element-padding:             35px 40px;
     element-border-radius:       20px;
-    prompt-font:                 "JetBrainsMono Nerd Font Bold 72";
-    textbox-font:                "JetBrainsMono Nerd Font 14";
+    prompt-font:                 "FantasqueSansM Nerd Font Mono Bold 96";
+    textbox-font:                "FantasqueSansM Nerd Font Mono 16";
     element-text-font:           "feather 64";
     background-window:           black/80%;
     background-normal:           white/5%;

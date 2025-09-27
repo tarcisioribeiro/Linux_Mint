@@ -39,7 +39,8 @@ window {
 
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               10px;
+//     border-radius:               10px;
+    border-radius: 0px;
     border-color:                @selected;
     cursor:                      "default";
     background-color:            @background;
@@ -78,7 +79,8 @@ textbox-prompt-colon {
     str:                         " System";
     padding:                     15px;
     border:                      0px 5px 5px 0px;
-    border-radius:               15px 5px 15px 5px;
+//     border-radius:               15px 5px 15px 5px;
+    border-radius: 0px;
     border-color:                @selected;
     background-color:            @urgent;
     text-color:                  @background;
@@ -87,7 +89,8 @@ prompt {
     enabled:                     true;
     padding:                     15px;
     border:                      0px 0px 5px 5px;
-    border-radius:               5px 15px 5px 15px;
+//     border-radius:               5px 15px 5px 15px;
+    border-radius: 0px;
     border-color:                @selected;
     background-color:            @active;
     text-color:                  @background;
@@ -116,7 +119,8 @@ listview {
 element {
     enabled:                     true;
     padding:                     40px 10px;
-    border-radius:               15px 30px 15px 30px;
+//     border-radius:               15px 30px 15px 30px;
+    border-radius: 0px;
     background-color:            @background-alt;
     text-color:                  @foreground;
     cursor:                      pointer;

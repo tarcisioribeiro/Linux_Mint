@@ -39,7 +39,8 @@ window {
 
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               24px;
+//     border-radius:               24px;
+    border-radius: 0px;
     border-color:                @selected;
     cursor:                      "default";
     background-color:            @background;
@@ -65,7 +66,8 @@ imagebox {
 userimage {
     margin:                      0px 0px;
     border:                      10px;
-    border-radius:               10px;
+//     border-radius:               10px;
+    border-radius: 0px;
     border-color:                @background-alt;
     background-color:            transparent;
     background-image:            url("~/.config/rofi/images/d.png", height);
@@ -74,7 +76,8 @@ userimage {
 /*****----- Inputbar -----*****/
 inputbar {
     padding:                     15px;
-    border-radius:               100%;
+//     border-radius:               100%;
+    border-radius: 0px;
     background-color:            @urgent;
     text-color:                  @foreground;
     children:                    [ "dummy", "prompt", "dummy"];
@@ -94,7 +97,8 @@ message {
     enabled:                     true;
     margin:                      0px;
     padding:                     15px;
-    border-radius:               100%;
+//     border-radius:               100%;
+    border-radius: 0px;
     background-color:            @active;
     text-color:                  @foreground;
 }
@@ -128,7 +132,8 @@ listview {
 element {
     enabled:                     true;
     padding:                     40px 10px;
-    border-radius:               100%;
+//     border-radius:               100%;
+    border-radius: 0px;
     background-color:            @background-alt;
     text-color:                  @foreground;
     cursor:                      pointer;

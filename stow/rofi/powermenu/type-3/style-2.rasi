@@ -83,14 +83,16 @@ textbox-prompt-colon {
     expand:                      false;
     str:                         "SYSTEM";
     padding:                     var(general-padding);
-    border-radius:               100% 0px 0px 100%;
+//     border-radius:               100% 0px 0px 100%;
+    border-radius: 0px;
     background-color:            @urgent;
     text-color:                  @background;
 }
 prompt {
     enabled:                     true;
     padding:                     var(general-padding);
-    border-radius:               0px 100% 100% 0px;
+//     border-radius:               0px 100% 100% 0px;
+    border-radius: 0px;
     background-color:            @active;
     text-color:                  @background;
 }

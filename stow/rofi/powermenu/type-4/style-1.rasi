@@ -19,10 +19,12 @@ configuration {
     mainbox-margin:              100px 300px;
     message-margin:              0px 400px;
     message-padding:             15px;
-    message-border-radius:       100%;
+//     message-border-radius:       100%;
+    border-radius: 0px;
     listview-spacing:            50px;
     element-padding:             55px 60px;
-    element-border-radius:       100%;
+//     element-border-radius:       100%;
+    border-radius: 0px;
 
     prompt-font:                 "FantasqueSansM Nerd Font Mono Bold 64";
     textbox-font:                "FantasqueSansM Nerd Font Mono 16";

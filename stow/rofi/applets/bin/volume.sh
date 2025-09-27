@@ -3,13 +3,13 @@ type="$HOME/.config/rofi/applets/type-2"
 style='style-2.rasi'
 theme="$type/$style"
 
-speaker="$(pactl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}')%"
-mic="$(pactl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print int($2 * 100)}')%"
+speaker="$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')"
+mic="$(pactl get-source-volume @DEFAULT_SOURCE@ | awk '{print $5}' | sed 's/%//')"
 
 active=""
 urgent=""
 
-if pactl get-mute @DEFAULT_AUDIO_SINK@ | grep -q "false"; then
+if pactl get-sink-mute @DEFAULT_SINK@ | grep -q "false"; then
   active="-a 1"
   stext='Desmutar'
   sicon=''
@@ -19,7 +19,7 @@ else
   sicon=''
 fi
 
-if pactl get-mute @DEFAULT_AUDIO_SOURCE@ | grep -q "false"; then
+if pactl get-source-mute @DEFAULT_SOURCE@ | grep -q "false"; then
   [ -n "$active" ] && active+="3" || active="-a 3"
   mtext='Desmutar'
   micon=''
@@ -30,7 +30,7 @@ else
 fi
 
 prompt="S:$stext, M:$mtext"
-mesg="Alto-Falante: $speaker, Microfone: $mic"
+mesg="Alto-Falante: $speaker%, Microfone: $mic%"
 
 layout=$(grep 'USE_ICON' "${theme}" | cut -d'=' -f2)
 if [[ "$layout" == 'NO' ]]; then
@@ -66,16 +66,16 @@ run_rofi() {
 run_cmd() {
   case "$1" in
   '--opt1')
-    pactl set-volume @DEFAULT_AUDIO_SINK@ 0.05+
+    pactl set-sink-volume @DEFAULT_SINK@ +5%
     ;;
   '--opt2')
-    pactl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
     ;;
   '--opt3')
-    pactl set-volume @DEFAULT_AUDIO_SINK@ 0.05-
+    pactl set-sink-volume @DEFAULT_SINK@ -5%
     ;;
   '--opt4')
-    pactl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
     ;;
   '--opt5')
     pavucontrol

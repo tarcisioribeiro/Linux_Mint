@@ -19,10 +19,12 @@ configuration {
     mainbox-margin:              0px 470px;
     message-margin:              0px 350px;
     message-padding:             15px;
-    message-border-radius:       100%;
+//     message-border-radius:       100%;
+    border-radius: 0px;
     listview-spacing:            25px;
     element-padding:             45px 40px;
-    element-border-radius:       100%;
+//     element-border-radius:       100%;
+    border-radius: 0px;
 
     prompt-font:                 "Iosevka Nerd Font Bold 32";
     textbox-font:                "Iosevka Nerd Font 12";
@@ -80,7 +82,8 @@ mainbox {
 userimage {
     margin:                      0px 400px;
     border:                      2px;
-    border-radius:               100%;
+//     border-radius:               100%;
+    border-radius: 0px;
     border-color:                white;
     background-color:            transparent;
     background-image:            url("~/.config/rofi/images/user.jpeg", both);

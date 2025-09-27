@@ -27,7 +27,8 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               4px;
+//     border-radius:               4px;
+    border-radius: 0px;
     border-color:                @selected;
     cursor:                      "default";
     background-color:            @background;
@@ -69,14 +70,16 @@ textbox-prompt-colon {
     expand:                      false;
     str:                         "";
     padding:                     10px 14px;
-    border-radius:               4px;
+//     border-radius:               4px;
+    border-radius: 0px;
     background-color:            @urgent;
     text-color:                  @background;
 }
 prompt {
     enabled:                     true;
     padding:                     10px;
-    border-radius:               4px;
+//     border-radius:               4px;
+    border-radius: 0px;
     background-color:            @active;
     text-color:                  @background;
 }
@@ -87,7 +90,8 @@ message {
     margin:                      0px;
     padding:                     10px;
     border:                      0px solid;
-    border-radius:               4px;
+//     border-radius:               4px;
+    border-radius: 0px;
     border-color:                @selected;
     background-color:            @background-alt;
     text-color:                  @foreground;
@@ -141,7 +145,8 @@ element {
     margin:                      0px;
     padding:                     10px;
     border:                      0px solid;
-    border-radius:               4px;
+//     border-radius:               4px;
+    border-radius: 0px;
     border-color:                @selected;
     background-color:            @background-alt;
     text-color:                  @foreground;
@@ -156,7 +161,8 @@ element-text {
 }
 element selected.normal {
     border:                      0px 2px 0px 2px;
-    border-radius:               4px;
+//     border-radius:               4px;
+    border-radius: 0px;
     background-color:            var(selected);
     text-color:                  var(background);
 }

@@ -18,7 +18,7 @@ fi
 steam_app='steam'
 ps2='flatpak run net.pcsx2.PCSX2'
 ps1='flatpak run org.duckstation.DuckStation'
-snes='flatpak run com.snes9x.Snes9x'
+snes='flatpak run dev.bsnes.bsnes'
 
 layout=$(cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2)
 if [[ "$layout" == 'NO' ]]; then

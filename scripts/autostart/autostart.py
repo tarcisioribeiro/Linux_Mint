@@ -55,39 +55,24 @@ def calculate_seconds():
 
     if seconds >= 18000 and seconds < 25200:
         temp = 4000
-        wp_command = f"""
-        bash '{home_dir}/scripts/autostart/wallpapers/aurora.sh'
-        """
-
     elif seconds >= 25200 and seconds < 39600:
         temp = 4500
-        wp_command = f"""
-        bash '{home_dir}/scripts/autostart/wallpapers/morning.sh'
-        """
-
     elif seconds >= 39600 and seconds < 57600:
         temp = 5500
-        wp_command = f"""
-        bash '{home_dir}/scripts/autostart/wallpapers/afternoon.sh'
-        """
-
     elif seconds >= 57600 and seconds < 64800:
         temp = 4500
-        wp_command = f"bash '{home_dir}/scripts/autostart/wallpapers/dusk.sh'"
-
     elif seconds >= 64800 and seconds < 79200:
         temp = 4000
-        wp_command = f"bash '{home_dir}/scripts/autostart/wallpapers/night.sh'"
-
     elif (
             seconds >= 79200 and seconds <= 86400
         ) or (
             seconds >= 1 and seconds < 18000):
         temp = 3500
-        wp_command = f"bash '{home_dir}/scripts/autostart/wallpapers/dawn.sh'"
-
     else:
         temp = 4000
+
+    # Usar novo script de rotação de wallpapers
+    wp_command = f"bash '{home_dir}/Development/Linux_Mint/scripts/wallpaper_rotation.sh' auto"
 
     subprocess.run(
         wp_command,

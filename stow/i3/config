@@ -1,6 +1,5 @@
 exec_always --no-startup-id "$HOME/scripts/monitor_setup.sh"
 exec_always --no-startup-id "$HOME/scripts/fix-screen-tearing.sh"
-exec_always --no-startup-id nitrogen --restore
 exec --no-startup-id /usr/lib/polkit-1/polkit-agent-helper-1
 exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id killall polybar
@@ -36,6 +35,7 @@ bindsym $mod+t exec code
 bindsym $mod+q kill
 
 bindsym $mod+space exec --no-startup-id rofi -show drun -show-icons
+bindsym $mod+Ctrl+space exec --no-startup-id bash "$HOME/Development/Linux_Mint/scripts/wallpaper_rotation.sh" rotate
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -127,6 +127,8 @@ bindsym $mod+Shift+g exec "$HOME/.config/rofi/applets/bin/games.sh"
 bindsym $mod+Shift+e exec "$HOME/.config/rofi/applets/bin/appasroot.sh"
 bindsym $mod+Shift+n exec "$HOME/.config/rofi/applets/bin/apps.sh"
 bindsym $mod+Shift+a exec "$HOME/.config/rofi/applets/bin/volume.sh"
+bindsym $mod+Shift+m exec "$HOME/.config/rofi/applets/bin/monitor_config.sh"
+bindsym $mod+k exec "$HOME/scripts/show_i3_keybindings.sh"
 
 bindsym $mod+r mode "resize"
 mode "resize" {
@@ -186,3 +188,13 @@ for_window [class="Cinnamon-settings.py"] floating enable, move position center
 for_window [class="Gnome-calculator"] floating enable, move position center
 for_window [class="python3"] floating enable, move position center
 for_window [class="Xreader"] floating enable, move position center
+for_window [class="Gnome-terminal"] floating enable, move position center
+for_window [class="Tilix"] floating enable
+for_window [class="Gnome-screenshot"] floating enable
+for_window [class="Snes9x-gtk"] floating enable, position center
+for_window [class="thunderbird-esr"] floating enable, position center
+for_window [class="i3-keybindings-viewer"] floating enable, move position center
+for_window [class="Xviewer"] floating enable, move position center
+for_window [class="Hiro"] floating enable, move position center
+for_window [class="Spotify"] floating enable, move position center
+for_window [class="GitHub Desktop"] floating enable, move position center

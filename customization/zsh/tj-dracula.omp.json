@@ -72,7 +72,7 @@
             "fetch_version": false
           },
           "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}",
-          "foreground": "#f8f8f2",
+          "foreground": "#282a36",
           "powerline_symbol": "\ue0b0",
           "background": "#50fa7b",
           "type": "node",
@@ -83,7 +83,7 @@
             "cache_duration": "none"
           },
           "template": " \ue71e {{ .Full }} ",
-          "foreground": "#f8f8f2",
+          "foreground": "#282a36",
           "powerline_symbol": "\ue0b0",
           "background": "#f1fa8c",
           "type": "npm",

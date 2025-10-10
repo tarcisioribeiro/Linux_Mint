@@ -4,13 +4,12 @@ alias cls='clear'
 alias ls='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
 alias glow='glow -p'
 alias lg='lazygit'
+alias ld='lazydocker'
 alias new_tree='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree'
 alias weather='curl wttr.in'
 
 # Languages
 alias py='/home/tarcisio/.asdf/shims/python3'
-alias mysql="mysql -uroot -porrARDrdr27!"
-alias mysqldump="mysqldump -uroot -porrARDrdr27!"
 
 # Net Tools
 alias ipconfig='ifconfig'

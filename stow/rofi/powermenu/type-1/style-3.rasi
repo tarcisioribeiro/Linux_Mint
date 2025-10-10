@@ -21,7 +21,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      1px solid;
-    border-radius:               0px;
+    border-radius: 5px;
     border-color:                @selected;
     cursor:                      "default";
     background-color:            @background;
@@ -33,7 +33,7 @@ mainbox {
     margin:                      0px;
     padding:                     8px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius: 5px;
     border-color:                @selected;
     background-color:            transparent;
     children:                    [ "inputbar", "message", "listview" ];
@@ -45,7 +45,7 @@ inputbar {
     margin:                      0px;
     padding:                     0px;
     border:                      0px;
-    border-radius:               0px;
+    border-radius: 5px;
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
@@ -57,14 +57,14 @@ textbox-prompt-colon {
     expand:                      false;
     str:                         "";
     padding:                     8px 12px;
-    border-radius:               0px;
+    border-radius: 5px;
     background-color:            @urgent;
     text-color:                  @background;
 }
 prompt {
     enabled:                     true;
     padding:                     8px;
-    border-radius:               0px;
+    border-radius: 5px;
     background-color:            @active;
     text-color:                  @background;
 }
@@ -74,7 +74,7 @@ message {
     margin:                      0px;
     padding:                     8px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius: 5px;
     border-color:                @selected;
     background-color:            @background-alt;
     text-color:                  @foreground;
@@ -91,7 +91,7 @@ textbox {
 error-message {
     padding:                     8px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius: 5px;
     border-color:                @selected;
     background-color:            @background;
     text-color:                  @foreground;
@@ -113,7 +113,7 @@ listview {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius: 5px;
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
@@ -126,7 +126,7 @@ element {
     margin:                      0px;
     padding:                     8px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius: 5px;
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;

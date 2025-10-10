@@ -79,6 +79,14 @@
           "style": "powerline"
         },
         {
+          "type": "php",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#ffffff",
+          "background": "#4063D8",
+          "template": "  {{ .Full }} "
+        },
+        {
           "properties": {
             "cache_duration": "none"
           },

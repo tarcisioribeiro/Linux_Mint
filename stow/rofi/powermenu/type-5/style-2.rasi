@@ -40,7 +40,7 @@ window {
     padding:                     0px;
     border:                      0px solid;
 //     border-radius:               20px;
-    border-radius: 0px;
+    border-radius: 5px;
     border-color:                @selected;
     cursor:                      "default";
     background-color:            @background;
@@ -53,7 +53,7 @@ mainbox {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius: 5px;
     border-color:                @selected;
     background-color:            transparent;
     children:                    [ "inputbar", "listview", "message" ];
@@ -79,7 +79,7 @@ textbox-prompt-colon {
     str:                         " System";
     padding:                     12px;
 //     border-radius:               100%;
-    border-radius: 0px;
+    border-radius: 5px;
     background-color:            @urgent;
     text-color:                  @foreground;
 }
@@ -87,7 +87,7 @@ prompt {
     enabled:                     true;
     padding:                     12px;
 //     border-radius:               100%;
-    border-radius: 0px;
+    border-radius: 5px;
     background-color:            @active;
     text-color:                  @foreground;
 }
@@ -116,7 +116,7 @@ element {
     enabled:                     true;
     padding:                     28px 10px;
 //     border-radius:               100%;
-    border-radius: 0px;
+    border-radius: 5px;
     background-color:            @background-alt;
     text-color:                  @foreground;
     cursor:                      pointer;
@@ -140,7 +140,7 @@ message {
     margin:                      0px 15px 15px 15px;
     padding:                     15px;
 //     border-radius:               100%;
-    border-radius: 0px;
+    border-radius: 5px;
     background-color:            @background-alt;
     text-color:                  @foreground;
 }

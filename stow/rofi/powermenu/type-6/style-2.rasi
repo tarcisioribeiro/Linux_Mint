@@ -40,7 +40,7 @@ window {
     padding:                     0px;
     border:                      0px solid;
 //     border-radius:               24px;
-    border-radius: 0px;
+    border-radius: 5px;
     border-color:                @selected;
     cursor:                      "default";
     background-color:            @background;
@@ -67,7 +67,7 @@ userimage {
     margin:                      0px 0px;
     border:                      10px;
 //     border-radius:               10px;
-    border-radius: 0px;
+    border-radius: 5px;
     border-color:                @background-alt;
     background-color:            transparent;
     background-image:            url("~/.config/rofi/images/d.png", height);
@@ -77,7 +77,7 @@ userimage {
 inputbar {
     padding:                     15px;
 //     border-radius:               100%;
-    border-radius: 0px;
+    border-radius: 5px;
     background-color:            @urgent;
     text-color:                  @foreground;
     children:                    [ "dummy", "prompt", "dummy"];
@@ -98,7 +98,7 @@ message {
     margin:                      0px;
     padding:                     15px;
 //     border-radius:               100%;
-    border-radius: 0px;
+    border-radius: 5px;
     background-color:            @active;
     text-color:                  @foreground;
 }
@@ -133,7 +133,7 @@ element {
     enabled:                     true;
     padding:                     40px 10px;
 //     border-radius:               100%;
-    border-radius: 0px;
+    border-radius: 5px;
     background-color:            @background-alt;
     text-color:                  @foreground;
     cursor:                      pointer;

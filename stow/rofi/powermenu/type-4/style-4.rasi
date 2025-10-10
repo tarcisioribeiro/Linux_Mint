@@ -20,11 +20,11 @@ configuration {
     message-margin:              0px 350px;
     message-padding:             20px;
 //     message-border-radius:       100%;
-    border-radius: 0px;
+    border-radius: 5px;
     listview-spacing:            50px;
     element-padding:             35px 40px;
 //     element-border-radius:       80px;
-    border-radius: 0px;
+    border-radius: 5px;
 
     prompt-font:                 "Iosevka Nerd Font Bold Italic 72";
     textbox-font:                "Iosevka Nerd Font 16";

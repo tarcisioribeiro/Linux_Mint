@@ -18,11 +18,11 @@ configuration {
     message-margin:              0px 300px;
     message-padding:             12px;
 //     message-border-radius:       12px;
-    border-radius: 0px;
+    border-radius: 5px;
     listview-spacing:            25px;
     element-padding:             35px 0px;
 //     element-border-radius:       60px;
-    border-radius: 0px;
+    border-radius: 5px;
 
     prompt-font:                 "FantasqueSansM Nerd Font Mono 32";
     textbox-font:                "FantasqueSansM Nerd Font Mono 16";
@@ -42,7 +42,7 @@ window {
     fullscreen:                  false;
     width:                       1000px;
 //     border-radius:               50px;
-    border-radius: 0px;
+    border-radius: 5px;
     cursor:                      "default";
     background-color:            var(background-window);
 }

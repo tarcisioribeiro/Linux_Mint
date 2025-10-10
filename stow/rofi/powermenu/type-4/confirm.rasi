@@ -18,7 +18,7 @@ window {
     fullscreen:                  false;
     width:                       500px;
 //     border-radius:               20px;
-    border-radius: 0px;
+    border-radius: 5px;
     cursor:                      "default";
     background-color:            @background;
 }
@@ -36,7 +36,7 @@ message {
     margin:                      0px;
     padding:                     20px;
 //     border-radius:               20px;
-    border-radius: 0px;
+    border-radius: 5px;
     background-color:            @background-alt;
     text-color:                  @foreground;
 }
@@ -72,7 +72,7 @@ listview {
 element {
     padding:                     60px 10px;
 //     border-radius:               20px;
-    border-radius: 0px;
+    border-radius: 5px;
     background-color:            @background-alt;
     text-color:                  @foreground;
     cursor:                      pointer;

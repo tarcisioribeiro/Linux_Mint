@@ -101,3 +101,6 @@ export PATH="$HOME/.asdf/shims:$HOME/.asdf/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.local/share/reflex/bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/home/tarcisio/.opencode/bin:$PATH

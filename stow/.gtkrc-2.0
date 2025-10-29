@@ -4,6 +4,6 @@ style "cs-scrollbar-style" {
 
 gtk-icon-theme-name="dracula-icons"
 gtk-theme-name="Dracula"
-gtk-font-name="FantasqueSansM Nerd Font Mono 16"
+gtk-font-name="FantasqueSansM Nerd Font Mono 14"
 
 class "GtkScrollbar" style "cs-scrollbar-style"

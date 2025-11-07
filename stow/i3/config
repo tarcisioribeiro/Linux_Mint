@@ -197,6 +197,6 @@ for_window [class="firefox"] floating enable, position center
 for_window [class="i3-keybindings-viewer"] floating enable, move position center
 for_window [class="Xviewer"] floating enable, move position center
 for_window [class="Hiro"] floating enable, move position center
-for_window [class="Spotify"] floating enable, move position center
+# for_window [class="Spotify"] floating enable, move position center
 for_window [class="GitHub Desktop"] floating enable, move position center
 for_window [class="Baobab"] floating enable, move position center

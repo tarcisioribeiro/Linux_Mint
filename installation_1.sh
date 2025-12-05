@@ -85,21 +85,38 @@ msg_color "34" "Instalando o Starship..."
 cd "$TERMINALS_DIR" && ./starship_install.sh || exit
 
 msg_color "34" "Configurando Tmux..."
+# Remove TPM se já existir
+if [ -d "$HOME/.tmux/plugins/tpm" ]; then
+  msg_color "33" "Removendo TPM existente..."
+  rm -rf "$HOME/.tmux/plugins/tpm"
+fi
+# Criar diretório pai antes de clonar
+mkdir -p "$HOME/.tmux/plugins"
 git clone --quiet https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+# Remover symlink antigo se existir
+[ -L "$HOME/.tmux.conf" ] && rm "$HOME/.tmux.conf"
 ln -sf "$CUSTOMIZATION_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
-tmux new-session -d -s "dev"
-tmux source "$HOME/.tmux.conf"
-tmux kill-session -t "dev"
+tmux new-session -d -s "dev" 2>/dev/null || true
+tmux source "$HOME/.tmux.conf" 2>/dev/null || true
+tmux kill-session -t "dev" 2>/dev/null || true
 
 msg_color "34" "Configurando HomeBrew no shell..."
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' | tee -a "$HOME/.bashrc" "$HOME/.zshrc" >/dev/null
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+
+# Remover ASDF se já existir
+if [ -d "$HOME/.asdf" ]; then
+  msg_color "33" "Removendo ASDF existente..."
+  rm -rf "$HOME/.asdf"
+fi
+git clone --quiet https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
 echo ". $HOME/.asdf/asdf.sh" >>~/.bashrc
 echo ". $HOME/.asdf/asdf.sh" >>~/.zshrc
 
-echo "Instalando gaps do i3..."
+msg_color "34" "Instalando gaps do i3..."
 cd "$HOME/Downloads" || exit
-git clone https://www.github.com/jbenden/i3-gaps-rounded i3-gaps
+# Remover i3-gaps se já existir
+[ -d "i3-gaps" ] && rm -rf i3-gaps
+git clone --quiet https://www.github.com/jbenden/i3-gaps-rounded i3-gaps
 cd i3-gaps || exit
 mkdir -p build
 cd build || exit
@@ -107,35 +124,44 @@ meson ..
 ninja
 sudo ninja install
 cd "$HOME/Downloads" || exit
-sudo rm -r i3-gaps
+rm -rf i3-gaps
 
 cd "$HOME/Development/Linux_Mint/packages/development-tools" || exit
 ./flutter.sh
 
+msg_color "34" "Instalando Picom..."
 cd "$HOME/Downloads" || exit
-git clone https://github.com/yshui/picom.git
+# Remover picom se já existir
+[ -d "picom" ] && rm -rf picom
+git clone --quiet https://github.com/yshui/picom.git
 cd picom || exit
 meson setup --buildtype=release build
 sudo ninja -C build
 sudo ninja -C build install
 cd "$HOME/Downloads" || exit
-sudo rm -r picom/
+rm -rf picom
 
+msg_color "34" "Instalando Scrcpy..."
 cd "$HOME/Downloads" || exit
-git clone https://github.com/Genymobile/scrcpy
+# Remover scrcpy se já existir
+[ -d "scrcpy" ] && rm -rf scrcpy
+git clone --quiet https://github.com/Genymobile/scrcpy
 cd scrcpy || exit
 ./install_release.sh
 cd "$HOME/Downloads" || exit
-sudo rm -r scrcpy
+rm -rf scrcpy
 
+msg_color "34" "Instalando temas Rofi..."
 cd "$HOME/Downloads" || exit
-git clone --depth=1 https://github.com/adi1090x/rofi.git
+# Remover rofi se já existir
+[ -d "rofi" ] && rm -rf rofi
+git clone --quiet --depth=1 https://github.com/adi1090x/rofi.git
 cd rofi || exit
 chmod +x setup.sh
 ./setup.sh
-rm -r ~/.config/rofi
+rm -rf ~/.config/rofi
 cd "$HOME/Downloads" || exit
-sudo rm -r rofi
+rm -rf rofi
 
 cd "$HOME/Development/Linux_Mint/stow" || exit
 
@@ -186,24 +212,36 @@ cd "$HOME/Development/Linux_Mint/" || exit
 mkdir -p "$HOME/Pictures" && stow -v -t "$HOME/Pictures" wallpapers
 mkdir -p "$HOME/scripts" && stow -v -t "$HOME/scripts" scripts
 
+msg_color "34" "Instalando temas GTK e ícones..."
 cd "$HOME/Downloads/" || exit
+# Remover arquivos anteriores se existirem
+[ -f "master.zip" ] && rm master.zip
+[ -d "gtk-master" ] && rm -rf gtk-master
+[ -d "Dracula" ] && rm -rf Dracula
 wget -q https://github.com/dracula/gtk/archive/master.zip
-unzip master.zip
+unzip -q master.zip
 mv gtk-master Dracula
+mkdir -p "$HOME/.themes"
 mv Dracula "$HOME/.themes"
 rm master.zip
+
 cd "$HOME/Downloads" || exit
-git clone https://github.com/vinceliuice/Tela-icon-theme.git
+# Remover Tela-icon-theme se já existir
+[ -d "Tela-icon-theme" ] && rm -rf Tela-icon-theme
+git clone --quiet https://github.com/vinceliuice/Tela-icon-theme.git
 cd Tela-icon-theme || exit
 ./install.sh -n dracula
 cd ..
-sudo rm -r Tela-icon-theme
+rm -rf Tela-icon-theme
 
 cd "$HOME/Development/Linux_Mint/packages/programs/" || exit
 ./i3lock-color.sh
 
+msg_color "34" "Instalando tema Dracula para gedit..."
 cd "$HOME/Downloads" || exit
-wget https://raw.githubusercontent.com/dracula/gedit/master/dracula.xml
+# Remover dracula.xml se já existir
+[ -f "dracula.xml" ] && rm dracula.xml
+wget -q https://raw.githubusercontent.com/dracula/gedit/master/dracula.xml
 mkdir -p ~/.local/share/gedit/styles/
 mv dracula.xml ~/.local/share/gedit/styles/
 

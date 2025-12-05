@@ -39,8 +39,8 @@ asdf install nodejs 23.9.0
 asdf install python 3.10.12
 asdf install golang 1.23.0
 asdf reshim
-asdf set --global java oracle-21
-asdf set --global neovim stable
-asdf set --global nodejs 23.9.0
-asdf set --global python 3.10.12
-asdf set --global golang 1.23.0
+asdf global java oracle-21
+asdf global neovim stable
+asdf global nodejs 23.9.0
+asdf global python 3.10.12
+asdf global golang 1.23.0

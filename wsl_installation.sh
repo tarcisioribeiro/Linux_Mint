@@ -48,7 +48,7 @@ ESSENTIAL_BUILD=(
 )
 
 CLI_TOOLS=(
-  neofetch tmux fzf bat gdebi flatpak openssh-server gh p7zip pv jq zsh unzip locate
+  neofetch tmux fzf bat gdebi flatpak openssh-server gh p7zip pv jq zsh unzip locate ripgrep fd-find
 )
 
 DEV_LIBRARIES=(
@@ -63,7 +63,7 @@ PYTHON_PACKAGES=(
 )
 
 MISC_PACKAGES=(
-  btop ranger golang
+  btop ranger golang neovim
 )
 
 # Function to install packages with error handling
@@ -197,6 +197,7 @@ cd "$HOME/Development/Linux_Mint/stow" || exit
 declare -a configs=(
   "btop"
   "lazygit"
+  "nvim"
   "vim"
   "ranger"
 )
@@ -232,7 +233,7 @@ done
 msg_color "34" "Instalando ferramentas via Homebrew..."
 # Carregar Homebrew no shell atual antes de instalar pacotes
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-brew install fd git-delta vim lazygit eza onefetch tldr zoxide asdf
+brew install fd git-delta vim lazygit eza onefetch tldr zoxide asdf tree-sitter
 
 msg_color "34" "Instalando Docker..."
 cd "$HOME/Development/Linux_Mint/packages/development-tools" || exit

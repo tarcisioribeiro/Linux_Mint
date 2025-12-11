@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=i3
+Comment=Dynamic tiling window manager
+Exec=/usr/local/bin/i3
+Type=Application

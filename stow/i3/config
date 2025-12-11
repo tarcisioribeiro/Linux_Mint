@@ -34,8 +34,7 @@ bindsym $mod+t exec code
 bindsym $mod+q kill
 
 bindsym $mod+space exec --no-startup-id rofi -show drun -show-icons
-# Seletor de wallpapers (est\u00e1ticos e animados) com rofi
-bindsym Ctrl+Mod1+space exec --no-startup-id bash "$HOME/.config/rofi/applets/bin/wallpaper_selector.sh"
+bindsym $mod+Ctrl+space exec --no-startup-id bash "$HOME/Development/Linux_Mint/scripts/wallpaper_rotation.sh" rotate
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down

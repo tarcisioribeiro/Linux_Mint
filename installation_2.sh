@@ -36,6 +36,8 @@ cd "$HOME/Development/Linux_Mint/packages/programs" || exit
 ./kitty_install.sh
 
 flatpak install flathub com.getpostman.Postman
+flatpak install flathub org.telegram.desktop
+flatpak install flathub org.flameshot.Flameshot
 flatpak install flathub org.gabmus.hydrapaper
 
 sudo chsh -s /usr/bin/zsh
@@ -50,3 +52,13 @@ sudo cp -r "$HOME/.oh-my-zsh" /root
 
 cd "$HOME/Development/Linux_Mint"
 sudo cp -r scripts /root
+
+sudo snap install android-studio --classic
+
+cd "$HOME/Development/Linux_Mint/stow/"
+sudo cp i3.desktop /usr/share/xsessions/
+
+mkdir -p "$HOME/.config/tilix/schemes"
+sleep 2
+wget -qO $HOME"/.config/tilix/schemes/dracula.json" https://git.io/v7QaT
+brew install fastfetch

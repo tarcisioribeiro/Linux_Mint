@@ -61,4 +61,4 @@ sudo cp i3.desktop /usr/share/xsessions/
 mkdir -p "$HOME/.config/tilix/schemes"
 sleep 2
 wget -qO $HOME"/.config/tilix/schemes/dracula.json" https://git.io/v7QaT
-brew install fastfetch
+brew install fastfetch glow

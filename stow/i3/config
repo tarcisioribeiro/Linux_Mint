@@ -26,7 +26,7 @@ floating_modifier $mod
 bindsym $mod+a exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'FantasqueSansM Nerd Font Mono' -p 'dmenu%'"
 
 bindsym $mod+Return exec "$HOME/Development/kitty/kitty/launcher/kitty"
-bindsym $mod+e exec nautilus
+bindsym $mod+e exec nemo
 bindsym $mod+o exec obsidian
 bindsym $mod+d exec google-chrome
 bindsym $mod+t exec code
@@ -172,13 +172,13 @@ gaps outer 5
 smart_borders on
 smart_borders no_gaps
 
-for_window [class="Nautilus"] floating enable, move position center
+for_window [class="Nemo"] floating enable, move position center
 for_window [class="Pavucontrol"] floating enable, move position center
 for_window [class="Blueman-manager"] floating enable, move position center
-for_window [class="Gedit"] floating enable, move position center
+for_window [class="Xed"] floating enable, move position center
 for_window [class="obs"] floating enable, move position center
 for_window [class="Emulator"] floating enable, move position center
-# for_window [class="vlc"] floating enable, move position center
+for_window [class="vlc"] floating enable, move position center
 for_window [class="jetbrains-studio"] floating enable, move position center
 for_window [class="scrcpy"] floating enable
 for_window [class="steam"] fullscreen enable
@@ -196,6 +196,6 @@ for_window [class="firefox"] floating enable, position center
 for_window [class="i3-keybindings-viewer"] floating enable, move position center
 for_window [class="Xviewer"] floating enable, move position center
 for_window [class="Hiro"] floating enable, move position center
-# for_window [class="Spotify"] floating enable, move position center
+for_window [class="Spotify"] floating enable, move position center
 for_window [class="GitHub Desktop"] floating enable, move position center
 for_window [class="Baobab"] floating enable, move position center

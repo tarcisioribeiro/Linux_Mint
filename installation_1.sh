@@ -180,6 +180,9 @@ declare -a configs=(
   "rofi"
   "vim"
   "ranger"
+  "gtk-3.0"
+  "gtk-2.0"
+  "gtk-4.0"
 )
 
 for config in "${configs[@]}"; do

@@ -209,6 +209,16 @@ if [ -e "$HOME/.xprofile" ]; then
 fi
 ln -s "$HOME/Development/Linux_Mint/stow/.xprofile" "$HOME/.xprofile"
 
+if [ -e "$HOME/.xsession" ]; then
+  rm "$HOME/.xsession"
+fi
+ln -s "$HOME/Development/Linux_Mint/stow/.xsession" "$HOME/.xsession"
+
+if [ -e "$HOME/.Xinitrc" ]; then
+  rm "$HOME/.Xinitrc"
+fi
+ln -s "$HOME/Development/Linux_Mint/stow/.Xinitrc" "$HOME/.Xinitrc"
+
 if [ -e "$HOME/Xauthority" ]; then
   rm "$HOME/Xauthority"
 fi

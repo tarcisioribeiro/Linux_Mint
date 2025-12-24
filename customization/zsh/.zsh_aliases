@@ -1,11 +1,11 @@
 # CLI Tools
-alias bat='batcat --theme="Dracula"'
+alias cat='batcat --theme="Dracula"'
 alias cls='clear'
 alias ls='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
 alias glow='glow -p'
 alias lg='lazygit'
 alias ld='lazydocker'
-alias new_tree='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree'
+alias tree='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree'
 alias weather='curl wttr.in'
 
 # Languages

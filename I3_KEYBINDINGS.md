@@ -114,7 +114,6 @@
 | `Mod + B` | Battery | Status da bateria |
 | `Mod + M` | MPD | Player de música |
 | `Mod + G` | Quick Links | Links rápidos |
-| `Mod + Shift + G` | Games | Jogos |
 | `Mod + Shift + E` | Apps as Root | Apps como root |
 | `Mod + Shift + N` | Apps | Menu de aplicações |
 | `Mod + Shift + A` | Volume | Controle de volume |

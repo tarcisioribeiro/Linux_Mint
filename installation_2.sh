@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if ! command -v brew >/dev/null 2>&1; then
+  echo "Erro: comando 'brew' não encontrado. Reinicie o dispositivo." >&2
+  exit 1
+fi
+
 brew install fd git-delta vim lazygit eza onefetch tldr zoxide asdf
 
 cd "$HOME/Development/Linux_Mint/packages/development-tools" || exit
@@ -62,3 +67,5 @@ mkdir -p "$HOME/.config/tilix/schemes"
 sleep 2
 wget -qO $HOME"/.config/tilix/schemes/dracula.json" https://git.io/v7QaT
 brew install fastfetch glow
+
+curl -fsSL https://claude.ai/install.sh | bash

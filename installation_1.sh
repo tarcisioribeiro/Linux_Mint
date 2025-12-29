@@ -61,10 +61,8 @@ LOCAL_FONT_DIR="$HOME/.local/share/fonts/"
 mkdir -p $LOCAL_FONT_DIR
 sudo mkdir -p $FONT_DIR
 cd "$REPO_DIR/fonts" || exit
-sudo cp JetBrains_Mono_Medium_Nerd_Font_Complete_Mono_Windows_Compatible.ttf "$FONT_DIR"
-sudo cp JetBrains_Mono_Medium_Nerd_Font_Complete_Mono_Windows_Compatible.ttf "$LOCAL_FONT_DIR"
-sudo cp JetBrainsMonoNerdFontMono-*.ttf "$FONT_DIR"
-sudo cp JetBrainsMonoNerdFontMono-*.ttf "$LOCAL_FONT_DIR"
+sudo cp *.ttf "$FONT_DIR"
+sudo cp *.ttf "$FONT_DIR".ttf "$LOCAL_FONT_DIR"
 
 msg_color "34" "Instalando logo-ls..."
 cp "$CUSTOMIZATION_DIR/bash/logo-ls_Linux_x86_64.tar.gz" "$HOME/Downloads"

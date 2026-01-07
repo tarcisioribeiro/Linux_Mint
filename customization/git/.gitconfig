@@ -52,6 +52,7 @@
 [user]
 	name = Tarcísio Ribeiro
 	email = tarcisio.ribeiro.1840@hotmail.com
+	signingkey = 006DD026F7991FBB
 
 [init]
   defaultBranch = main
@@ -83,3 +84,5 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+[commit]
+	gpgsign = true

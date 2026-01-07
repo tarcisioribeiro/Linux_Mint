@@ -1,8 +1,61 @@
 #!/bin/bash
+set -euo pipefail
 
 if ! command -v brew >/dev/null 2>&1; then
   echo "Erro: comando 'brew' não encontrado. Reinicie o dispositivo." >&2
   exit 1
+fi
+
+# Remover Firefox completamente
+echo "Removendo Firefox completamente..."
+if command -v firefox >/dev/null 2>&1; then
+  # Remover via apt
+  sudo apt remove --purge -y firefox firefox-locale-* || true
+  sudo apt autoremove -y
+
+  # Remover via snap se existir
+  if snap list firefox 2>/dev/null; then
+    sudo snap remove --purge firefox
+  fi
+
+  # Remover diretórios de configuração
+  rm -rf "$HOME/.mozilla/firefox"
+  rm -rf "$HOME/.cache/mozilla/firefox"
+  rm -rf "$HOME/snap/firefox"
+
+  echo "Firefox removido com sucesso."
+else
+  echo "Firefox não está instalado."
+fi
+
+# Instalar pacotes .deb do diretório externo, se montado
+DEB_PACKAGES_DIR="/media/tarcisio/Seagate/Linux/Programs/Packages"
+if [ -d "$DEB_PACKAGES_DIR" ] && mountpoint -q "/media/tarcisio/Seagate"; then
+  echo "Diretório de pacotes .deb encontrado e montado: $DEB_PACKAGES_DIR"
+
+  # Contar pacotes .deb disponíveis
+  DEB_COUNT=$(find "$DEB_PACKAGES_DIR" -maxdepth 1 -name "*.deb" 2>/dev/null | wc -l)
+
+  if [ "$DEB_COUNT" -gt 0 ]; then
+    echo "Encontrados $DEB_COUNT pacotes .deb. Instalando..."
+
+    # Instalar todos os pacotes .deb
+    for deb_file in "$DEB_PACKAGES_DIR"/*.deb; do
+      if [ -f "$deb_file" ]; then
+        echo "Instalando: $(basename "$deb_file")"
+        sudo apt install -y "$deb_file" || {
+          echo "Erro ao instalar $(basename "$deb_file"). Tentando corrigir dependências..."
+          sudo apt --fix-broken install -y
+        }
+      fi
+    done
+
+    echo "Instalação de pacotes .deb concluída."
+  else
+    echo "Nenhum pacote .deb encontrado em $DEB_PACKAGES_DIR"
+  fi
+else
+  echo "Diretório $DEB_PACKAGES_DIR não está montado ou não existe. Pulando instalação de pacotes .deb."
 fi
 
 brew install fd git-delta vim lazygit eza onefetch tldr zoxide asdf

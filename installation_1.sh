@@ -62,7 +62,7 @@ mkdir -p $LOCAL_FONT_DIR
 sudo mkdir -p $FONT_DIR
 cd "$REPO_DIR/fonts" || exit
 sudo cp *.ttf "$FONT_DIR"
-sudo cp *.ttf "$FONT_DIR".ttf "$LOCAL_FONT_DIR"
+sudo cp *.ttf "$LOCAL_FONT_DIR"
 
 msg_color "34" "Instalando logo-ls..."
 cp "$CUSTOMIZATION_DIR/bash/logo-ls_Linux_x86_64.tar.gz" "$HOME/Downloads"
@@ -276,3 +276,7 @@ for file in "${files[@]}"; do
   fi
   ln -s "$source" "$target"
 done
+
+sleep 5
+
+sudo reboot now

@@ -52,7 +52,7 @@
 [user]
 	name = Tarcísio Ribeiro
 	email = tarcisio.ribeiro.1840@hotmail.com
-	signingkey = 006DD026F7991FBB
+	signingkey = CD0D941B35030C17
 
 [init]
   defaultBranch = main

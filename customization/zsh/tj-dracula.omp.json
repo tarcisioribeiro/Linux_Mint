@@ -90,8 +90,8 @@
           "type": "kubectl",
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
-          "foreground": "#000000",
-          "background": "#ebcc34",
+          "foreground": "#282a36",
+          "background": "#f1fa8c",
           "template": " 󱃾 {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} ",
           "options": {
             "context_aliases": {

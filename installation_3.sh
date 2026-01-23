@@ -48,6 +48,12 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 sleep 2
 
+sudo rm /etc/apt/preferences.d/nosnap.pref
+sudo apt update
+sudo apt install snapd
+
+sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+
 cd $HOME/Development/Linux_Mint/scripts/installer
 python3 main.py
 

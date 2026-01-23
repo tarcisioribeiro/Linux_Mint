@@ -182,6 +182,24 @@
           }
         },
         {
+          "type": "ytm",
+          "style": "diamond",
+          "leading_diamond": "\ue0b2",
+          "foreground": "#f8f8f2",
+          "background": "#ff5555",
+          "options": {
+            "playing_icon": " ",
+            "paused_icon": " ",
+            "stopped_icon": " ",
+            "ad_icon": " ",
+            "http_timeout": 1000
+          },
+          "cache": {
+            "duration": "5s",
+            "strategy": "session"
+          }
+        },
+        {
           "properties": {
             "cache_duration": "none",
             "display_mode": "environment",

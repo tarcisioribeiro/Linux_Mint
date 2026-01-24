@@ -53,4 +53,40 @@ sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
 cd $HOME/Development/Linux_Mint/scripts/installer
 python3 main.py
 
+sudo mkdir -p /etc/X11/xorg.conf.d/
+cd /media/tarcisio/Seagate/Linux/Utilities/
+sudo cp 10-intel-prime.conf /etc/X11/xorg.conf.d/
+sudo cp 10-modesetting.conf /etc/X11/xorg.conf.d/
+sudo cp 20-serverflags.conf /etc/X11/xorg.conf.d/
+sudo cp xorg.conf /etc/X11/
+
+gsettings set org.cinnamon.muffin unredirect-fullscreen-windows false
+
+cd /media/tarcisio/Seagate/Linux/Utilities/block-bad-sites/
+
+sudo python3 block.py
+
+curl -sS https://download.spotify.com/debian/pubkey_5384CE82BA52C83A.asc | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+echo "deb https://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+
+sudo apt-get update && sudo apt-get install spotify-client
+
+sleep 10
+
+curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
+
+sleep 10
+
+spicetify
+spicetify update
+spicetify upgrade
+spicetify apply
+
+mkdir -p "$HOME/.config/spicetify/Themes"
+cp -r /media/tarcisio/Seagate/Linux/Customization/spicetify/Dracula/ "$HOME/.config/spicetify/Themes/"
+spicetify config current_theme Dracula
+spicetify config current_theme Dracula
+
+sleep 15
+
 sudo reboot now

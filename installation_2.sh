@@ -83,7 +83,6 @@ cd "$HOME/Development/Linux_Mint/packages/package-managers" || exit
 
 # Instalar tema Dracula para Ranger
 cd "$HOME/Downloads"
-# Remover diretório ranger se já existir
 [ -d "ranger" ] && rm -rf ranger
 git clone --quiet https://github.com/dracula/ranger.git
 cd ranger
@@ -111,11 +110,25 @@ sudo cp -r "$HOME/.oh-my-zsh" /root
 cd "$HOME/Development/Linux_Mint"
 sudo cp -r scripts /root
 
-# sudo snap install android-studio --classic
-
 cd "$HOME/Development/Linux_Mint/stow/"
 sudo cp i3.desktop /usr/share/xsessions/
 
 curl -fsSL https://claude.ai/install.sh | bash
+
+sudo cp -r "$HOME/.local/share/icons/dracula-dark/" /usr/share/icons/
+sudo cp -r "$HOME/.themes/Dracula/" /usr/share/themes/
+sudo mkdir -p /usr/share/backgrounds/Dracula
+sudo cp "$HOME/Development/Linux_Mint/wallpapers/*.png" /usr/share/backgrounds/Dracula/
+
+sudo cp /media/tarcisio/Seagate/Linux/Fonts/MonofurNerdFontMono-Regular.ttf /usr/share/fonts/
+cp /media/tarcisio/Seagate/Linux/Fonts/MonofurNerdFontMono-Regular.ttf "$HOME/.local/share/fonts/"
+sudo cp /media/tarcisio/Seagate/Linux/Fonts/OpenSans-VariableFont_wdth,wght.ttf /usr/share/fonts/
+cp /media/tarcisio/Seagate/Linux/Fonts/OpenSans-VariableFont_wdth,wght.ttf "$HOME/.local/share/fonts/"
+sudo cp /media/tarcisio/Seagate/Linux/Fonts/Roboto-VariableFont_wdth,wght.ttf /usr/share/fonts/
+cp /media/tarcisio/Seagate/Linux/Fonts/Roboto-VariableFont_wdth,wght.ttf "$HOME/.local/share/fonts/"
+sudo cp /media/tarcisio/Seagate/Linux/Fonts/RobotoMono-VariableFont_wght.ttf /usr/share/fonts/
+cp /media/tarcisio/Seagate/Linux/Fonts/RobotoMono-VariableFont_wght.ttf "$HOME/.local/share/fonts/"
+sudo cp /media/tarcisio/Seagate/Linux/Fonts/RobotoMonoNerdFontMono-Regular.ttf /usr/share/fonts/
+cp /media/tarcisio/Seagate/Linux/Fonts/RobotoMonoNerdFontMono-Regular.ttf /usr/share/fonts/
 
 sudo reboot now

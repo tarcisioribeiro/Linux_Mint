@@ -116,10 +116,6 @@ sudo cp -r scripts /root
 cd "$HOME/Development/Linux_Mint/stow/"
 sudo cp i3.desktop /usr/share/xsessions/
 
-mkdir -p "$HOME/.config/tilix/schemes"
-sleep 2
-wget -qO $HOME"/.config/tilix/schemes/dracula.json" https://git.io/v7QaT
-
 curl -fsSL https://claude.ai/install.sh | bash
 
 sudo reboot now

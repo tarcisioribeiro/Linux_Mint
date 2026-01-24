@@ -28,9 +28,9 @@ curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dear
   sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' |
     sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
 
-sudo apt-get update
+sudo apt update
 
-export NVIDIA_CONTAINER_TOOLKIT_VERSION=1.18.1-1
+export NVIDIA_CONTAINER_TOOLKIT_VERSION=1.18.2-1
 sudo apt-get install -y \
   nvidia-container-toolkit=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
   nvidia-container-toolkit-base=${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
@@ -47,10 +47,6 @@ sudo cp grub /etc/default/
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 sleep 2
-
-sudo rm /etc/apt/preferences.d/nosnap.pref
-sudo apt update
-sudo apt install snapd
 
 sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
 

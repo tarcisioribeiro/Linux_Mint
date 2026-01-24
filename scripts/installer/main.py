@@ -7,16 +7,7 @@ class Installer:
 
     def __init__(self):
         pass
-
-    def open_firefox(self):
-        sleep(1)
-        gui.press("win")
-        sleep(1)
-        gui.write("Firefox")
-        sleep(1)
-        gui.press("enter")
-        sleep(1)
-
+ 
     def open_chrome(self):
         sleep(1)
         gui.press("win")
@@ -102,19 +93,9 @@ class Installer:
             style_url="chrome-extension://clngdbkpkpeebahjckkjfobafhncgmne/install-usercss.html?updateUrl=https%3A%2F%2Fraw.githubusercontent.com%2Fdracula%2Fcodepen%2Fmain%2Fstyle.user.styl",
             x_position=66,
             y_position=191
-        )
-
-    def install_firefox_styles(self):
-        self.install_css_styles(
-            style_url="moz-extension://54113f89-4029-4a47-b729-f71fd3925782/install-usercss.html?updateUrl=https%3A%2F%2Fraw.githubusercontent.com%2Fdracula%2Fyoutube%2Fmain%2Fdracula.user.css",
-            x_position=69,
-            y_position=214
-        )
-
+        ) 
 
 if __name__ == "__main__":
     installer = Installer()
     installer.open_chrome()
     installer.install_chrome_styles()
-    # installer.open_firefox()
-    # installer.install_firefox_styles()

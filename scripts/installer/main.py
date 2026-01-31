@@ -9,13 +9,13 @@ class Installer:
         pass
  
     def open_chrome(self):
-        sleep(1)
+        sleep(2.5)
         gui.press("win")
-        sleep(1)
+        sleep(2.5)
         gui.write("Google Chrome")
-        sleep(1)
+        sleep(2.5)
         gui.press("enter")
-        sleep(1)
+        sleep(2.5)
         gui.press("tab")
 
     def install_css_styles(
@@ -24,13 +24,13 @@ class Installer:
         x_position: int,
         y_position: int
     ):
-        sleep(1)
+        sleep(2.5)
         gui.write(style_url)
-        sleep(1)
+        sleep(2.5)
         gui.press("enter")
-        sleep(1)
+        sleep(2.5)
         gui.click(x=x_position, y=y_position)
-        sleep(1)
+        sleep(2.5)
         gui.hotkey("ctrl", "t")
 
     def install_chrome_styles(self):

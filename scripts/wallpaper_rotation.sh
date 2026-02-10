@@ -6,13 +6,18 @@ CURRENT_FILE="$HOME/.current_wallpaper"
 
 # Lista dos wallpapers disponíveis
 WALLPAPERS=(
+  "alucard-skyscrapers.png"
+  "alucard-sunrise.png"
   "dracula-base.png"
   "dracula-cat.png"
+  "dracula-f1.png"
+  "dracula-fighter.png"
   "dracula-galaxy.png"
   "dracula-leaves.png"
   "dracula-mint.png"
   "dracula-mnt.png"
   "dracula-soft-waves.png"
+  "dracula-space.png"
   "dracula-spooky.png"
 )
 
@@ -101,4 +106,3 @@ case "${1:-auto}" in
   exit 1
   ;;
 esac
-
